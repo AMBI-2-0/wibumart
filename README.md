@@ -7,3 +7,4 @@
     <li>Copy file .envexample lalu rename menjadi .env</li>
     <li>run php artisan serve melalui folder laravel menggunakan cmd / gitbash / vscode cmd palet</li>
     <li>coba buka ip yang di berikan php artisan</li>
+    </ol>

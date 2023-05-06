@@ -34,7 +34,7 @@
         @for ($i = 0; $i < 3; $i++)
             <div class="row">
                 @for ($a = 0; $a < 4; $a++)
-                    <div class="col-sm">
+                    <div class="col">
                         <div class="card mt-5 border border-tertiary" style="width: 10rem;">
                             <img class="card-img-top"
                                 src="https://foto.kontan.co.id/U9uyqRKY07FwuFwPeYscphOpZbA=/smart/2022/11/04/1057840375p.jpg"

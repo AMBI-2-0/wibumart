@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Wibumart</a>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">WibuMart</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                @if ($title == 'Figurine Page')
+                @if ($title == 'figurine')
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#"> Figurine</a>
                     </li>
@@ -24,7 +24,8 @@
                         <a class="nav-link" href="#">Books</a>
                     </li>
                 @endif
-                @if ($title == 'Clothing Page')
+
+                @if ($title == 'clothing')
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Figurine</a>
                     </li>
@@ -41,7 +42,8 @@
                         <a class="nav-link" href="#">Books</a>
                     </li>
                 @endif
-                @if ($title == 'Props Page')
+
+                @if ($title == 'props')
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Figurine</a>
                     </li>
@@ -58,7 +60,8 @@
                         <a class="nav-link" href="#">Books</a>
                     </li>
                 @endif
-                @if ($title == 'Accessories Page')
+
+                @if ($title == 'accessories')
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Figurine</a>
                     </li>
@@ -75,7 +78,8 @@
                         <a class="nav-link" href="#">Books</a>
                     </li>
                 @endif
-                @if ($title == 'Books Page')
+
+                @if ($title == 'books')
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Figurine</a>
                     </li>
@@ -109,7 +113,14 @@
                     </li>
                 @endif
 
-                <a href="login" class="btn btn-outline-light d-flex">Login</a>
+
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-light" href="/login">Login</a>
+                </li>
             </ul>
         </div>
     </div>

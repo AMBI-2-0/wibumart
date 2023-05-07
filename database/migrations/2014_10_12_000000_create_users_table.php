@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use League\CommonMark\Extension\Table\Table;
 
 return new class extends Migration
 {
@@ -14,11 +15,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('nama');
+            $table->string('username');
             $table->string('password');
             $table->text('alamat');
             $table->text('gambar_profile')->nullable()->unique();
             $table->integer('duit')->nullable();
-            $table->boolean('is_admin');
+            $table->boolean('is_admin')->default(false);
+            $table->date('updated_at');
+            $table->date('created_at');
         });
     }
 

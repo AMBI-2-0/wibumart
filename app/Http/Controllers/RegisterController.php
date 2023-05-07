@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -17,16 +17,18 @@ class RegisterController extends Controller
     {
         $validatedData = $register->validate([
             'nama' => 'required|min:3| max:255',
-            'username' => 'required|min:4|max:20',
-            'password' => 'required|min:8|max:20',
-            'alamat' => 'required',
-            'gambar_profile' => [
-                File::image()
-                    ->min(1024)
-                    ->max(12 * 1024)
-            ],
+            'username' => 'required|min:4|max:255',
+            'password' => 'required|min:8|max:255',
+            'alamat' => 'required|max:500'
         ]);
 
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
         User::create($validatedData);
+
+        session()->flash('success', 'Register berhasil');
+
+        return redirect('/login');
+
     }
 }

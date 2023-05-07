@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
     <div class="container">
         <a class="navbar-brand" href="#">WibuMart</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -116,12 +116,33 @@
 
             </ul>
         </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="btn btn-outline-light" href="/login">Login</a>
-                </li>
+
+        @auth
+
+            <ul class="navbar-nav dropdown nav-item">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">{{ auth()->user()->nama }}</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <hr class="dropdown-divider">
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="dropdown-item"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+                    </form> 
+                </div>
             </ul>
-        </div>
+        @else
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="/login"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+                    </li>
+                </ul>
+            </div>
+
+        @endauth
+
     </div>
 </nav>

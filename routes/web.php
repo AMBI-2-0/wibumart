@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FigurineController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use GuzzleHttp\Middleware;
@@ -24,6 +25,9 @@ Route::redirect('/', '/home');
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
+
+//route figurine
+Route::get('/figurine',[FigurineController::class,'index']);
 
 //route login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

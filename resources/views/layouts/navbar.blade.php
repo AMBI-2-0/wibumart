@@ -1,148 +1,136 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">WibuMart</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                @if ($title == 'figurine')
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
-                    </li>
-                @endif
+<div class="container text-center p-4">
+    <div class="row">
+        <div class="col-3 text-white">
+            WibuMart
+        </div>
+        <div class="col">
+            <ul class="nav justify-content-center text-white">
 
-                @if ($title == 'clothing')
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"> Figurine</a>
+                @if ($title == 'Figurine')
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/figurine">Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="#">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Props</a>
+                        <a class="nav-link text-white" href="#">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
+                        <a class="nav-link text-white" href="#">Books</a>
                     </li>
-                @endif
-
-                @if ($title == 'props')
+                @elseif ($title == 'Clothing')
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Figurine</a>
+                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clothing</a>
+                        <a class="nav-link text-white active" href="#">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Props</a>
+                        <a class="nav-link text-white" href="#">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
+                        <a class="nav-link text-white" href="#">Books</a>
                     </li>
-                @endif
-
-                @if ($title == 'accessories')
+                @elseif ($title == 'Props')
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Figurine</a>
+                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="#">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Props</a>
+                        <a class="nav-link text-white active" href="#">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
+                        <a class="nav-link text-white" href="#">Books</a>
                     </li>
-                @endif
-
-                @if ($title == 'books')
+                @elseif ($title == 'Accessories')
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Figurine</a>
+                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="#">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Props</a>
+                        <a class="nav-link text-white" href="#">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link text-white active" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Books</a>
+                        <a class="nav-link text-white" href="#">Books</a>
+                    </li>
+                @elseif ($title == 'Books')
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#">Books</a>
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Figurine</a>
+                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="#">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Props</a>
+                        <a class="nav-link text-white" href="#">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="#">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
+                        <a class="nav-link text-white" href="#">Books</a>
                     </li>
                 @endif
 
-
-            </ul>
-        </div>
-
-        @auth
-
-            <ul class="navbar-nav dropdown nav-item">
-                <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">{{ auth()->user()->nama }}</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <hr class="dropdown-divider">
+                @auth
+                <div class="col-5">
+                    <div class="dropdown">
+                    <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      {{  (strlen(auth()->user()->nama) > 15) ? substr(auth()->user()->nama, 0, 15).'...' : auth()->user()->nama }}
+                    </a>   
+                    <ul class="dropdown-menu">
+                      <li><button class="dropdown-item" type="button">Action</button></li>
+                      <li><button class="dropdown-item" type="button">Another action</button></li>
+                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                      <hr class="dropdown-divider">
                     <form action="/logout" method="post">
                         @csrf
                         <button type="submit" class="dropdown-item"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
                     </form> 
+                    </ul>
+                  </div>
                 </div>
+                
+                @else
+                    <div class="col-5">
+                        <a href="/login" class="btn btn-outline-light">
+                            <i class="bi bi-box-arrow-in-right pe-2"></i>Login</a>
+                    </div>
+                @endauth
+
             </ul>
-        @else
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn btn-outline-light" href="/login"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
-                    </li>
-                </ul>
-            </div>
-
-        @endauth
-
+        </div>
     </div>
-</nav>
+</div>

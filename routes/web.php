@@ -8,6 +8,7 @@ use App\Http\Controllers\FigurineController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -42,3 +43,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
+//rout payment
+Route::get('/payment', [PaymentController::class, 'index']);

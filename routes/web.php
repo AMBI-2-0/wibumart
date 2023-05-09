@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\FigurineController;
+use App\Http\Controllers\FigureController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
@@ -26,9 +26,7 @@ Route::redirect('/', '/home');
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
-
-//route figurine
-Route::get('/figurine',[FigurineController::class,'index']);
+Route::get('/figure_product', [FigureController::class, 'index']);
 
 //route cart
 Route::get('/cart', [CartController::class, 'index']);

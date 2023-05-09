@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 
 <head>
     @if ($title)
@@ -11,6 +12,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+=======
+    <head>
+        @if ($title)
+                <title>{{ $title }}</title>
+        @else
+                <title>WibuMart</title>
+        @endif
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        @yield('style')
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+            .title-web{
+                font-family: 'Itim', cursive;
+            }
+
+            .css-selector {
+                background: radial-gradient(ellipse at 70% center, #739aff, #000000);
+                background-size: 400% 400%;
+>>>>>>> 535991c2acb9aa1946fb8ba37c8a0a5d2cbccee3
 
     <style>
         .css-selector {
@@ -85,12 +108,54 @@
     </style>
 </head>
 
+<<<<<<< HEAD
 <body class="css-selector">
     @include('layouts.navbar')
 
     <div class="container">
         @yield('content')
     </div>
+=======
+            a {
+            text-decoration: none;
+            }
+        </style>
+    </head>
+    <body class ="css-selector">
+    <div class="container text-center p-4">
+        <div class="row">
+            <div class="col text-white">
+                <a class='title-web text-white' style='font-size: 2rem;' href="/home">WibuMart</a>
+            </div>
+            <div class="col-6">
+            <ul class="nav justify-content-center text-white">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/figure_product">Figurine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Clothing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Props</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Accessories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Books</a>
+                </li>
+            </ul>
+            </div>
+            <div class="col">
+            <button type="button" class="btn btn-outline-light">Login</button>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            @yield('carousel')
+            @yield('content')
+        </div>
+>>>>>>> 535991c2acb9aa1946fb8ba37c8a0a5d2cbccee3
 
     <footer class="bg-dark mt-4 text-white py-4">
         <div class="container">

@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FigurineController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CartController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -28,6 +29,9 @@ Route::get('/about', [AboutController::class, 'index']);
 
 //route figurine
 Route::get('/figurine',[FigurineController::class,'index']);
+
+//route cart
+Route::get('/cart', [CartController::class, 'index']);
 
 //route login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

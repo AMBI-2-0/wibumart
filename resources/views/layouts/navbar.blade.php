@@ -1,14 +1,14 @@
 <div class="container text-center p-4">
     <div class="row">
         <div class="col-3 text-white">
-            WibuMart
+            <a class='title-web text-white' style="font-size: 2rem; font-family: 'Itim', cursive;" href="/home">WibuMart</a>
         </div>
         <div class="col">
             <ul class="nav justify-content-center text-white">
 
                 @if ($title == 'Figurine')
                     <li class="nav-item active">
-                        <a class="nav-link text-white" href="/figurine">Figurine</a>
+                        <a class="nav-link text-white" href="/figure_product">Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Clothing</a>
@@ -24,7 +24,7 @@
                     </li>
                 @elseif ($title == 'Clothing')
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white active" href="#">Clothing</a>
@@ -40,7 +40,7 @@
                     </li>
                 @elseif ($title == 'Props')
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Clothing</a>
@@ -56,7 +56,7 @@
                     </li>
                 @elseif ($title == 'Accessories')
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Clothing</a>
@@ -72,7 +72,7 @@
                     </li>
                 @elseif ($title == 'Books')
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Clothing</a>
@@ -88,7 +88,7 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Clothing</a>

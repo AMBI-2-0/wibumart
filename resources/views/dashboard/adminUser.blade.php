@@ -1,6 +1,11 @@
 @extends('dashboard.dashboard')
 
 @section('content')
+
+    <div class="d-flex justify-content-end align-item-center">
+        <a href="/dashboard/users/create" class="btn btn-success btn-sm"><i class="fa-solid fa-plus pe-3"></i>Create User</a>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
@@ -32,8 +37,8 @@
                         <td>Rp. {{ $user->duit }}</td>
                         <td>{{ $user->is_admin }}</td>
                         <td>
-                            <a href="/dashboard/users/detail" class="btn btn-primary btn-sm">Detail</a>
-                            <a href="/dashboard/users/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/dashboard/users/edit/{{ $user->id }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/dashboard/users/{{ $user->id }}" class="btn btn-primary btn-sm">Detail</a>
                             <form action="/dasboard/users" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')

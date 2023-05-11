@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\user;
-use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,10 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $users= User::all();
-
-        return view('dashboard.adminUser', ['title' => 'Users','users' => $users]);
+        return view('dashboard.adminUser', [
+            'title' => 'Users',
+            'users' => User::all()
+        ]);
     }
 
     /**
@@ -24,31 +24,53 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.createUser', [
+            'title' => 'Create ',
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $register)
     {
-        //
+        $validatedData = $register->validate([
+            'nama' => 'required|min:3| max:255',
+            'username' => 'required|min:4|max:255',
+            'password' => 'required|min:8|max:255',
+            'alamat' => 'required|max:500'
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+
+        session()->flash('success', 'Register berhasil');
+
+        return redirect('/dashboard/users');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(user $user)
+    public function show($id)
     {
-        
+        return view('dashboard.detailUser', [
+            'title' => "User Page",
+            'user' => User::find($id)
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(user $user)
+    public function edit(User $user)
     {
-        //
+        return view('forms.editUser',[
+            'title' => 'Edit',
+            'user' => $user
+        ]);
     }
 
     /**
@@ -56,7 +78,19 @@ class UserController extends Controller
      */
     public function update(Request $request, user $user)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|min:3| max:255',
+            'username' => 'required|min:4|max:255',
+            'password' => 'required|min:8|max:255',
+            'alamat' => 'required|max:500',
+            'is_admin'=>'required'
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::where('id',$user->id)->update($validatedData);
+
+        return redirect('/dasboard/users')->with('update', 'User berhasil diupdate!');
     }
 
     /**
@@ -64,6 +98,9 @@ class UserController extends Controller
      */
     public function destroy(user $user)
     {
-        //
+        $user = User::find($user->id);
+        $user->delete();
+
+        return redirect('/dashboard/users')->with('delete', 'User berhasil dihapus!');
     }
 }

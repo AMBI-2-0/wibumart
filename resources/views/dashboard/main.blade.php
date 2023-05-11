@@ -10,7 +10,9 @@
     <div class="col mt-3">
         <div class="container-fluid">
             <h2>{{ $title }}</h2>
+            
             <hr>
+            
             @yield('content')
 
         </div>

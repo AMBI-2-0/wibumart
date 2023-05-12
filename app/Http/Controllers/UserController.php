@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -45,7 +45,7 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        session()->flash('success', 'Register berhasil');
+        session()->flash('success', 'User berhasil dibuat!');
 
         return redirect('/dashboard/users');
 
@@ -76,27 +76,24 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, user $user)
+    public function update(User $user)
     {
-        $validatedData = $request->validate([
-            'nama' => 'required|min:3| max:255',
-            'username' => 'required|min:4|max:255',
-            'password' => 'required|min:8|max:255',
-            'alamat' => 'required|max:500',
-            'is_admin'=>'required'
+        $validatedData = request()->validate([
+            'nama' => 'min:3| max:255',
+            'username' => 'min:4|max:255',
+            'is_admin' => 'required',
+            'alamat' => 'max:500'
         ]);
-
-        $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::where('id',$user->id)->update($validatedData);
 
-        return redirect('/dasboard/users')->with('update', 'User berhasil diupdate!');
+        return redirect('/dashboard/users')->with('update', 'User berhasil diupdate!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(user $user)
+    public function destroy(User $user)
     {
         $user = User::find($user->id);
         $user->delete();

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->text('gambar_profile')->nullable()->unique();
             $table->integer('duit')->nullable()->default(0);
-            $table->boolean('is_admin')->default(false);
+            $table->string('is_admin')->default('user');
             $table->date('updated_at');
             $table->date('created_at');
         });

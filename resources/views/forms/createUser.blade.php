@@ -54,11 +54,19 @@
 
                 <div class="row  mb-3">
                     <label for="is_admin" class="form-label">Apakah User Seorang Admin ?</label>
-                    <select class="form-select" id="is_admin" name="is_admin">
-                        <option value="" selected>{{ old('is_admin') }}</option>
-                        <option value="0">Regular User</option>
-                        <option value="1">Admin</option>
-                    </select>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_admin" id="is_admin1" value="admin" >
+                        <label class="form-check-label" for="is_admin1">
+                          Ya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_admin" id="is_admin0" value="user" >
+                        <label class="form-check-label" for="is_admin0">
+                          Tidak
+                        </label>
+                      </div>
+                      
                 </div>
 
                 <div class="row mb-3">

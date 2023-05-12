@@ -2,6 +2,27 @@
 
 @section('content')
 
+@if (session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
+@if (session()->has('update'))
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ session('update') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
+@if (session()->has('delete'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session('delete') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
     <div class="d-flex justify-content-end align-item-center">
         <a href="/dashboard/users/create" class="btn btn-success btn-sm"><i class="fa-solid fa-plus pe-3"></i>Create User</a>
     </div>
@@ -39,7 +60,7 @@
                         <td>
                             <a href="/dashboard/users/edit/{{ $user->id }}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="/dashboard/users/{{ $user->id }}" class="btn btn-primary btn-sm">Detail</a>
-                            <form action="/dasboard/users" method="POST" style="display: inline;">
+                            <form action="/dashboard/users/{{ $user->id }}}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm"

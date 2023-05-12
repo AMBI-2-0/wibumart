@@ -1,108 +1,26 @@
 <div class="container text-center p-4">
     <div class="row">
         <div class="col-3 text-white">
-            WibuMart
+            <a class="navbar-brand" href="/home">WibuMart</a>
         </div>
         <div class="col">
             <ul class="nav justify-content-center text-white">
 
-                @if ($title == 'Figurine')
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/figurine">Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
-                    </li>
-                @elseif ($title == 'Clothing')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
-                    </li>
-                @elseif ($title == 'Props')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
-                    </li>
-                @elseif ($title == 'Accessories')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
-                    </li>
-                @elseif ($title == 'Books')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Books</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figurine"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
-                    </li>
-                @endif
+                <li class="nav-item {{ $title == 'Figurine' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/figurine">Figurine</a>
+                </li>
+                <li class="nav-item {{ $title == 'Clothing' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="#">Clothing</a>
+                </li>
+                <li class="nav-item {{ $title == 'Props' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="#">Props</a>
+                </li>
+                <li class="nav-item {{ $title == 'Accessories' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="#">Accessories</a>
+                </li>
+                <li class="nav-item {{ $title == 'Books' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="#">Books</a>
+                </li>
 
                 @auth
                 <div class="col-5">
@@ -113,7 +31,7 @@
                     <ul class="dropdown-menu">
                       <li><button class="dropdown-item" type="button">Action</button></li>
                       <li><button class="dropdown-item" type="button">Another action</button></li>
-                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                      <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
                       <hr class="dropdown-divider">
                     <form action="/logout" method="post">
                         @csrf

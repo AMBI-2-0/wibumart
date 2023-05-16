@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="d-flex col border-end border-5 justify-content-center align-items-center">
-            <img src="images\gambar1.png" alt="" style="height:13rem;width:13rem">
+            <img src="images\raidenlogin.png" alt="" style="height:13rem;width:13rem">
         </div>
 
         <div class="col">

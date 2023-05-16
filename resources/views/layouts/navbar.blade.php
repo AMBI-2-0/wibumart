@@ -30,7 +30,7 @@
                     </a>   
                     <ul class="dropdown-menu">
                       <li><button class="dropdown-item" type="button">Action</button></li>
-                      <li><button class="dropdown-item" type="button">Another action</button></li>
+                      <li><a class="dropdown-item" href="/cart">Keranjang</a></li>
                       <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
                       <hr class="dropdown-divider">
                     <form action="/logout" method="post">

@@ -32,7 +32,7 @@ Route::redirect('/', '/home');
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
-Route::get('/dashboard',[DashboardController::class, 'index']);->middleware('admin');
+Route::get('/dashboard',[DashboardController::class, 'index'])->middleware('admin');
 Route::get('/figure_product', [FigureController::class, 'index']);
 Route::get('/clothing', [ClothingController::class, 'index']);
 

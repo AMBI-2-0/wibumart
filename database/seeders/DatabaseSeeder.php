@@ -28,5 +28,14 @@ class DatabaseSeeder extends Seeder
             'duit' => '9999999'
         ]);
 
+        User::create([
+            'nama' => 'admin2',
+            'username' => 'admin2',
+            'password' => bcrypt('adminadmin'),
+            'alamat' => 'ini alamat admin',
+            'duit' => '9999999',
+            'is_admin' => 'admin'
+        ]);
+
     }
 }

@@ -97,7 +97,7 @@
     <div class="container-fluid">
         <div class="row">
             <?php
-            for ($i = 1; $i <= 24; $i++) {
+            for ($i = 1; $i <= 8; $i++) {
                 echo '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">';
                 echo '<div class="card bg-dark text-white border-0">';
                 echo '<img src="/images/caro-item-1.png" class="card-img-top" alt="...">';

@@ -1,26 +1,108 @@
 <div class="container text-center p-4">
     <div class="row">
         <div class="col-3 text-white">
-            <a class="navbar-brand" href="/home">WibuMart</a>
+            <a class='title-web text-white' style="font-size: 2rem; font-family: 'Itim', cursive;" href="/home">WibuMart</a>
         </div>
         <div class="col">
             <ul class="nav justify-content-center text-white">
 
-                <li class="nav-item {{ $title == 'Figurine' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/figurine">Figurine</a>
-                </li>
-                <li class="nav-item {{ $title == 'Clothing' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="#">Clothing</a>
-                </li>
-                <li class="nav-item {{ $title == 'Props' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="#">Props</a>
-                </li>
-                <li class="nav-item {{ $title == 'Accessories' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="#">Accessories</a>
-                </li>
-                <li class="nav-item {{ $title == 'Books' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="#">Books</a>
-                </li>
+                @if ($title == 'Figure Product')
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/figure_product">Figurine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Books</a>
+                    </li>
+                @elseif ($title == 'Clothing Page')
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Books</a>
+                    </li>
+                @elseif ($title == 'Props')
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-white active" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Books</a>
+                    </li>
+                @elseif ($title == 'Accessories')
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Books</a>
+                    </li>
+                @elseif ($title == 'Books')
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#">Books</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Books</a>
+                    </li>
+                @endif
 
                 @auth
                 <div class="col-5">

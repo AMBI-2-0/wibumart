@@ -5,12 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FigurineController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClothingController;
+use App\Http\Controllers\FigureController;
+
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -30,12 +32,9 @@ Route::redirect('/', '/home');
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
-
-//route dashboard
-Route::get('/dashboard',[DashboardController::class, 'index'])->middleware('admin');
-
-//route figurine
-Route::get('/figurine',[FigurineController::class,'index']);
+Route::get('/dashboard',[DashboardController::class, 'index']);->middleware('admin');
+Route::get('/figure_product', [FigureController::class, 'index']);
+Route::get('/clothing', [ClothingController::class, 'index']);
 
 //route cart
 Route::get('/cart', [CartController::class, 'index']);

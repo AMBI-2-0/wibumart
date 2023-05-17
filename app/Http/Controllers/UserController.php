@@ -38,7 +38,8 @@ class UserController extends Controller
             'nama' => 'required|min:3| max:255',
             'username' => 'required|min:4|max:255',
             'password' => 'required|min:8|max:255',
-            'alamat' => 'required|max:500'
+            'alamat' => 'required|max:500',
+            'is_admin' => 'required'
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);

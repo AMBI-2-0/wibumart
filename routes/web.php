@@ -31,7 +31,7 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
 //route dashboard
-Route::get('/dashboard',[DashboardController::class, 'index']);
+Route::get('/dashboard',[DashboardController::class, 'index'])->middleware('admin');
 
 //route figurine
 Route::get('/figurine',[FigurineController::class,'index']);
@@ -49,12 +49,11 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 //route crud users
-Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('auth'); //list users
-Route::get('/dashboard/users/edit/{user:id}', [UserController::class, 'edit'])->middleware('auth');//edit page
-Route::put('/dashboard/users/edit/{user:id}', [UserController::class, 'update'])->middleware('auth');//edit user
-
-Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware('auth'); //create user
-Route::post('/dashboard/users/create',[UserController::class,'store'])->middleware('auth');//submit create
-Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->middleware('auth');//delete user
-Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('auth'); // single user
+Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('admin'); //list users
+Route::get('/dashboard/users/edit/{user:id}', [UserController::class, 'edit'])->middleware('admin');//edit page
+Route::put('/dashboard/users/edit/{user:id}', [UserController::class, 'update'])->middleware('admin');//edit user
+Route::get('/dashboard/users/create', [UserController::class, 'create'])->middleware('admin'); //create user
+Route::post('/dashboard/users/create',[UserController::class,'store'])->middleware('admin');//submit create
+Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->middleware('admin');//delete user
+Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 

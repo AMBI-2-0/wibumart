@@ -8,6 +8,7 @@ use App\Http\Controllers\FigureController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ClothingController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -27,6 +28,7 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/figure_product', [FigureController::class, 'index']);
+Route::get('/clothing', [ClothingController::class, 'index']);
 
 //route cart
 Route::get('/cart', [CartController::class, 'index']);

@@ -6,12 +6,12 @@
         <div class="col">
             <ul class="nav justify-content-center text-white">
 
-                @if ($title == 'Figurine')
+                @if ($title == 'Figure Product')
                     <li class="nav-item active">
                         <a class="nav-link text-white" href="/figure_product">Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Props</a>
@@ -22,12 +22,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Books</a>
                     </li>
-                @elseif ($title == 'Clothing')
+                @elseif ($title == 'Clothing Page')
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Clothing</a>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Props</a>
@@ -43,9 +43,9 @@
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link text-white active" href="#">Props</a>
                     </li>
                     <li class="nav-item">
@@ -59,7 +59,7 @@
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Props</a>
@@ -75,7 +75,7 @@
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Props</a>
@@ -91,7 +91,7 @@
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Clothing</a>
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Props</a>

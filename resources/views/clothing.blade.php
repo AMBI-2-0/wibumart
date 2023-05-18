@@ -43,6 +43,18 @@
         .bg-transparent {
             background-color: transparent;
         }
+        .btn-primary.hero-button {
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    .btn-primary.hero-button:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transform: scale(1.1);
+    }
     </style>
 @endsection
 

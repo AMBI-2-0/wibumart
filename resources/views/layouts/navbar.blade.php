@@ -1,3 +1,50 @@
+<style>
+    .login-btn{
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+    }
+    .login-btn::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #7CAEFF5F;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: -1;
+    }
+
+    .login-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .login-btn:hover::before {
+        transform: translateY(0);
+    }
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #5F7D9E;
+        bottom: -5px;
+        left: 0;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-item:hover::before {
+        transform: scaleX(1);
+    }
+</style>
+
 <div class="container text-center p-4">
     <div class="row">
         <div class="col-3 text-white">
@@ -128,7 +175,7 @@
                 
                 @else
                     <div class="col-5">
-                        <a href="/login" class="btn btn-outline-light">
+                        <a href="/login" class="btn login-btn btn-outline-light mt-2">
                             <i class="bi bi-box-arrow-in-right pe-2"></i>Login</a>
                     </div>
                 @endauth

@@ -2,6 +2,13 @@
     p {
         color: azure;
     }
+    .social-media-icons {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .social-media-icons:hover {
+        transform: scale(1.1);
+    }
 </style>
 
 
@@ -39,10 +46,10 @@
                 </form>
                 <div class="mt-2">
                     <h6>Follow Us</h6>
-                    <div class="social-media-icons">
-                        <a href="#"><i class="fab fa-facebook-f mx-2 text-white fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-twitter mx-2 text-white fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-instagram mx-2 text-white fa-2x"></i></a>
+                    <div>
+                        <a href="#"><i class="social-media-icons fab fa-facebook-f mx-2 text-white fa-2x"></i></a>
+                        <a href="#"><i class="social-media-icons fab fa-twitter mx-2 text-white fa-2x"></i></a>
+                        <a href="#"><i class="social-media-icons fab fa-instagram mx-2 text-white fa-2x"></i></a>
                     </div>
                 </div>
             </div>

@@ -122,7 +122,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">Figures</h2>
+    <h2 class="text-white mt-5">Our Accessories</h2>
     <div class="container-fluid">
         <div class="row">
             <?php

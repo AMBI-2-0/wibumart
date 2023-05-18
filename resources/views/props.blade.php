@@ -49,9 +49,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1 class="hero-title">Unleash Your Imagination with Spectacular Props!</h1>
-                    <p class="hero-description">Step into a world of creativity and wonder with our extraordinary collection of props.
-                        Whether you're a filmmaker, photographer, cosplayer, or simply someone who loves to add a touch of magic to their
-                        everyday life, our props are here to make your visions come to life.</p>
+                    <p class="hero-description">Step into a world of creativity and wonder with our extraordinary collection of props.</p>
                     <a href="#" class="btn btn-primary hero-button">Shop Now</a>
                 </div>
                 <div class="col-md-6">

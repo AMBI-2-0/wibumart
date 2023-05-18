@@ -48,9 +48,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="hero-title">Find Your Perfect Figure</h1>
-                    <p class="hero-description">Explore our collection of high-quality figures to add to your collection
-                        today.</p>
+                    <h1 class="hero-title">Unleash Your Imagination with Spectacular Props!</h1>
+                    <p class="hero-description">Step into a world of creativity and wonder with our extraordinary collection of props.
+                        Whether you're a filmmaker, photographer, cosplayer, or simply someone who loves to add a touch of magic to their
+                        everyday life, our props are here to make your visions come to life.</p>
                     <a href="#" class="btn btn-primary hero-button">Shop Now</a>
                 </div>
                 <div class="col-md-6">
@@ -123,7 +124,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">Figures</h2>
+    <h2 class="text-white mt-5">Props</h2>
     <div class="container-fluid">
         <div class="row">
             <?php

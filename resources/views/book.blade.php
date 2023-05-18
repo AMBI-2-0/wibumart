@@ -48,9 +48,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="hero-title">Find Your Perfect Figure</h1>
-                    <p class="hero-description">Explore our collection of high-quality figures to add to your collection
-                        today.</p>
+                    <h1 class="hero-title">Immerse Yourself in the Captivating World of Light Novels and Manga!</h1>
+                    <p class="hero-description">Delve into the boundless realms of imagination and storytelling with our captivating collection of Light novels and manga.</p>
                     <a href="#" class="btn btn-primary hero-button">Shop Now</a>
                 </div>
                 <div class="col-md-6">
@@ -123,7 +122,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">Figures</h2>
+    <h2 class="text-white mt-5">Books</h2>
     <div class="container-fluid">
         <div class="row">
             <?php

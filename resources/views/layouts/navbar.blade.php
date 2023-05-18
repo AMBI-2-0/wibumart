@@ -23,24 +23,24 @@
                 </li>
 
                 @auth
-                <div class="col-5">
-                    <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                      {{  (strlen(auth()->user()->nama) > 15) ? substr(auth()->user()->nama, 0, 15).'...' : auth()->user()->nama }}
-                    </a>   
-                    <ul class="dropdown-menu">
-                      <li><button class="dropdown-item" type="button">Action</button></li>
-                      <li><button class="dropdown-item" type="button">Another action</button></li>
-                      <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                      <hr class="dropdown-divider">
-                    <form action="/logout" method="post">
-                        @csrf
-                        <button type="submit" class="dropdown-item"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
-                    </form> 
-                    </ul>
-                  </div>
-                </div>
-                
+                    <div class="col-5">
+                        <div class="dropdown">
+                            <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Action</button></li>
+                                <li><button class="dropdown-item" type="button">Another action</button></li>
+                                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                                <hr class="dropdown-divider">
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"><i
+                                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
                 @else
                     <div class="col-5">
                         <a href="/login" class="btn btn-outline-light">

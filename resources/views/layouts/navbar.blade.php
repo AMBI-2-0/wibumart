@@ -14,13 +14,13 @@
                         <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
+                        <a class="nav-link text-white" href="/props">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="/accessories">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
+                        <a class="nav-link text-white" href="/book">Books</a>
                     </li>
                 @elseif ($title == 'Clothing Page')
                     <li class="nav-item">
@@ -30,47 +30,31 @@
                         <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
+                        <a class="nav-link text-white" href="/props">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="/accessories">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
+                        <a class="nav-link text-white" href="/book">Books</a>
                     </li>
-                @elseif ($title == 'Props')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-white active" href="#">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
-                    </li>
-                @elseif ($title == 'Accessories')
+                @elseif ($title == 'Props Page')
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/props">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="/accessories">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
+                        <a class="nav-link text-white" href="/book">Books</a>
                     </li>
-                @elseif ($title == 'Books')
+                @elseif ($title == 'Accessories Page')
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
@@ -78,13 +62,29 @@
                         <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
+                        <a class="nav-link text-white" href="/props">Props</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/accessories">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="/book">Books</a>
+                    </li>
+                @elseif ($title == 'Books Page')
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white active" href="#">Books</a>
+                        <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/props">Props</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/accessories">Accessories</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="/book">Books</a>
                     </li>
                 @else
                     <li class="nav-item">
@@ -94,13 +94,13 @@
                         <a class="nav-link text-white" href="/clothing">Clothing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Props</a>
+                        <a class="nav-link text-white" href="/props">Props</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Accessories</a>
+                        <a class="nav-link text-white" href="/accessories">Accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Books</a>
+                        <a class="nav-link text-white" href="/book">Books</a>
                     </li>
                 @endif
 

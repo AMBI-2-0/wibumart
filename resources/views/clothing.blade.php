@@ -69,7 +69,7 @@
                     <h1 class="hero-title">Immerse Yourself in the Captivating World of Light Novels and Manga!</h1>
                     <p class="hero-description">Delve into the boundless realms of imagination and storytelling with our
                         captivating collection of Light novels and manga.</p>
-                    <a href="#" class="btn btn-primary hero-button">Shop Now</a>
+                    <a href="#" class="btn btn-primary hero-button mb-4">Shop Now</a>
                 </div>
                 <div class="col-md-6">
                     <img src="{{ asset('images/figure-hero.png') }}" alt="Figure Hero Image" class="hero-image">
@@ -78,7 +78,7 @@
         </div>
     </section>
 
-    <div id="carouselProduct" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselProduct" class="mt-4 carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselProduct" data-bs-slide-to="0" class="active" aria-current="true"
                 aria-label="Slide 1"></button>
@@ -143,11 +143,10 @@
     </div>
     <h2 class="text-white mt-5">Most Favorite</h2>
 
-    <div class="card bg-lightblue ">
-        <div class="card-body">
-            <div class="row">
+        <div class="container-fluid my-4">
+            <div class="row rounded my-4" style="background: radial-gradient(at top left,#20273A, #3D5477);">
                 <div class="col-sm-2">
-                    <div class="card card bg-transparent">
+                    <div class="card bg-transparent my-4">
                         <div class="card-body">
                             <h6 class="card-title text-white">Card 1</h6>
                             <p class="card-text">Some example text.</p>
@@ -155,7 +154,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <div class="card card bg-transparent">
+                    <div class="card bg-transparent my-4">
                         <div class="card-body">
                             <h6 class="card-title text-white">Card 2</h6>
                             <p class="card-text">Some example text.</p>
@@ -163,7 +162,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <div class="card card bg-transparent">
+                    <div class="card bg-transparent my-4">
                         <div class="card-body">
                             <h6 class="card-title text-white">Card 3</h6>
                             <p class="card-text">Some example text.</p>
@@ -171,7 +170,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <div class="card card bg-transparent">
+                    <div class="card bg-transparent my-4">
                         <div class="card-body">
                             <h6 class="card-title text-white">Card 4</h6>
                             <p class="card-text">Some example text.</p>
@@ -179,7 +178,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <div class="card card bg-transparent">
+                    <div class="card bg-transparent my-4">
                         <div class="card-body">
                             <h6 class="card-title text-white">Card 5</h6>
                             <p class="card-text">Some example text.</p>
@@ -187,7 +186,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <div class="card card bg-transparent">
+                    <div class="card bg-transparent my-4">
                         <div class="card-body">
                             <h6 class="card-title text-white">Card 6</h6>
                             <p class="card-text">Some example text.</p>
@@ -196,7 +195,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <h2 class="text-white mt-5">All Clothing</h2>
     <div class="container-fluid">
         <div class="row">

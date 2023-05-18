@@ -14,4 +14,8 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
+    public function keranjang()
+    {
+        return $this->hasMany('App\Keranjang','users_id', 'id');
+    }
 }

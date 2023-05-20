@@ -13,6 +13,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\FigureController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PropsController;
+use App\Http\Controllers\AccessoriesController;
+use App\Http\Controllers\BookController;
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -35,6 +38,9 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/dashboard',[DashboardController::class, 'index'])->middleware('admin');
 Route::get('/figure_product', [FigureController::class, 'index']);
 Route::get('/clothing', [ClothingController::class, 'index']);
+Route::get('/props', [PropsController::class, 'index']);
+Route::get('/accessories', [AccessoriesController::class, 'index']);
+Route::get('/book', [BookController::class, 'index']);
 
 //route cart
 Route::get('/cart', [CartController::class, 'index']);

@@ -19,9 +19,9 @@
                     style=" font-weight: 700; font-size: 50px; line-height: 61px; display: flex; align-items: center; font-family: 'Inter'; font-style: normal; color: #FFFFFF; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
                     My Cart</h3>
                 <!--<div>
-                    <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
-                          class="fas fa-angle-down mt-1"></i></a></p>
-                  </div>-->
+                        <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
+                              class="fas fa-angle-down mt-1"></i></a></p>
+                      </div>-->
             </div>
             <div class="container">
                 @foreach ($cart_items as $item)
@@ -88,7 +88,7 @@
             </div>
 
             <!-- JS Untuk Subtotal dan Checkout nya agar sinkron dengan tombol (+) dan (-) jika terpicu
-             tetapi masih belom work, karena belum ada id product  -->
+                 tetapi masih belom work, karena belum ada id product  -->
 
             <script>
                 // ambil elemen subtotal dan total pengiriman

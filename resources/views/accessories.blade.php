@@ -48,9 +48,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="hero-title">Find Your Perfect Figure</h1>
-                    <p class="hero-description">Explore our collection of high-quality figures to add to your collection
-                        today.</p>
+                    <h1 class="hero-title">Elevate Your Style with Exquisite Accessories!</h1>
+                    <p class="hero-description">Immerse yourself in the enchanting world of anime and showcase your love for your favorite characters with our captivating collection of anime accessories. </p>
                     <a href="#" class="btn btn-primary hero-button">Shop Now</a>
                 </div>
                 <div class="col-md-6">

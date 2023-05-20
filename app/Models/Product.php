@@ -9,5 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
+
     protected $guarded =['id'];
+
+    public function keranjang_detail()
+    {
+        return $this->hasMany('App\KeranjangDetail','product_id', 'id');
+    }
+
 }

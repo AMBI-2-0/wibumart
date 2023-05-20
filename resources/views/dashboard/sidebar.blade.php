@@ -26,6 +26,10 @@
                                 class="fa-solid fa-users pe-2"></i>Users</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{ $title == 'Products' ? 'active' : '' }}"
+                            href="/dashboard/products"><i class="fa-brands fa-product-hunt"></i> Product</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ $title == 'Figurine' ? 'active' : '' }}"
                             href="/dashboard/figurine"><i class="fa-solid fa-piggy-bank pe-2"></i></i>Figurine</a>
                     </li>

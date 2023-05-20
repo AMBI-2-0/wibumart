@@ -31,18 +31,16 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $register)
+    public function store()
     {
-        $validatedData = $register->validate([
-            'nama_product' => 'required|min:3| max:255',
-            'description' => 'required|min:4|max:255',
-            'price' => 'required',
-            'jumlah_produk' => 'required',
+        $valid = request() -> validate([
+            'nama_product' => 'required',
+            'description'=> 'required',
+            'price'=> 'required',
+            'jumlah_product'=> 'required'
         ]);
 
-        dd($validatedData);
-
-        Product::create($validatedData);
+        Product::create($valid);
 
         session()->flash('success', 'Produk berhasil dibuat!');
 
@@ -55,7 +53,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.detailUser', [
+        return view('dashboard.productDetail', [
             'title' => "Product Detail",
             'product' => Product::find($id)
         ]);
@@ -66,7 +64,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('forms.editUser',[
+        return view('forms.productEdit',[
             'title' => 'Edit',
             'product' => $product
         ]);
@@ -77,16 +75,16 @@ class ProductController extends Controller
      */
     public function update(Product $product)
     {
-        // $validatedData = request()->validate([
-        //     'nama' => 'min:3| max:255',
-        //     'username' => 'min:4|max:255',
-        //     'is_admin' => 'required',
-        //     'alamat' => 'max:500'
-        // ]);
+        $valid = request() -> validate([
+            'nama_product' => 'required',
+            'description'=> 'required',
+            'price'=> 'required',
+            'jumlah_product'=> 'required'
+        ]);
 
-        // Product::where('id',$product->id)->update($validatedData);
+        Product::where('id',$product->id)->update($valid);
 
-        return redirect('/dashboard/users')->with('update', 'User berhasil diupdate!');
+        return redirect('/dashboard/products')->with('update', 'Produk berhasil diupdate!');
     }
 
     /**
@@ -97,6 +95,6 @@ class ProductController extends Controller
         $product = Product::find($product->id);
         $product->delete();
 
-        return redirect('/dashboard/users')->with('delete', 'User berhasil dihapus!');
+        return redirect('/dashboard/products')->with('delete', 'Produk berhasil dihapus!');
     }
 }

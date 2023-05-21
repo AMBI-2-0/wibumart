@@ -2,26 +2,23 @@
 
 @section('content')
     <style>
-        .page-container {
-            min-height: 1%;
-            /* Set the content area to be at least the height of the viewport */
-            position: relative;
-            padding-bottom: 50px;
-            /* Set the height of your footer */
+        h3 {
+            font-weight: 700;
+            font-size: 50px;
+            line-height: 61px;
+            display: flex;
+            align-items: center;
+            font-family: 'Inter';
+            font-style: normal;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
     </style>
 
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-10">
-
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3
-                    style=" font-weight: 700; font-size: 50px; line-height: 61px; display: flex; align-items: center; font-family: 'Inter'; font-style: normal; color: #FFFFFF; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
-                    My Cart</h3>
-                <!--<div>
-                        <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
-                              class="fas fa-angle-down mt-1"></i></a></p>
-                      </div>-->
+                <h3>My Cart</h3>
             </div>
             <div class="container">
                 @foreach ($cart_items as $item)
@@ -88,7 +85,7 @@
             </div>
 
             <!-- JS Untuk Subtotal dan Checkout nya agar sinkron dengan tombol (+) dan (-) jika terpicu
-                 tetapi masih belom work, karena belum ada id product  -->
+                                                                                                                                             tetapi masih belom work, karena belum ada id product  -->
 
             <script>
                 // ambil elemen subtotal dan total pengiriman
@@ -173,26 +170,35 @@
                     });
                 }
             </script>
-            <div class="container">
-                <div class="col-lg-4 col-xl-3">
-                    <div class="d-flex justify-content-between" style="font-weight: 500;">
-                        <p class="mb-2">Subtotal Produk</p>
-                        <p class="mb-2" id="subtotal">Rp 1.500.000</p>
-                    </div>
+        </div>
+    </div>
 
-                    <hr class="my-4">
-
-                    <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
-                        <p class="mb-2">Biaya Pengiriman</p>
-                        <p class="mb-2">Rp 500.000</p>
-                    </div>
-
-                    <button type="button" class="btn btn-primary btn-block btn-lg">
-                        <div class="d-flex justify-content-between ">
-                            <span>Checkout</span>
-                            <span id="total">Rp 2.000.000</span>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="container">
+                    <div class="col-lg-4 col-xl-3" style="color: #FFFFFF;">
+                        <div class="d-flex justify-content-between" style="font-weight: 500;">
+                            <p class="mb-2">Subtotal Produk</p>
+                            <p class="mb-2" id="subtotal">Rp 1.500.000</p>
                         </div>
-                    </button>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                            <p class="mb-2">Biaya Pengiriman</p>
+                            <p class="mb-2">Rp 500.000</p>
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-block btn-lg">
+                            <div class="d-flex justify-content-between ">
+                                <span>Checkout</span>
+                                <span id="total">Rp 2.000.000</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

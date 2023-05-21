@@ -12,10 +12,10 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClothingController;
 use App\Http\Controllers\FigureController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
-
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -55,7 +55,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 
-//rout payment
+//route payment
 Route::get('/payment', [PaymentController::class, 'index']);
 
 //route crud users
@@ -67,3 +67,11 @@ Route::post('/dashboard/users/create',[UserController::class,'store'])->middlewa
 Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->middleware('admin');//delete user
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 
+//Route CRUD All Product
+Route::get('/dashboard/products', [ProductController::class,'index'])->middleware('admin');
+Route::get('/dashboard/products/edit/{product:id}', [ProductController::class, 'edit'])->middleware('admin');//edit page
+Route::put('/dashboard/products/edit/{product:id}', [ProductController::class, 'update'])->middleware('admin');//edit product
+Route::get('/dashboard/products/create', [ProductController::class, 'create'])->middleware('admin'); //create product
+Route::post('/dashboard/products/create',[ProductController::class,'store'])->middleware('admin');//submit create
+Route::delete('/dashboard/products/{product:id}',[ProductController::class, 'destroy'])->middleware('admin');//delete product
+Route::get('/dashboard/products/{product:id}',[ProductController::class,'show'])->middleware('admin'); // single product

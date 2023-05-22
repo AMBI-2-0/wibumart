@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Product;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,6 +38,20 @@ class DatabaseSeeder extends Seeder
             'duit' => '9999999',
             'is_admin' => 'admin'
         ]);
+
+        $faker = Faker::create();
+
+        $categories = ['figures', 'clothings', 'props', 'accessories', 'books'];
+
+        for ($i = 0; $i < 30; $i++) {
+            Product::create([
+                'nama_product' => $faker->name,
+                'description' => $faker->text,
+                'price' => $faker->randomNumber(8),
+                'jumlah_product' => $faker->randomNumber(2),
+                'kategori_product'=>$faker->randomElement($categories)
+            ]);
+        }
 
     }
 }

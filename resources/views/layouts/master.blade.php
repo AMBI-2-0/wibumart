@@ -83,6 +83,7 @@
             padding: 5px;
         }
     </style>
+    @yield('style')
 </head>
 
 <body class="css-selector">

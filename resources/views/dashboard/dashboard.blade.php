@@ -36,7 +36,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">Figurine</h5>
-                            <h6 class="card-text"> Total Figurine: INI AMBIL DARI DB KENA</h6>
+                            <h6 class="card-text"> Total Figurine: {{ $products }}</h6>
                         </div>
                     </div>
                 </div>

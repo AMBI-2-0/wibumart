@@ -41,6 +41,7 @@ class UserController extends Controller
             'alamat' => 'required|max:500',
             'is_admin' => 'required'
         ]);
+        
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 

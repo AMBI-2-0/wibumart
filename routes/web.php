@@ -15,7 +15,7 @@ use App\Http\Controllers\FigureController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
-
+use App\Http\Controllers\HistoryController;
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -55,7 +55,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 
-//rout payment
+//route payment
 Route::get('/payment', [PaymentController::class, 'index']);
 
 //route crud users
@@ -67,3 +67,5 @@ Route::post('/dashboard/users/create',[UserController::class,'store'])->middlewa
 Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->middleware('admin');//delete user
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 
+//route history
+Route::get('/history', [HistoryController::class, 'index']);

@@ -50,7 +50,7 @@
 <div class="container text-center p-4">
     <div class="row">
         <div class="col-3 text-white">
-            <a class='title-web text-white' style="font-size: 2rem; font-family: 'Itim', cursive;"
+            <a class='title-web text-white' style="text-decoration: none; font-size: 2rem; font-family: 'Itim', cursive;"
                 href="/home">WibuMart</a>
         </div>
         <div class="col">

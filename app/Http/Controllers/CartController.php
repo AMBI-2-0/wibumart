@@ -18,7 +18,7 @@ class CartController extends Controller
     }
 
     
-    //Authenticate for accessing cart page
+    //Authenticate for accessing cart page (masih error)
 
     // public function __construct()
     // {

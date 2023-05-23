@@ -104,14 +104,15 @@
                         <div class="card-body">
                             <h5 class='card-title'>{{ $product->nama_product }}</h5>
                             <p class='card-text'>
-                                <strong>Harga : </strong> Rp. {{ number_format($product->price) }} <br>
-                                <strong>Stok :</strong> {{ $product->jumlah_product }} <br>
-                                <strong>Kategori : </strong> {{ $product->kategori_product }} <br>
+                                <strong>Price : </strong> IDR {{ number_format($product->price) }} <br>
+                                <strong>Stock :</strong> {{ $product->jumlah_product }} <br>
+                                <strong>Category : </strong> {{ $product->kategori_product }} <br>
                                 <hr>
-                                <strong>Keterangan : </strong> <br>
+                                <strong>Description : </strong> <br>
                                 {{ $product->description }}
                             </p>
-                            <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Pesan</a>
+                            <a href="{{ url('order') }}/{{ $product->id }}" class="btn btn-light"><i
+                                    class="fa fa-shopping-cart"></i> Buy Now</a>
                         </div>
                     </div>
                 </div>

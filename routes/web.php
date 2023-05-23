@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderController;
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -41,6 +42,9 @@ Route::get('/clothing', [ClothingController::class, 'index']);
 Route::get('/props', [PropsController::class, 'index']);
 Route::get('/accessories', [AccessoriesController::class, 'index']);
 Route::get('/book', [BookController::class, 'index']);
+
+//route detail product [home]
+Route::get('order/{id}', [OrderController::class, 'index']);
 
 //route cart
 Route::get('/cart', [CartController::class, 'index']);

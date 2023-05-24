@@ -42,24 +42,19 @@
                                             <td> :</td>
                                             <td> {{ $product->description }}</td>
                                         </tr>
-                                        <form action="" method="POST">
-                                            <tr>
-                                                <td>Order Quantity</td>
-                                                <td>:</td>
-                                                <td>
+                                        <tr>
+                                            <td>Order Quantity</td>
+                                            <td>:</td>
+                                            <td>
+                                                <form action="{{ url('cart') }}/{{ $product->id }}" method="POST">
+                                                    @csrf
                                                     <input type="number" name="order_quantity"
                                                         class="form-control form-control-sm" required>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <button type="submit" class="btn btn-dark"><i
+                                                    <button type="submit" class="btn btn-dark mt-2"><i
                                                             class="fa fa-shopping-cart"></i> Add to Cart</button>
-                                                </td>
-                                            </tr>
-                                        </form>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

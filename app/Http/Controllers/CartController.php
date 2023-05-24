@@ -16,12 +16,4 @@ class CartController extends Controller
 
         return view('cart', ['title' => 'Cart Page', 'cart_items' => $cart_items]);
     }
-
-    
-    //Authenticate for accessing cart page (masih error)
-
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
 }

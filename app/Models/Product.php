@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $guarded =['id'];
 
-    public function keranjang_detail()
+    public function keranjang_details()
     {
         return $this->hasMany('App\KeranjangDetail','product_id', 'id');
     }

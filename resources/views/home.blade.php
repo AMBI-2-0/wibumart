@@ -112,7 +112,7 @@
                                 {{ $product->description }}
                             </p>
                             <a href="{{ url('order') }}/{{ $product->id }}" class="btn btn-light"><i
-                                    class="fa fa-shopping-cart"></i> Buy Now</a>
+                                    class="fa fa-shopping-cart"></i> Buy</a>
                         </div>
                     </div>
                 </div>

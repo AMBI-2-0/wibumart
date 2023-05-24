@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keranjang_detail', function (Blueprint $table) {
+        Schema::create('keranjang_details', function (Blueprint $table) {
             $table->id()->unique(); 
             $table->unsignedBigInteger('product_id'); // kolom foreign key dari tabel product
-            $table->unsignedBigInteger('keranjang_id'); // kolom foreign key dari tabel keranjang
+            $table->unsignedBigInteger('keranjangs_id'); // kolom foreign key dari tabel keranjang
             $table->integer('jumlah_pesanan');
             $table->integer('jumlah_harga');
+            $table->timestamps();
         });
 
         //Menambahkan constraint pada foreign key
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('keranjang_detail');
+        Schema::dropIfExists('keranjang_details');
     }
 };

@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Keranjang;
 use App\Models\KeranjangDetail;
 use Illuminate\Support\Facades\Auth;
+use Alert;
+use Illuminate\Console\View\Components\Alert as ComponentsAlert;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 
@@ -70,6 +72,7 @@ class OrderController extends Controller
         $keranjangs->total_harga = $keranjangs->total_harga + $product->price*$request->order_quantity;
         $keranjangs->update();
 
+        Alert::success('Success', 'Success Add to Cart!');
         return redirect('home');
     }
 }

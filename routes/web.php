@@ -43,6 +43,9 @@ Route::get('/props', [PropsController::class, 'index']);
 Route::get('/accessories', [AccessoriesController::class, 'index']);
 Route::get('/book', [BookController::class, 'index']);
 
+//filter product admin dashboard product
+Route::get('dashboard/products/filter', [ProductController::class,'filter']);    
+
 //route detail product [home]
 Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
 
@@ -79,4 +82,4 @@ Route::put('/dashboard/products/edit/{product:id}', [ProductController::class, '
 Route::get('/dashboard/products/create', [ProductController::class, 'create'])->middleware('admin'); //create product
 Route::post('/dashboard/products/create',[ProductController::class,'store'])->middleware('admin');//submit create
 Route::delete('/dashboard/products/{product:id}',[ProductController::class, 'destroy'])->middleware('admin');//delete product
-Route::get('/dashboard/products/{product:id}',[ProductController::class,'show'])->middleware('admin'); // single product
+Route::get('/dashboard/products/detail/{product:id}',[ProductController::class,'show'])->middleware('admin'); // single product

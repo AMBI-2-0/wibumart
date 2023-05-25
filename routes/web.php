@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderController;
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -42,8 +43,12 @@ Route::get('/props', [PropsController::class, 'index']);
 Route::get('/accessories', [AccessoriesController::class, 'index']);
 Route::get('/book', [BookController::class, 'index']);
 
+//route detail product [home]
+Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
+
 //route cart
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
+Route::post('cart/{id}', [OrderController::class, 'order'])->middleware('auth');
 
 //route login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

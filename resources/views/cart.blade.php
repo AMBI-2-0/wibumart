@@ -85,7 +85,7 @@
             </div>
 
             <!-- JS Untuk Subtotal dan Checkout nya agar sinkron dengan tombol (+) dan (-) jika terpicu
-                                                                                                                                         tetapi masih belom work, karena belum ada id product  -->
+                                                                                                                                             tetapi masih belom work, karena belum ada id product  -->
 
             <script>
                 // ambil elemen subtotal dan total pengiriman

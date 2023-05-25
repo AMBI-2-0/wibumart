@@ -14,8 +14,8 @@ class KeranjangDetail extends Model
         return $this->belongsTo('App\Product','product_id', 'id');
     }
 
-    public function keranjang()
+    public function keranjangs()
     {
-        return $this->belongsTo('App\Keranjang','keranjang_id', 'id');
+        return $this->belongsTo('App\Keranjang','keranjangs_id', 'id');
     }
 }

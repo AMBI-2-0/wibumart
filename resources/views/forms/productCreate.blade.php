@@ -65,12 +65,14 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="kategori_produk" class="form-label">Jumlah Produk :</label>
-                    <select class="form-select" aria-label="Default select example" name="kategori_produk">
+                    <label for="kategori_id" class="form-label">Kategori Produk :</label>
+                    <select class="form-select" aria-label="Default select example" name="kategori_id">
                         <option selected>Pilih Kategori</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($kategoris as $kategori)
+                        <option value="{{ $kategori->id }}">
+                            {{ $kategori->kategori }}
+                        </option>
+                    @endforeach
                     </select>
                 </div>
 

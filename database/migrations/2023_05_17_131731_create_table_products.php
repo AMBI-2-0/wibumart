@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 8, 0);
             $table->integer('jumlah_product');
-            $table->string('kategori_product')->default('kategori Tidak dipilih');
+            $table->foreignId('kategori_id')->default('1');
             $table->timestamps();
         });
     }

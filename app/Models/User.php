@@ -18,6 +18,6 @@ class User extends Authenticatable
     //satu user bisa memiliki banyak keranjang
     public function keranjangs()
     {
-        return $this->hasMany('App\Keranjang','users_id', 'id');
+        return $this->hasMany('App\Models\Keranjang','users_id', 'id');
     }
 }

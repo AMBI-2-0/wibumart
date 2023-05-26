@@ -28,7 +28,7 @@ class Product extends Model
     //banyak product bisa disimpan oleh satu keranjang_details
     public function keranjang_detail()
     {
-        return $this->hasMany('App\KeranjangDetail','product_id', 'id');
+        return $this->hasMany('App\Models\KeranjangDetail','product_id', 'id');
     }
 
 

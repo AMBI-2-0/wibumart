@@ -2,31 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\History;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        
-        $purchases = [
-            [
-                'kategori' => 'Props',
-                'keterangan' => 'Figur Bailu 15 januari 2023',
-                'status' => 'Dibatalkan',
-            ],
-            [   'kategori' => 'Props',
-                'keterangan' => 'Figur aja 15 januari 2023',
-                'status' => 'Berlangsung',
-            ],
-            [   'kategori' => 'Props',
-                'keterangan' => 'baju bailu, 16 januari 2022',
-                'status' => 'Selesai',
-            ],
-        ];
-    
-        return view('history',['title' => 'History Page', 'purchases' => $purchases]);
+        $status = $request->input('status');
+        $query = History::query();
+
+        if ($status) {
+            $query->where('status', $status);
+        }
+
+        $History = $query->orderBy('ordered_at', 'desc')->get();
+        $title = 'Purchase History'; 
+
+        return view('history', compact('History', 'title'));
     }
+
     
 
 }

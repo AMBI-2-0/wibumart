@@ -68,4 +68,5 @@ Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 
 //route history
-Route::get('/history', [HistoryController::class, 'index']);
+//Route::get('/history', [HistoryController::class, 'index']);
+Route::get('/history', [HistoryController::class, 'index'])->name('history');

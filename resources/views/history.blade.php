@@ -1,31 +1,47 @@
 @extends('layouts.master')
 
 @section('content')
-
-<head>
-    <title>History</title>
-</head>
-<body class="container">
     <div class="container">
-        <h1>History</h1>
-        <table class="table table-striped">
-            <thead class="container">
+        <h1>Purchase History</h1>
+
+        <div class="mb-3">
+            <form action="{{ route('history') }}" method="GET">
+                <div class="form-group">
+                    <label for="status">Filter by Status:</label>
+                    <select name="status" id="status" class="form-control">
+                        <option value="">All</option>
+                        <option value="berlangsung"{{ Request::input('status') === 'berlangsung' ? ' selected' : '' }}>Berlangsung</option>
+                        <option value="dibatalkan"{{ Request::input('status') === 'dibatalkan' ? ' selected' : '' }}>Dibatalkan</option>
+                        <option value="selesai"{{ Request::input('status') === 'selesai' ? ' selected' : '' }}>Selesai</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+        </div>
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <th></th>
-                    <th>Keterangan</th>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Ordered At</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($purchases as $purchase)
-                <tr>
-                    <td><img src="images\bailu.jpeg" alt="" style="height:10rem;width:10rem"></td>
-                    <td>{{ $purchase['keterangan'] }}</td>
-                    <td>{{ $purchase['status'] }}</td>
-                </tr>
+                @foreach ($History as $history)
+                    <tr>
+                        <td>
+                            <img src="{{ $history->image }}" alt="" style="height:10rem;width:10rem">
+                        </td>
+                        <td>{{ $history->product_name }}</td>
+                        <td>{{ $history->price }}</td>
+                        <td>{{ $history->ordered_at }}</td>
+                        <td>{{ $history->status }}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-</body>
 @endsection

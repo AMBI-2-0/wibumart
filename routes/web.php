@@ -16,7 +16,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\OrderController;
+
 use App\Models\User;
 use GuzzleHttp\Middleware;
 
@@ -75,6 +77,10 @@ Route::post('/dashboard/users/create',[UserController::class,'store'])->middlewa
 Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->middleware('admin');//delete user
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 
+
+//route history
+Route::get('/history', [HistoryController::class, 'index'])->name('history');
+
 //Route CRUD All Product
 Route::get('/dashboard/products', [ProductController::class,'index'])->middleware('admin');
 Route::get('/dashboard/products/edit/{product:id}', [ProductController::class, 'edit'])->middleware('admin');//edit page
@@ -83,3 +89,4 @@ Route::get('/dashboard/products/create', [ProductController::class, 'create'])->
 Route::post('/dashboard/products/create',[ProductController::class,'store'])->middleware('admin');//submit create
 Route::delete('/dashboard/products/{product:id}',[ProductController::class, 'destroy'])->middleware('admin');//delete product
 Route::get('/dashboard/products/detail/{product:id}',[ProductController::class,'show'])->middleware('admin'); // single product
+

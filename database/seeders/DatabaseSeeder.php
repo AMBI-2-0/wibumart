@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
 
         $categories = [1,2,3,4,5,6];
 
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             Product::create([
                 'nama_product' => $faker->name,
                 'description' => $faker->text,

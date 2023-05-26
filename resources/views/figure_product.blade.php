@@ -35,19 +35,19 @@
             transition: transform 0.2s ease-in-out;
             border-radius: 20px;
         }
-        .btn-primary.hero-button {
-        background-color: #007bff;
-        border-color: #007bff;
-        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    }
 
-    .btn-primary.hero-button:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-        transform: scale(1.1);
-    }
-        
+        .btn-primary.hero-button {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .btn-primary.hero-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            transform: scale(1.1);
+        }
     </style>
 @endsection
 
@@ -139,29 +139,48 @@
         <div class="row">
 
             @foreach ($figures as $figure)
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-            <div class="card bg-dark text-white border-0">
-            <img src="/images/caro-item-1.png" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class='card-title'>{{ $figure->nama_product }}</h5>
-            <p class='card-text'>
-                <strong>Price : </strong> IDR {{ number_format($figure->price) }} <br>
-                <strong>Stock :</strong> {{ $figure->jumlah_product }} <br>
-                <strong>Category : </strong> {{ $figure->kategori->kategori }} <br>
-                <hr>
-                <strong>Description : </strong> <br>
-                {{ $figure->description }}
-            </p>
-            <a href="{{ url('order') }}/{{ $figure->id }}" class="btn btn-light"><i
-                class="fa fa-shopping-cart"></i> Buy</a>
-            </div>
-            </div>
-            </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card bg-dark text-white border-0">
+                        <img src="/images/caro-item-1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class='card-title'>{{ $figure->nama_product }}</h5>
+                            <p class='card-text'>
+                                <strong>Price : </strong> IDR {{ number_format($figure->price) }} <br>
+                                <strong>Stock :</strong> {{ $figure->jumlah_product }} <br>
+                                <strong>Category : </strong> {{ $figure->kategori->kategori }} <br>
+                                <hr>
+                                <strong>Description : </strong> <br>
+                                {{ $figure->description }}
+                            </p>
+                            <a href="{{ url('order') }}/{{ $figure->id }}" class="btn btn-light"><i
+                                    class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                    </div>
+                </div>
             @endforeach
 
-            {{ $figures->links() }}
+            <div class="pagination-container mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {{ $figures->previousPageUrl() ? '' : 'disabled' }} me-5">
+                            <a class="page-link" href="{{ $figures->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+            
+                        <li class="page-item {{ $figures->nextPageUrl() ? '' : 'disabled' }} ms-5">
+                            <a class="page-link" href="{{ $figures->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+
         </div>
-        
+
     </div>
-    
 @endsection

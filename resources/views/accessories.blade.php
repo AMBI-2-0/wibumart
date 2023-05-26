@@ -158,6 +158,25 @@
             </div>
             </div>
             @endforeach
+            <div class="pagination-container mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {{ $accessoriess->previousPageUrl() ? '' : 'disabled' }} me-5">
+                            <a class="page-link" href="{{ $accessoriess->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+            
+                        <li class="page-item {{ $accessoriess->nextPageUrl() ? '' : 'disabled' }} ms-5">
+                            <a class="page-link" href="{{ $accessoriess->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 @endsection

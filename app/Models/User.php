@@ -14,6 +14,8 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
+    //user one-to-many ke keranjangs
+    //satu user bisa memiliki banyak keranjang
     public function keranjangs()
     {
         return $this->hasMany('App\Keranjang','users_id', 'id');

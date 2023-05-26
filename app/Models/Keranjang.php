@@ -9,11 +9,15 @@ class Keranjang extends Model
 {
     use HasFactory;
 
+    //keranjang one-to-one ke user
+    //satu keranjang hanya bisa dimiliki oleh satu user
     public function users()
     {
         return $this->belongsTo('App\User','users_id', 'id');
     }
 
+    //keranjang one-to-many ke keranjangs_details
+    //satu keranjang bisa menyimpan banyak keranjang_details
     public function keranjang_details()
     {
         return $this->hasMany('App\KeranjangDetail','keranjangs_id', 'id');

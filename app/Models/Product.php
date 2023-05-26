@@ -12,9 +12,10 @@ class Product extends Model
 
     protected $guarded =['id'];
 
+    //products many-to-one ke keranjang_details
+    //banyak product bisa disimpan oleh satu keranjang_details
     public function keranjang_details()
     {
         return $this->hasMany('App\KeranjangDetail','product_id', 'id');
     }
-
 }

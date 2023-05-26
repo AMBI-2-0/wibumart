@@ -46,7 +46,7 @@ Route::get('/accessories', [AccessoriesController::class, 'index']);
 Route::get('/book', [BookController::class, 'index']);
 
 //filter product admin dashboard product
-Route::get('dashboard/products/filter', [ProductController::class,'filter']);    
+Route::get('dashboard/products/filter', [ProductController::class,'filter'])->middleware('admin');    
 
 //route detail product [home]
 Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');

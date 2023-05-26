@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
+    <div class="container text-light">
         <h1>Purchase History</h1>
 
         <div class="mb-3">
@@ -19,7 +19,7 @@
             </form>
         </div>
 
-        <table class="table">
+        <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th>Image</th>

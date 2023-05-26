@@ -82,6 +82,7 @@
                             <ul class="dropdown-menu">
                                 <li><button class="dropdown-item" type="button">Action</button></li>
                                 <li><a class="dropdown-item" href="/cart">Keranjang</a></li>
+                                <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                                 @if (auth()->user()->is_admin == 'admin')
                                     <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
                                 @endif

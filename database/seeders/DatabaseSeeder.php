@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Product;
@@ -41,17 +43,37 @@ class DatabaseSeeder extends Seeder
 
         $faker = Faker::create();
 
-        $categories = ['figures', 'clothings', 'props', 'accessories', 'books'];
+        $categories = [1,2,3,4,5,6];
 
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             Product::create([
                 'nama_product' => $faker->name,
                 'description' => $faker->text,
                 'price' => $faker->randomNumber(8),
                 'jumlah_product' => $faker->randomNumber(2),
-                'kategori_product'=>$faker->randomElement($categories)
+                'kategori_id'=>$faker->randomElement($categories)
             ]);
         }
+
+        
+        Kategori::create([
+            'kategori'=>'Tidak Memiliki Kategori',
+        ]);
+        Kategori::create([
+            'kategori'=>'Figurine',
+        ]);
+        Kategori::create([
+            'kategori'=>'Clothing',
+        ]); 
+        Kategori::create([
+            'kategori'=>'Props',
+        ]);
+        Kategori::create([
+            'kategori'=>'Accessories',
+        ]);
+        Kategori::create([
+            'kategori'=>'Books',
+        ]);
 
     }
 }

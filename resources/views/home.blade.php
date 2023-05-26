@@ -106,7 +106,7 @@
                             <p class='card-text'>
                                 <strong>Price : </strong> IDR {{ number_format($product->price) }} <br>
                                 <strong>Stock :</strong> {{ $product->jumlah_product }} <br>
-                                <strong>Category : </strong> {{ $product->kategori_product }} <br>
+                                <strong>Category : </strong> {{ $product->kategori->kategori }} <br>
                                 <hr>
                                 <strong>Description : </strong> <br>
                                 {{ $product->description }}

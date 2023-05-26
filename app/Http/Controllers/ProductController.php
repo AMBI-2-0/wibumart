@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,15 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard/productAdmin', [
-            'title' => 'Products',
-            'products' => Product::all()
+        $selectedCategoryId = $request->input('kategori');
+
+        $products = Product::filterByCategory($selectedCategoryId)->get();
+        $kategoris = Kategori::all();
+
+        return view('dashboard/productAdmin', compact('products', 'kategoris', 'selectedCategoryId'),[
+            'title'=> 'Products'
         ]);
     }
 
@@ -25,6 +30,7 @@ class ProductController extends Controller
     {
         return view('forms/productCreate', [
             'title' => 'Create ',
+            'kategoris' => Kategori::all()
         ]);
     }
 
@@ -33,11 +39,12 @@ class ProductController extends Controller
      */
     public function store()
     {
-        $valid = request() -> validate([
+        $valid = request()->validate([
             'nama_product' => 'required',
-            'description'=> 'required',
-            'price'=> 'required',
-            'jumlah_product'=> 'required'
+            'description' => 'required',
+            'price' => 'required',
+            'jumlah_product' => 'required',
+            'kategori_id' => 'required'
         ]);
 
         Product::create($valid);
@@ -45,7 +52,6 @@ class ProductController extends Controller
         session()->flash('success', 'Produk berhasil dibuat!');
 
         return redirect('/dashboard/products');
-
     }
 
     /**
@@ -64,9 +70,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('forms.productEdit',[
+        return view('forms.productEdit', [
             'title' => 'Edit',
-            'product' => $product
+            'product' => $product,
+            'kategoris' => Kategori::all()
         ]);
     }
 
@@ -75,14 +82,15 @@ class ProductController extends Controller
      */
     public function update(Product $product)
     {
-        $valid = request() -> validate([
+        $valid = request()->validate([
             'nama_product' => 'required',
-            'description'=> 'required',
-            'price'=> 'required',
-            'jumlah_product'=> 'required'
+            'description' => 'required',
+            'price' => 'required',
+            'jumlah_product' => 'required',
+            'kategori_id' =>'required'
         ]);
 
-        Product::where('id',$product->id)->update($valid);
+        Product::where('id', $product->id)->update($valid);
 
         return redirect('/dashboard/products')->with('update', 'Produk berhasil diupdate!');
     }
@@ -96,5 +104,14 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect('/dashboard/products')->with('delete', 'Produk berhasil dihapus!');
+    }
+
+    public function filter($id)
+    {
+
+        return view('dashboard/filterProductAdmin', [
+            'title' => 'Products',
+            'kategori' => Kategori::find($id)
+        ]);
     }
 }

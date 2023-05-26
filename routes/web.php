@@ -55,7 +55,7 @@ Route::post('cart/{id}', [OrderController::class, 'order'])->middleware('auth');
 
 //route login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/login', [LoginController::class, 'authentication'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authentication'])->middleware('guest')->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 //route register

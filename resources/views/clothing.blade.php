@@ -198,19 +198,28 @@
     <h2 class="text-white mt-5">All Clothing</h2>
     <div class="container-fluid">
         <div class="row">
-            <?php
-            for ($i = 1; $i <= 24; $i++) {
-                echo '<div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-4">';
-                echo '<div class="card bg-dark text-white border-0">';
-                echo '<img src="/images/caro-item-1.png" class="card-img-top" alt="...">';
-                echo '<div class="card-body">';
-                echo "<h5 class='card-title'>Card $i</h5>";
-                echo "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content. $i</p>";
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-            }
-            ?>
+            @foreach ($clothings as $clothing)
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+            <div class="card bg-dark text-white border-0">
+            <img src="/images/caro-item-1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class='card-title'>{{ $clothing->nama_product }}</h5>
+            <p class='card-text'>
+                <strong>Price : </strong> IDR {{ number_format($clothing->price) }} <br>
+                <strong>Stock :</strong> {{ $clothing->jumlah_product }} <br>
+                <strong>Category : </strong> {{ $clothing->kategori->kategori }} <br>
+                <hr>
+                <strong>Description : </strong> <br>
+                {{ $clothing->description }}
+            </p>
+            <a href="{{ url('order') }}/{{ $clothing->id }}" class="btn btn-light"><i
+                class="fa fa-shopping-cart"></i> Buy</a>
+            </div>
+            </div>
+            </div>
+            @endforeach
+
+            {{ $clothings->links() }}
         </div>
     </div>
 @endsection

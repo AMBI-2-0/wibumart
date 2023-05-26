@@ -17,7 +17,7 @@ class FigureController extends Controller
             $figures = [];
         }
         return view('figure_product', [
-            'title' => 'Figure Product',
+            'title' => 'Figurine Page',
             'figures' => $figures
         ]);
     }

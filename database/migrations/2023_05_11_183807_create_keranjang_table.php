@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keranjang', function (Blueprint $table) {
+        Schema::create('keranjangs', function (Blueprint $table) {
             $table->id()->unique(); 
             $table->unsignedBigInteger('users_id'); // kolom foreign key dari tabel users
             $table->date('tanggal_pembelian');
+            $table->string('status');
             $table->integer('total_harga');
+            $table->timestamps();
         });
 
         //Menambahkan constraint pada foreign key
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('keranjang');
+        Schema::dropIfExists('keranjangs');
     }
 };

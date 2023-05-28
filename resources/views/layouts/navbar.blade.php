@@ -56,24 +56,24 @@
         <div class="col">
             <ul class="nav justify-content-center text-white">
 
-                
-                    <li class="nav-item {{ $title == 'Figurine Page' ? 'active' : '' }}">
-                        <a class="nav-link text-white" href="/figure_product">Figurine</a>
-                    </li>
-                    <li class="nav-item {{ $title == 'Clothing Page' ? 'active' : '' }}">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item {{ $title == 'Props Page' ? 'active' : '' }}">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item {{ $title == 'Accessories Page' ? 'active' : '' }}">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item {{ $title == 'Book Page' ? 'active' : '' }}">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-            
-                    @auth
+
+                <li class="nav-item {{ $title == 'Figurine Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/figure_product">Figurine</a>
+                </li>
+                <li class="nav-item {{ $title == 'Clothing Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/clothing">Clothing</a>
+                </li>
+                <li class="nav-item {{ $title == 'Props Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/props">Props</a>
+                </li>
+                <li class="nav-item {{ $title == 'Accessories Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/accessories">Accessories</a>
+                </li>
+                <li class="nav-item {{ $title == 'Book Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/book">Books</a>
+                </li>
+
+                @auth
                     <div class="col-5">
                         <div class="dropdown">
                             <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -81,7 +81,18 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><button class="dropdown-item" type="button">Action</button></li>
-                                <li><a class="dropdown-item" href="/cart">Keranjang</a></li>
+                                <li>
+                                    <?php
+                                    $keranjang_utama = \App\Models\Keranjang::where('users_id', auth()->user()->id)
+                                        ->where('status', 0)
+                                        ->first();
+                                    $notif = 0;
+                                    if ($keranjang_utama !== null) {
+                                        $notif = \App\Models\KeranjangDetail::where('keranjangs_id', $keranjang_utama->id)->count();
+                                    }
+                                    ?>
+                                    <a class="dropdown-item" href="/cart">Cart ({{ $notif }})</a>
+                                </li>
                                 <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                                 @if (auth()->user()->is_admin == 'admin')
                                     <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>

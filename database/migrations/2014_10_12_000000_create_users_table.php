@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->text('alamat');
-            $table->text('gambar_profile')->nullable()->unique();
+            $table->text('gambar_profile')->nullable();
             $table->integer('duit')->nullable()->default(0);
             $table->string('is_admin')->default('user');
             $table->date('updated_at');

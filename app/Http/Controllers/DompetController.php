@@ -32,9 +32,4 @@ class DompetController extends Controller
             return redirect('dompet-digital')->with('kurangSaldo', 'Penarikan Berhasil!');
         }
     }
-
-    public function tarik(Request $request)
-    {
-        $jumlah = $request->input('jumlah');
-    }
 }

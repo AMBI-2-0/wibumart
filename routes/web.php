@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\DompetController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\OrderController;
 
@@ -44,6 +45,9 @@ Route::get('/clothing', [ClothingController::class, 'index']);
 Route::get('/props', [PropsController::class, 'index']);
 Route::get('/accessories', [AccessoriesController::class, 'index']);
 Route::get('/book', [BookController::class, 'index']);
+
+Route::get('/dompet-digital', [DompetController::class, 'index']);
+Route::post('/dompet-digital/saldo', [DompetController::class, 'saldo']);
 
 //filter product admin dashboard product
 Route::get('dashboard/products/filter', [ProductController::class,'filter'])->middleware('admin');    

@@ -68,7 +68,11 @@
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->nama_product }}</td>
-                        <td>{{ $product->image }}</td>
+                        <td>@php
+                            $gambar = $product->image;
+                        @endphp
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="" class="img-fluid rounded-circle"
+                            style="width: 50px; height: 50px;"></td>
                         <td>
                             {{ strlen($product->description) > 30 ? substr($product->description, 0, 30). '...' : $product->description }}
                         </td>
@@ -81,7 +85,7 @@
                                     class="btn btn-warning btn-sm">Edit</a>
                             </div>
                             <div class="row ms-1 mt-2 me-1">
-                                <a href="/dashboard/products/{{ $product->id }}" class="btn btn-primary btn-sm">Detail</a>
+                                <a href="/dashboard/products/detail/{{ $product->id }}" class="btn btn-primary btn-sm">Detail</a>
                             </div>
                             <div class="row ms-1 mt-2 me-1">
                                 <form action="/dashboard/products/{{ $product->id }}" method="POST"

@@ -52,7 +52,7 @@
                             @php
                                 $gambar = $user->gambar_profile;
                             @endphp
-                            <img src="{{ $gambar }}" alt="" class="img-fluid rounded-circle"
+                            <img src="{{ asset('storage/'.$user->gambar_profile) }}" alt="" class="img-fluid rounded-circle"
                                 style="width: 50px; height: 50px;">
                         </td>
                         <td>Rp. {{ $user->duit }}</td>

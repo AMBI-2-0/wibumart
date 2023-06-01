@@ -44,7 +44,7 @@ class UserController extends Controller
         ]);
 
         if ($request->file('gambar_profile')) {
-            $validatedData['gambar_profile'] = $request->file('gambar_profile')->store('public/images');
+            $validatedData['gambar_profile'] = $request->file('gambar_profile')->store('user-images');
         }
 
         $validatedData['password'] = Hash::make($validatedData['password']);
@@ -90,9 +90,9 @@ class UserController extends Controller
             'is_admin' => 'required',
             'alamat' => 'max:500'
         ]);
-
+        $i=0;
         if ($request->file('gambar_profile')) {
-            $validatedData['gambar_profile'] = $request->file('gambar_profile')->store('public/images');
+            $validatedData['gambar_profile'] = $request->file('gambar_profile')->store('user-images');
         }
 
         $user->update($validatedData);

@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         $selectedCategoryId = $request->input('kategori');
@@ -18,89 +15,70 @@ class ProductController extends Controller
         $products = Product::filterByCategory($selectedCategoryId)->get();
         $kategoris = Kategori::all();
 
-        return view('dashboard/productAdmin', compact('products', 'kategoris', 'selectedCategoryId'),[
-            'title'=> 'Products'
-        ]);
+        return view('dashboard.productAdmin', compact('products', 'kategoris', 'selectedCategoryId'))->with('title', 'Products');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('forms/productCreate', [
-            'title' => 'Create ',
-            'kategoris' => Kategori::all()
-        ]);
+        $kategoris = Kategori::all();
+
+        return view('forms.productCreate', compact('kategoris'))->with('title', 'Create Product');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store()
+    public function store(Request $request)
     {
-        $valid = request()->validate([
-            'nama_product' => 'required',
+        $validatedData = $request->validate([
+            'nama_product' => 'required|min:3|max:255',
+            'image' =>'required|image|file|max:1048',
             'description' => 'required',
             'price' => 'required',
-            'jumlah_product' => 'required',
+            'jumlah_product' => 'required|max:255',
             'kategori_id' => 'required'
         ]);
 
-        Product::create($valid);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('public/images');
+        }
+
+        Product::create($validatedData);
 
         session()->flash('success', 'Produk berhasil dibuat!');
 
         return redirect('/dashboard/products');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
+    public function edit($id)
     {
-        return view('dashboard.productDetail', [
-            'title' => "Product Detail",
-            'product' => Product::find($id)
-        ]);
+        $product = Product::findOrFail($id);
+        $kategoris = Kategori::all();
+
+        return view('forms.productEdit', compact('product', 'kategoris'))->with('title', 'Edit Product');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
+    public function update(Request $request, Product $product)
     {
-        return view('forms.productEdit', [
-            'title' => 'Edit',
-            'product' => $product,
-            'kategoris' => Kategori::all()
-        ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Product $product)
-    {
-        $valid = request()->validate([
+        $validatedData = $request->validate([
             'nama_product' => 'required',
+            'image' =>'image|file|max:1048',
             'description' => 'required',
             'price' => 'required',
             'jumlah_product' => 'required',
             'kategori_id' =>'required'
         ]);
 
-        Product::where('id', $product->id)->update($valid);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('public/images');
+        } else {
+            $validatedData['image'] = $product->image;
+        }
+
+        $product->update($validatedData);
 
         return redirect('/dashboard/products')->with('update', 'Produk berhasil diupdate!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
-        $product = Product::find($product->id);
         $product->delete();
 
         return redirect('/dashboard/products')->with('delete', 'Produk berhasil dihapus!');
@@ -108,10 +86,16 @@ class ProductController extends Controller
 
     public function filter($id)
     {
+        $kategori = Kategori::find($id);
 
-        return view('dashboard/filterProductAdmin', [
-            'title' => 'Products',
-            'kategori' => Kategori::find($id)
-        ]);
+        return view('dashboard.filterProductAdmin', compact('kategori'))->with('title', 'Products');
     }
+
+    public function show($id)
+{
+    $product = Product::findOrFail($id);
+
+    return view('dashboard.productDetail', compact('product'))->with('title', 'Product Detail');
+}
+
 }

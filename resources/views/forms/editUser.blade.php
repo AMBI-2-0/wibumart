@@ -2,14 +2,11 @@
 
 @section('content')
 
-
-
-
     <body class="body">
         <div class="d-flex justify-content-center align-items-center mt-5 pt-5 ">
 
             <form class="border border-5 border-dark p-5" style="border-radius:15px"
-                action="/dashboard/users/edit/{{ $user->id }}" method="post">
+                action="/dashboard/users/edit/{{ $user->id }}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @csrf
 

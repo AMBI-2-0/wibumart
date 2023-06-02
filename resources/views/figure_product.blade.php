@@ -138,7 +138,8 @@
     <div class="container-fluid">
         <div class="row">
 
-            @foreach ($figures as $figure)
+            @if ($figures !== null)
+                @foreach ($figures as $figure)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                     <div class="card bg-dark text-white border-0">
                         <img src="/images/caro-item-1.png" class="card-img-top" alt="...">
@@ -158,26 +159,34 @@
                     </div>
                 </div>
             @endforeach
+            @endif
+
+            
 
             <div class="pagination-container mt-4">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item {{ $figures->previousPageUrl() ? '' : 'disabled' }} me-5">
-                            <a class="page-link" href="{{ $figures->previousPageUrl() }}" aria-label="Previous">
+                        
+                        @if ($figures !== null)
+                            <li class="page-item {{ $figures->previousPageUrl() ? '' : 'disabled' }} me-5">
+                            <a class="page-link" href="{{ $figures->previousPageUrl() ?? '#' }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
             
                         <li class="page-item {{ $figures->nextPageUrl() ? '' : 'disabled' }} ms-5">
-                            <a class="page-link" href="{{ $figures->nextPageUrl() }}" aria-label="Next">
+                            <a class="page-link" href="{{ $figures->nextPageUrl() ?? '#' }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </li>
+                        @endif
+                        
                     </ul>
                 </nav>
             </div>
+            
             
 
         </div>

@@ -56,103 +56,22 @@
         <div class="col">
             <ul class="nav justify-content-center text-white">
 
-                @if ($title == 'Figure Product')
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/figure_product">Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-                @elseif ($title == 'Clothing Page')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-                @elseif ($title == 'Props Page')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-                @elseif ($title == 'Accessories Page')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-                @elseif ($title == 'Books Page')
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/figure_product"> Figurine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/clothing">Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/props">Props</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/accessories">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/book">Books</a>
-                    </li>
-                @endif
+
+                <li class="nav-item {{ $title == 'Figurine Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/figure_product">Figurine</a>
+                </li>
+                <li class="nav-item {{ $title == 'Clothing Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/clothing">Clothing</a>
+                </li>
+                <li class="nav-item {{ $title == 'Props Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/props">Props</a>
+                </li>
+                <li class="nav-item {{ $title == 'Accessories Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/accessories">Accessories</a>
+                </li>
+                <li class="nav-item {{ $title == 'Book Page' ? 'active' : '' }}">
+                    <a class="nav-link text-white" href="/book">Books</a>
+                </li>
 
                 @auth
                     <div class="col-5">
@@ -161,8 +80,20 @@
                                 {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Action</button></li>
-                                <li><a class="dropdown-item" href="/cart">Keranjang</a></li>
+                                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR {{ number_format(auth()->user()->duit) }}</a></li>
+                                <li>
+                                    <?php
+                                    $keranjang_utama = \App\Models\Keranjang::where('users_id', auth()->user()->id)
+                                        ->where('status', 0)
+                                        ->first();
+                                    $notif = 0;
+                                    if ($keranjang_utama !== null) {
+                                        $notif = \App\Models\KeranjangDetail::where('keranjangs_id', $keranjang_utama->id)->count();
+                                    }
+                                    ?>
+                                    <a class="dropdown-item" href="/cart">Cart ({{ $notif }})</a>
+                                </li>
+                                <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                                 @if (auth()->user()->is_admin == 'admin')
                                     <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
                                 @endif

@@ -73,6 +73,53 @@ class OrderController extends Controller
         $keranjangs->update();
 
         Alert::success('Success', 'Success Add to Cart!');
-        return redirect('home');
+        return redirect('cart');
     }
+
+    public function check_out()
+    {
+        $keranjangs = Keranjang::where('users_id', Auth::user()->id)->where('status', 0)->first();
+        $keranjang_details = []; // Inisialisasi variabel $keranjang_details dengan array kosong
+
+        if (!empty($keranjangs)) {
+            $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs->id)->get();
+        }
+
+        return view('cart', compact('keranjangs', 'keranjang_details'), ['title' => 'Cart Page']);
+    }
+
+
+    public function delete($id){
+        $keranjang_details = KeranjangDetail::where('id', $id)->first();
+
+        $keranjangs = Keranjang::where('id', $keranjang_details->keranjangs_id)->first();
+        $keranjangs->total_harga = $keranjangs->total_harga - $keranjang_details->jumlah_harga;
+        $keranjangs->update();
+
+        $keranjang_details->delete();
+
+        Alert::error('Delete', 'Order Has Been Deleted!');
+        return redirect('cart');
+    }
+
+    public function confirm(){
+        $keranjangs = Keranjang::where('users_id', Auth::user()->id)->where('status', 0)->first();
+        $keranjangs_id = $keranjangs->id;
+        $keranjangs->status = 1;
+        $keranjangs->update();
+    
+        $duit = Auth::user()->duit - $keranjangs->total_harga;
+        Auth::user()->update(['duit' => $duit]);
+    
+        $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs_id)->get();
+        foreach ($keranjang_details as $keranjang_detail){
+            $product = Product::where('id', $keranjang_detail->product_id)->first();
+            $product->jumlah_product = $product->jumlah_product - $keranjang_detail->jumlah_pesanan;
+            $product->update();
+        }
+    
+        Alert::success('Success', 'Order Checkout Successfully!');
+        return redirect('cart');
+    }
+    
 }

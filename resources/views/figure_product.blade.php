@@ -142,7 +142,7 @@
                 @foreach ($figures as $figure)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                     <div class="card bg-dark text-white border-0">
-                        <img src="/images/caro-item-1.png" class="card-img-top" alt="...">
+                        <img src="{{ $figure->image==null ? "/images/caro-item-1.png" : asset('storage/'.$figure->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class='card-title'>{{ $figure->nama_product }}</h5>
                             <p class='card-text'>

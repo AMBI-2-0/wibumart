@@ -13,7 +13,7 @@ class BookController extends Controller
         if ($kategori) {
             $books = $kategori->product()->paginate(12);
         } else {
-            $books = [];
+            $books = null;
         }
         return view('book', [
             'title' => 'Book Page',

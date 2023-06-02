@@ -13,7 +13,7 @@ class ClothingController extends Controller
         if ($kategori) {
             $clothings = $kategori->product()->paginate(12);
         } else {
-            $clothings = [];
+            $clothings = null;
         }
         return view('clothing', [
             'title' => 'Clothing Page',

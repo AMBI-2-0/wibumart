@@ -38,6 +38,11 @@
                                             <td> {{ number_format($product->jumlah_product) }}</td>
                                         </tr>
                                         <tr>
+                                            <td>Category</td>
+                                            <td> :</td>
+                                            <td> {{ $product->kategori->kategori }}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Description</td>
                                             <td> :</td>
                                             <td> {{ $product->description }}</td>

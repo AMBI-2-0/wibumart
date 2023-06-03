@@ -57,15 +57,15 @@
                 subtotal += price;
             });
 
-            var subtotalElement = document.getElementById('subtotal');
-            var total = subtotalElement.dataset.total;
+            var quantityInputs = document.querySelectorAll('input[name="quantity"]');
+            quantityInputs.forEach(function(inputElement) {
+                var price = parseFloat(inputElement.getAttribute('data-price'));
+                var quantity = parseInt(inputElement.value);
+                subtotal += price * quantity;
+            });
 
-            if (subtotals.length > 0) {
-                subtotal += parseFloat(total.replace(/,/g, ''));
-                subtotalElement.innerHTML = 'Rp ' + formatPrice(subtotal);
-            } else {
-                subtotalElement.innerHTML = 'Rp 0';
-            }
+            var subtotalElement = document.getElementById('subtotal');
+            subtotalElement.innerHTML = 'Rp ' + formatPrice(subtotal);
         }
     </script>
 
@@ -84,7 +84,8 @@
                             <div class="card-body p-4">
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
-                                        <img src="/images/bailu.jpeg" class="img-fluid rounded-3" alt="Bailu">
+                                        <img src="{{ $keranjang_detail->product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $keranjang_detail->product->image) }}"
+                                            class="img-fluid rounded-3" alt="Bailu">
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-3">
                                         <p class="lead fw-normal mb-2" style="color:black;">

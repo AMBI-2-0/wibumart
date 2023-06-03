@@ -34,13 +34,6 @@ return [
     */
 
     'connections' => [
-        'oracle' =>[
-            'driver' => 'oracle',
-            'tns' => env('DB_TNS'),
-            'wallet_alias' => env('DB_WALLET_ALIAS', 'adbwibumart_high'),
-            'wallet_location' => env('DB_WALLET_LOCATION', base_path('wallet')),
-            ],
-
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),

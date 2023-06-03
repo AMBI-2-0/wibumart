@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('keranjang_details', function (Blueprint $table) {
-            $table->id()->unique(); 
+            $table->id(); 
             $table->unsignedBigInteger('product_id'); // kolom foreign key dari tabel product
             $table->unsignedBigInteger('keranjangs_id'); // kolom foreign key dari tabel keranjang
             $table->integer('jumlah_pesanan');

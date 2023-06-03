@@ -94,7 +94,8 @@
             @foreach ($products as $product)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                     <div class="card bg-dark text-white border-0">
-                        <img src="{{ $product->image==null ? "/images/caro-item-1.png" : asset('storage/'.$product->image) }}" class="card-img-top" alt="...">
+                        <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
+                            class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class='card-title'>{{ $product->nama_product }}</h5>
                             <p class='card-text'>
@@ -122,7 +123,7 @@
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
-        
+
                     <li class="page-item {{ $products->nextPageUrl() ? '' : 'disabled' }} ms-5">
                         <a class="page-link" href="{{ $products->nextPageUrl() }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>

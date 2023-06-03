@@ -13,7 +13,7 @@ class PropsController extends Controller
         if ($kategori) {
             $propss = $kategori->product()->paginate(12);
         } else {
-            $propss = [];
+            $propss = null;
         }
         return view('props', [
             'title' => 'Props Page',

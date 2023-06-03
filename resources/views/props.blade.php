@@ -65,7 +65,7 @@
                     <a href="#" class="btn btn-primary hero-button">Shop Now</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/figure-hero.png') }}" alt="Figure Hero Image" class="hero-image">
+                    <img src="{{ asset('images/prop-hero.png') }}" alt="prop Hero Image" class="hero-image">
                 </div>
             </div>
         </div>
@@ -137,42 +137,51 @@
     <h2 class="text-white mt-5">Props</h2>
     <div class="container-fluid">
         <div class="row">
-            @foreach ($propss as $props)
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-            <div class="card bg-dark text-white border-0">
-            <img src="{{ $props->image==null ? "/images/caro-item-1.png" : asset('storage/'.$props->image) }}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class='card-title'>{{ $props->nama_product }}</h5>
-            <p class='card-text'>
-                <strong>Price : </strong> IDR {{ number_format($props->price) }} <br>
-                <strong>Stock :</strong> {{ $props->jumlah_product }} <br>
-                <strong>Category : </strong> {{ $props->kategori->kategori }} <br>
-                <hr>
-                <strong>Description : </strong> <br>
-                {{ $props->description }}
-            </p>
-            <a href="{{ url('order') }}/{{ $props->id }}" class="btn btn-light"><i
-                class="fa fa-shopping-cart"></i> Buy</a>
-            </div>
-            </div>
-            </div>
+            @if ($propss !== null)
+                @foreach ($propss as $props)
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card bg-dark text-white border-0">
+                        <img src="{{ $props->image==null ? "/images/caro-item-1.png" : asset('storage/'.$props->image) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class='card-title'>{{ $props->nama_product }}</h5>
+                            <p class='card-text'>
+                                <strong>Price : </strong> IDR {{ number_format($props->price) }} <br>
+                                <strong>Stock :</strong> {{ $props->jumlah_product }} <br>
+                                <strong>Category : </strong> {{ $props->kategori->kategori }} <br>
+                                <hr>
+                                <strong>Description : </strong> <br>
+                                {{ $props->description }}
+                            </p>
+                            <a href="{{ url('order') }}/{{ $props->id }}" class="btn btn-light"><i
+                                    class="fa fa-shopping-cart"></i> Buy</a>
+                        </div>
+                    </div>
+                </div>
             @endforeach
+            @endif
+
+            
+
             <div class="pagination-container mt-4">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item {{ $propss->previousPageUrl() ? '' : 'disabled' }} me-5">
-                            <a class="page-link" href="{{ $propss->previousPageUrl() }}" aria-label="Previous">
+                        
+                        @if ($propss !== null)
+                            <li class="page-item {{ $props->previousPageUrl() ? '' : 'disabled' }} me-5">
+                            <a class="page-link" href="{{ $propss->previousPageUrl() ?? '#' }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
             
                         <li class="page-item {{ $propss->nextPageUrl() ? '' : 'disabled' }} ms-5">
-                            <a class="page-link" href="{{ $propss->nextPageUrl() }}" aria-label="Next">
+                            <a class="page-link" href="{{ $propss->nextPageUrl() ?? '#' }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </li>
+                        @endif
+                        
                     </ul>
                 </nav>
             </div>

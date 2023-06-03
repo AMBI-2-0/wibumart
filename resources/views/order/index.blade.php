@@ -19,8 +19,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="/images/caro-item-1.png" class="rounded mx-auto d-block" width="100%"
-                                    alt="">
+                                <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
+                                    class="rounded mx-auto d-block" width="100%" alt="">
                             </div>
                             <div class="col-md-6">
                                 <h2>{{ $product->nama_product }}</h2>

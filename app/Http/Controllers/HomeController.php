@@ -10,6 +10,6 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::paginate(12);
-        return view('home', compact('products') ,['title' => 'Home Page']);
+        return view('home', compact('products') ,['title' => 'Home Page', 'products' => $products]);
     }
 }

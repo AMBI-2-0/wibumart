@@ -36,6 +36,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required|min:3|max:255',
+            'email' => 'required|email|unique:users',
             'username' => 'required|min:4|max:255',
             'password' => 'required|min:8|max:255',
             'gambar_profile' => 'image|file|max:1048',
@@ -85,6 +86,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'min:3|max:255',
+            'email' => 'required|email|unique:users',
             'username' => 'min:4|max:255',
             'gambar_profile' => 'image|file|max:1048',
             'is_admin' => 'required',

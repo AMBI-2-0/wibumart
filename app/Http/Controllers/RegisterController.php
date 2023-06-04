@@ -17,13 +17,15 @@ class RegisterController extends Controller
     {
         $validatedData = $register->validate([
             'nama' => 'required|min:3| max:255',
-            'username' => 'required|min:4|max:255',
+            'email' => 'required|email|unique:users',
+            'username' => 'required|min:4|max:255|unique:users',
             'password' => 'required|min:8|max:255',
             'alamat' => 'required|max:500'
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
+        
         User::create($validatedData);
 
         session()->flash('success', 'Register berhasil');

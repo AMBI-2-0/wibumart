@@ -17,6 +17,7 @@ use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DompetController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\OrderController;
 
@@ -69,6 +70,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 //route register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+//route reset password
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
 //route payment

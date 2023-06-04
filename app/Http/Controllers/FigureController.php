@@ -14,7 +14,7 @@ class FigureController extends Controller
         if ($kategori) {
             $figures = $kategori->product()->paginate(12);
         } else {
-            $figures = [];
+            $figures = null;
         }
         return view('figure_product', [
             'title' => 'Figurine Page',

@@ -107,16 +107,19 @@ class OrderController extends Controller
         $keranjangs_id = $keranjangs->id;
         $keranjangs->status = 1;
         $keranjangs->update();
-
+    
+        $duit = Auth::user()->duit - $keranjangs->total_harga;
+        Auth::user()->update(['duit' => $duit]);
+    
         $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs_id)->get();
         foreach ($keranjang_details as $keranjang_detail){
             $product = Product::where('id', $keranjang_detail->product_id)->first();
             $product->jumlah_product = $product->jumlah_product - $keranjang_detail->jumlah_pesanan;
             $product->update();
         }
-
-
+    
         Alert::success('Success', 'Order Checkout Successfully!');
         return redirect('cart');
     }
+    
 }

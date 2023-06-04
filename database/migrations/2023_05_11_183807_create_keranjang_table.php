@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('keranjangs', function (Blueprint $table) {
-            $table->id()->unique(); 
+            $table->id(); 
             $table->unsignedBigInteger('users_id'); // kolom foreign key dari tabel users
             $table->date('tanggal_pembelian');
             $table->string('status');

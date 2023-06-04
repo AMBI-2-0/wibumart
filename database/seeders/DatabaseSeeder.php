@@ -25,35 +25,23 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            'nama' => 'admin',
-            'username' => 'admin',
-            'password' => bcrypt('adminadmin'),
-            'alamat' => 'ini alamat admin',
+            'nama' => 'user',
+            'email' => 'iilbarcelona9@gmail.com',
+            'username' => 'user',
+            'password' => bcrypt('useruser'),
+            'alamat' => 'ini alamat user',
             'duit' => '9999999'
         ]);
 
         User::create([
-            'nama' => 'admin2',
-            'username' => 'admin2',
+            'nama' => 'admin',
+            'username' => 'admin',
+            'email' => '2010817110008@mhs.ulm.ac.id',
             'password' => bcrypt('adminadmin'),
             'alamat' => 'ini alamat admin',
             'duit' => '9999999',
             'is_admin' => 'admin'
         ]);
-
-        $faker = Faker::create();
-
-        $categories = [1,2,3,4,5,6];
-
-        for ($i = 0; $i < 100; $i++) {
-            Product::create([
-                'nama_product' => $faker->name,
-                'description' => $faker->text,
-                'price' => $faker->randomNumber(8),
-                'jumlah_product' => $faker->randomNumber(2),
-                'kategori_id'=>$faker->randomElement($categories)
-            ]);
-        }
 
         
         Kategori::create([

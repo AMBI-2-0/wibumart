@@ -80,7 +80,7 @@
                                 {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Action</button></li>
+                                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR {{ number_format(auth()->user()->duit) }}</a></li>
                                 <li>
                                     <?php
                                     $keranjang_utama = \App\Models\Keranjang::where('users_id', auth()->user()->id)

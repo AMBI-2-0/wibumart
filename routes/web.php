@@ -16,6 +16,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PropsController;
 use App\Http\Controllers\AccessoriesController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\DompetController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\OrderController;
 
@@ -45,6 +47,9 @@ Route::get('/props', [PropsController::class, 'index']);
 Route::get('/accessories', [AccessoriesController::class, 'index']);
 Route::get('/book', [BookController::class, 'index']);
 
+Route::get('/dompet-digital', [DompetController::class, 'index']);
+Route::post('/dompet-digital/saldo', [DompetController::class, 'saldo']);
+
 //filter product admin dashboard product
 Route::get('dashboard/products/filter', [ProductController::class,'filter'])->middleware('admin');    
 
@@ -65,6 +70,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 //route register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+//route reset password
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
 //route payment

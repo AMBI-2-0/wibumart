@@ -13,7 +13,7 @@ class AccessoriesController extends Controller
         if ($kategori) {
             $accessoriess = $kategori->product()->paginate(12);
         } else {
-            $accessoriess = [];
+            $accessoriess = null;
         }
         return view('accessories', [
             'title' => 'Accessories Page',

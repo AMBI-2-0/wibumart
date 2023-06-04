@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="d-flex col border-end border-5 justify-content-center align-items-center">
-            <img src="images\raidenlogin.png" alt="" style="height:13rem;width:13rem">
+            <img src="images\raidenlogin.png" alt="" style="height:15rem;width:15rem">
         </div>
 
         <div class="col">
@@ -40,8 +40,9 @@
                             <input type="password" name="password" class="form-control" id="password"
                                 placeholder="Password">
                         </div>
+                        <a href="{{ route('forget.password.get') }}">Forgot Password? <br></a>
 
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary mt-3">Login</button>
 
                         <div class="mt-3">Tidak punya akun? <a href="/register">Register disini!</a></div>
                 </form>

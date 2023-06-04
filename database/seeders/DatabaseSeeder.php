@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'nama' => 'user',
+            'email' => 'iilbarcelona9@gmail.com',
             'username' => 'user',
             'password' => bcrypt('useruser'),
             'alamat' => 'ini alamat user',
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'nama' => 'admin',
             'username' => 'admin',
+            'email' => '2010817110008@mhs.ulm.ac.id',
             'password' => bcrypt('adminadmin'),
             'alamat' => 'ini alamat admin',
             'duit' => '9999999',

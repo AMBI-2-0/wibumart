@@ -89,6 +89,8 @@ Route::get('/dashboard/users/create', [UserController::class, 'create'])->middle
 Route::post('/dashboard/users/create',[UserController::class,'store'])->middleware('admin');//submit create
 Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->middleware('admin');//delete user
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
+Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->middleware('admin')->name('users.destroy'); //delete on detail page
+
 
 
 //route history
@@ -102,4 +104,5 @@ Route::get('/dashboard/products/create', [ProductController::class, 'create'])->
 Route::post('/dashboard/products/create',[ProductController::class,'store'])->middleware('admin');//submit create
 Route::delete('/dashboard/products/{product:id}',[ProductController::class, 'destroy'])->middleware('admin');//delete product
 Route::get('/dashboard/products/detail/{product:id}',[ProductController::class,'show'])->middleware('admin'); // single product
+Route::delete('/dashboard/products/{product}', [ProductController::class, 'destroy'])->middleware('admin')->name('products.destroy'); //delete on detail page
 

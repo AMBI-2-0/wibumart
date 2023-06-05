@@ -22,6 +22,17 @@
                 </div>
 
                 <div class="row mb-3">
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="email" name="email" id="email"
+                        class="form-control @error('email') is-invalid @enderror" placeholder="example@email.com"value="{{ old('nama', $user->email) }}"/>
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="row mb-3">
                     <label for="username" class="form-label">Username :</label>
                     <input type="text" name="username" id="username"
                         class="form-control @error('username') is-invalid @enderror"

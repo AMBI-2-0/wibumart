@@ -20,9 +20,9 @@ Secara keseluruhan, WibuMart adalah website e-commerce yang unik dan menarik yan
 
 ## Memulai
 
-1. Clone repository ini
-2. Buka terminal dan navigasikan ke direktori `wibumart`
-3. Jalankan perintah `composer install` untuk menginstal dependensi
-4. Salin file `.env.example` dan tempelkan di direktori yang sama, lalu ubah namanya menjadi `.env`
-5. Buka file `.env` dan isi nilai `APP_KEY` dengan: `base64:SFjj5u8RQDS/7nCNoF6eLrOiehJmpp7HhjiY7aPQFzA=`
-6. Jalankan aplikasi dengan mengeksekusi perintah di terminal `php artisan serve`
+1. Clone repository ini.
+2. Buka terminal dan navigasikan ke direktori `wibumart`.
+3. Jalankan perintah `composer install` untuk menginstal dependensi.
+4. Salin file `.env.example` dan tempelkan di direktori yang sama, lalu ubah namanya menjadi `.env`.
+5. Jalankan `php artisan key:generate` di console.
+6. Lalu jalankan aplikasi dengan mengeksekusi perintah di terminal `php artisan serve`.

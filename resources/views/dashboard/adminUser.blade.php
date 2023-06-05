@@ -33,6 +33,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Username</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Gambar Profile</th>
@@ -46,6 +47,7 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->nama }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->alamat }}</td>
                         <td>

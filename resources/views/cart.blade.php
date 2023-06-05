@@ -92,6 +92,10 @@
                                             {{ $keranjang_detail->product->nama_product }}</p>
                                         <p style="color:black;"><span class="text-muted ">Order Quantity :
                                             </span>{{ $keranjang_detail->jumlah_pesanan }}
+                                        <p style="color:black;"><span class="text-muted ">Stock :
+                                            </span>{{ $keranjang_detail->product->jumlah_product }}
+                                        <p style="color:black;"><span class="text-muted ">Category :
+                                            </span>{{ $keranjang_detail->product->kategori->kategori }}
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
 

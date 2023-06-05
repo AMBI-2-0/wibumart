@@ -10,7 +10,7 @@
                     Deskripsi: {{ $product->description }}<br>
                     Harga: {{ $product->price }}<br>
                     Jumlah: {{ $product->jumlah_product }}<br>
-                    Kategori: {{ $product->kategori_produk }}<br>
+                    Kategori: {{ $product->kategori->kategori }}<br>
                 </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start m-4">

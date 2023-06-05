@@ -13,23 +13,15 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function index()
+    public function viewcart()
     {
         $keranjangs = Keranjang::where('users_id', Auth::user()->id)->where('status', 0)->first();
-        $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs->id)->get();
+        $keranjang_details = []; // Inisialisasi variabel $keranjang_details dengan array kosong
+
+        if (!empty($keranjangs)) {
+            $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs->id)->get();
+        }
 
         return view('cart', compact('keranjangs', 'keranjang_details'), ['title' => 'Cart Page']);
-
-
-
-
-
-        // $cart_items = [
-        //     ['product_name' => 'Bailu 1', 'release_date' => 'Release January 2023', 'quantity' => 1 , 'price' => 500000],
-        //     ['product_name' => 'Bailu 2', 'release_date' => 'Release January 2023', 'quantity' => 1 , 'price' => 500000],
-        //     ['product_name' => 'Bailu 3', 'release_date' => 'Release January 2023', 'quantity' => 1 , 'price' => 500000],
-        // ];
-
-        // return view('cart', ['title' => 'Cart Page', 'cart_items' => $cart_items]);
     }
 }

@@ -56,7 +56,7 @@ Route::get('dashboard/products/filter', [ProductController::class,'filter'])->mi
 Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
 
 //route cart
-Route::get('/cart', [OrderController::class, 'check_out'])->middleware('auth');
+Route::get('/cart', [CartController::class, 'viewcart'])->middleware('auth');
 Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');
 Route::delete('/cart/{id}', [OrderController::class, 'delete'])->middleware('auth');
 Route::get('/confirm-checkout', [OrderController::class, 'confirm'])->middleware('auth');

@@ -58,9 +58,12 @@ Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
 
 //route cart
 Route::get('/cart', [CartController::class, 'viewcart'])->middleware('auth');
-Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');
-Route::delete('/cart/{id}', [OrderController::class, 'delete'])->middleware('auth');
+Route::post('/add-to-cart', [CartController::class, 'addProduct'])->middleware('auth');
+Route::post('delete-cart-item', [CartController::class, 'deleteProduct'])->middleware('auth');
 Route::get('/confirm-checkout', [OrderController::class, 'confirm'])->middleware('auth');
+
+// Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');
+// Route::delete('/cart/{id}', [OrderController::class, 'delete'])->middleware('auth');
 
 //route login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

@@ -31,6 +31,11 @@ class Product extends Model
         return $this->hasMany('App\Models\KeranjangDetail','product_id', 'id');
     }
 
-
+    //products many-to-one ke keranjang_details
+    //banyak product bisa disimpan oleh satu keranjang_details
+    public function carts()
+    {
+        return $this->hasMany('App\Models\Cart','product_id', 'id');
+    }
 
 }

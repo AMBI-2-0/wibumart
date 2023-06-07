@@ -13,12 +13,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    //fungsi untuk menampilkan Detail Product
     public function index($id){
         $product = Product::where('id', $id)->first();
 
         return view('order.index', compact('product'), ['title' => 'Detail Product']);
     }
 
+    //fungsi untuk Add To Cart Button
     public function order(Request $request, $id){
         $product = Product::where('id', $id)->first();
         $tanggal_pembelian = Carbon::now();

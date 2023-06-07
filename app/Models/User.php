@@ -20,4 +20,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Keranjang','users_id', 'id');
     }
+
+    //User one-to-many ke carts
+    //satu user bisa memiliki banyak carts
+    public function carts()
+    {
+        return $this->hasMany('App\Models\Cart','users_id', 'id');
+    }
 }

@@ -37,6 +37,7 @@
                     <h4>Ordered Date : {{ $keranjangs->tanggal_pembelian }}</h4>
                 </div> --}}
                 <div class="container">
+                    @php $total = 0; @endphp
                     @foreach ($cartItems as $item)
                         <div class="card rounded-3 mb-4">
                             <div class="card-body p-4">
@@ -57,7 +58,7 @@
                                         <input type="hidden" class="product_id" value="{{ $item->product_id }}">
 
                                         {{-- button minus --}}
-                                        <button class="btn btn-link px-2 decrement-btn">
+                                        <button class="btn btn-link px-2 changeQuantity decrement-btn">
                                             <i class="fas fa-minus"></i>
                                         </button>
 
@@ -66,7 +67,7 @@
                                             data-price="{{ $item->products->price }}" />
 
                                         {{-- button plus --}}
-                                        <button class="btn btn-link px-2 increment-btn">
+                                        <button class="btn btn-link px-2 changeQuantity increment-btn">
                                             <i class="fas fa-plus"></i>
                                         </button>
 
@@ -80,18 +81,11 @@
                                     {{-- button remove --}}
                                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                         <button class="btn btn-danger btn-sm delete-cart-item"><i class="fas fa-trash fa-lg"></i></button>
-
-
-                                        {{-- <form action="{{ url('cart') }}/{{ $item->id }}" method="POST">
-                                            @csrf
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger btn-sm"><i
-                                                    class="fas fa-trash fa-lg"></i></button>
-                                        </form> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @php $total += $item->products->price * $item->prod_qty ; @endphp
                     @endforeach
                 </div>
         </div>
@@ -102,16 +96,15 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="container">
                     <div class="col-lg-5 col-xl-4" style="color: #FFFFFF;">
-                        {{-- <div class="d-flex justify-content-between" style="font-weight: 500;">
+                        <div class="d-flex justify-content-between" style="font-weight: 500;">
                             <p class="mb-2"><strong>Total Products Price</strong></p>
-                            <p class="mb-2" id="subtotal" data-total="{{ $keranjangs->total_harga }}"><strong>Rp
-                                    {{ number_format($keranjangs->total_harga) }}</strong></p>
-                        </div> --}}
+                            <p class="mb-2"><strong>Rp {{ number_format($total) }}</strong></p>
+                        </div>
 
                         <hr class="my-4">
 
-                        <a href="/confirm-checkout" class="btn btn-primary btn-block btn-lg">
-                            <div class="d-flex justify-content-between">
+                        <a href="/checkout" class="btn btn-primary btn-block btn-lg">
+                            <div class="d-flex justify-content-between checkout">
                                 <span><i class="fa fa-shopping-cart"></i> Checkout</span>
                             </div>
                         </a>

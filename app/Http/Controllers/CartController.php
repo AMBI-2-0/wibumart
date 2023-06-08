@@ -27,7 +27,7 @@ class CartController extends Controller
             {
                 if(Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists())
                 {
-                    return response()->json(['status' => $prod_check->nama_product." Already Added to Cart"]);
+                    return response()->json(['status' => $prod_check->nama_product." Already Added to Cart", 'redirect' => '/cart']);
                 }
                 else
                 {
@@ -36,7 +36,7 @@ class CartController extends Controller
                     $cartItem->user_id = Auth::id();
                     $cartItem->prod_qty = $product_qty;
                     $cartItem->save();
-                    return response()->json(['status' => $prod_check->nama_product." Added to Cart"]);
+                    return response()->json(['status' => $prod_check->nama_product." Added to Cart", 'redirect' => '/cart']);
                 }
             }
         }
@@ -61,6 +61,23 @@ class CartController extends Controller
         // }
 
         // return view('cart', compact('keranjangs', 'keranjang_details'), ['title' => 'Cart Page']);
+    }
+
+    public function updateCart(Request $request)
+    {
+        $product_id = $request->input('product_id');
+        $product_qty = $request->input('prod_qty');
+
+        if(Auth::check())
+        {
+            if(Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists())
+            {
+                $cart = Cart::where('product_id', $product_id)->where('user_id', Auth::id())->first();
+                $cart->prod_qty = $product_qty;
+                $cart->update();
+                return response()->json(['status' => "Quantity Updated"]);
+            }
+        }
     }
 
     public function deleteProduct(Request $request)

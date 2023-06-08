@@ -60,6 +60,7 @@ Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
 Route::get('/cart', [CartController::class, 'viewcart'])->middleware('auth');
 Route::post('/add-to-cart', [CartController::class, 'addProduct'])->middleware('auth');
 Route::post('delete-cart-item', [CartController::class, 'deleteProduct'])->middleware('auth');
+Route::post('update-cart', [CartController::class, 'updateCart'])->middleware('auth');
 Route::get('/confirm-checkout', [OrderController::class, 'confirm'])->middleware('auth');
 
 // Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');

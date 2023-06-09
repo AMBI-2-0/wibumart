@@ -52,6 +52,14 @@
                                             <td for="Quantity">Order Quantity</td>
                                             <td>:</td>
                                             <td>
+                                                {{-- <form action="{{ url('cart') }}/{{ $product->id }}" method="POST">
+                                                    @csrf
+                                                    <input type="number" name="order_quantity"
+                                                        class="form-control form-control-sm" required>
+                                                    <button type="submit" class="btn btn-dark mt-2"><i
+                                                            class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                                </form> --}}
+
                                                 <div class="input-group text-center" style="width:130px;">
                                                     <span class="input-group-text decrement-btn">-</span>
                                                     <input type="text" name="quantity"
@@ -79,3 +87,52 @@
 @endsection
 
 <script src="/assets/jquery.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        $('.addToCartBtn').click(function(e) {
+            e.preventDefault();
+
+            var product_id = $(this).closest('.product_data').find('.product_id').val();
+            var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+
+            $.ajax({
+                method: "POST",
+                url: "/cart",
+                data: {
+                    'product_id': product_id,
+                    'product_qty': product_qty
+                },
+                success: function(response) {
+
+                }
+            });
+
+        });
+
+        $('.increment-btn').click(function(e) {
+            e.preventDefault();
+
+            var inc_value = $('.qty-input').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 10) {
+                value++;
+                $('.qty-input').val(value);
+            }
+        });
+
+        $('.decrement-btn').click(function(e) {
+            e.preventDefault();
+
+            var dec_value = $('.qty-input').val();
+            var value = parseInt(dec_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value > 1) {
+                value--;
+                $('.qty-input').val(value);
+            }
+        });
+    });
+</script>

@@ -1,6 +1,10 @@
 <html>
 
 <head>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     @if ($title)
         <title>{{ $title }}</title>
     @else
@@ -155,6 +159,20 @@
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
         integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    {{-- <script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/custom.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}" type="text/javascript"></script> --}}
+
+
 
     {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
     @include('sweetalert::alert')

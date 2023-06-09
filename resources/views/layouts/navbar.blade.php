@@ -80,18 +80,10 @@
                                 {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR {{ number_format(auth()->user()->duit) }}</a></li>
+                                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR
+                                        {{ number_format(auth()->user()->duit) }}</a></li>
                                 <li>
-                                    <?php
-                                    $keranjang_utama = \App\Models\Keranjang::where('users_id', auth()->user()->id)
-                                        ->where('status', 0)
-                                        ->first();
-                                    $notif = 0;
-                                    if ($keranjang_utama !== null) {
-                                        $notif = \App\Models\KeranjangDetail::where('keranjangs_id', $keranjang_utama->id)->count();
-                                    }
-                                    ?>
-                                    <a class="dropdown-item" href="/cart">Cart ({{ $notif }})</a>
+                                    <a class="dropdown-item" href="/cart">Cart</a>
                                 </li>
                                 <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                                 @if (auth()->user()->is_admin == 'admin')

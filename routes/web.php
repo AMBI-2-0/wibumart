@@ -54,13 +54,17 @@ Route::post('/dompet-digital/saldo', [DompetController::class, 'saldo']);
 Route::get('dashboard/products/filter', [ProductController::class,'filter'])->middleware('admin');    
 
 //route detail product [home]
-Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
+Route::get('order/{id}', [CartController::class, 'detailProduct'])->middleware('auth');
 
 //route cart
-Route::get('/cart', [OrderController::class, 'check_out'])->middleware('auth');
-Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');
-Route::delete('/cart/{id}', [OrderController::class, 'delete'])->middleware('auth');
+Route::get('/cart', [CartController::class, 'viewcart'])->middleware('auth');
+Route::post('/add-to-cart', [CartController::class, 'addProduct'])->middleware('auth');
+Route::post('delete-cart-item', [CartController::class, 'deleteProduct'])->middleware('auth');
+Route::post('update-cart', [CartController::class, 'updateCart'])->middleware('auth');
 Route::get('/confirm-checkout', [OrderController::class, 'confirm'])->middleware('auth');
+
+// Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');
+// Route::delete('/cart/{id}', [OrderController::class, 'delete'])->middleware('auth');
 
 //route login
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');

@@ -54,7 +54,7 @@ Route::post('/dompet-digital/saldo', [DompetController::class, 'saldo']);
 Route::get('dashboard/products/filter', [ProductController::class,'filter'])->middleware('admin');    
 
 //route detail product [home]
-Route::get('order/{id}', [OrderController::class, 'index'])->middleware('auth');
+Route::get('order/{id}', [CartController::class, 'detailProduct'])->middleware('auth');
 
 //route cart
 Route::get('/cart', [CartController::class, 'viewcart'])->middleware('auth');

@@ -12,6 +12,30 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    public function viewcart()
+    {
+        $cartItems = Cart::where('user_id', Auth::id())->get();
+        return view('cart', compact('cartItems'), ['title' => 'Cart Page']);
+
+
+        // $keranjangs = Keranjang::where('users_id', Auth::user()->id)->where('status', 0)->first();
+        // $keranjang_details = []; // Inisialisasi variabel $keranjang_details dengan array kosong
+
+        // if (!empty($keranjangs)) {
+        //     $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs->id)->get();
+        // }
+
+        // return view('cart', compact('keranjangs', 'keranjang_details'), ['title' => 'Cart Page']);
+    }
+
+    //fungsi untuk menampilkan Detail Product
+    public function detailProduct($id){
+        $product = Product::where('id', $id)->first();
+
+        return view('order.index', compact('product'), ['title' => 'Detail Product']);
+    }
+
     public function addProduct(Request $request){
         $product_id = $request->input('product_id');
         $product_qty = $request->input('product_qty');
@@ -43,22 +67,6 @@ class CartController extends Controller
             return response()->json(['status' => "Login to Continue"]);
         }
 
-    }
-
-    public function viewcart()
-    {
-        $cartItems = Cart::where('user_id', Auth::id())->get();
-        return view('cart', compact('cartItems'), ['title' => 'Cart Page']);
-
-
-        // $keranjangs = Keranjang::where('users_id', Auth::user()->id)->where('status', 0)->first();
-        // $keranjang_details = []; // Inisialisasi variabel $keranjang_details dengan array kosong
-
-        // if (!empty($keranjangs)) {
-        //     $keranjang_details = KeranjangDetail::where('keranjangs_id', $keranjangs->id)->get();
-        // }
-
-        // return view('cart', compact('keranjangs', 'keranjang_details'), ['title' => 'Cart Page']);
     }
 
     public function updateCart(Request $request)

@@ -52,14 +52,6 @@
                                             <td for="Quantity">Order Quantity</td>
                                             <td>:</td>
                                             <td>
-                                                {{-- <form action="{{ url('cart') }}/{{ $product->id }}" method="POST">
-                                                    @csrf
-                                                    <input type="number" name="order_quantity"
-                                                        class="form-control form-control-sm" required>
-                                                    <button type="submit" class="btn btn-dark mt-2"><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</button>
-                                                </form> --}}
-
                                                 <div class="input-group text-center" style="width:130px;">
                                                     <span class="input-group-text decrement-btn">-</span>
                                                     <input type="text" name="quantity"

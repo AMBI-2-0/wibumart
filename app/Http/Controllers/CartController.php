@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Cart;
-use App\Models\Keranjang;
-use App\Models\KeranjangDetail;
 use Illuminate\Support\Facades\Auth;
 use Alert;
 use Illuminate\Console\View\Components\Alert as ComponentsAlert;

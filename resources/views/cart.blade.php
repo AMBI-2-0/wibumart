@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-3">
                                         <p class="lead fw-normal mb-2" style="color:black;">
-                                            {{ $item->products->nama_products }}</p>
+                                            {{ $item->products->nama_product }}</p>
                                         <p style="color:black;"><span class="text-muted ">Stock :
                                             </span>{{ $item->products->jumlah_product }}
                                         <p style="color:black;"><span class="text-muted ">Category :
@@ -103,7 +103,7 @@
 
                         <hr class="my-4">
 
-                        <a href="/checkout" class="btn btn-primary btn-block btn-lg">
+                        <a href="/payment" class="btn btn-primary btn-block btn-lg">
                             <div class="d-flex justify-content-between checkout">
                                 <span><i class="fa fa-shopping-cart"></i> Checkout</span>
                             </div>

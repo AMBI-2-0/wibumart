@@ -1,28 +1,16 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Models\History;
 use Illuminate\Http\Request;
+use App\Models\Cart;
 
 class HistoryController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $status = $request->input('status');
-        $query = History::query();
+        $cartItems = Cart::where('user_id', auth()->id())->with('products')->get();
 
-        if ($status) {
-            $query->where('status', $status);
-        }
-
-        $History = $query->orderBy('ordered_at', 'desc')->get();
-        $title = 'Purchase History'; 
-
-        return view('history', compact('History', 'title'));
+        return view('history', ['title' => 'Purchase History', 'cartItems' => $cartItems]);
     }
-
-    
-
 }
 

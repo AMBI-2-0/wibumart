@@ -1,51 +1,58 @@
 @extends('layouts.master')
 
 @section('content')
-<br>
 <div class="container">
-        <h1 class="text-white">Thankyou for your purchase</h1>
+    <div class="row justify-content-center">
+        <div class="py-5 text-center">
+            <div class="jumbotron text-center">
+                <h1 class="display-4 text-white">Thank you for your purchase</h1>
+            </div>
+        </div>
+    </div>
+
+    @if ($user)
         <table class="table table-hover">
-          @foreach ($payment_items as $item)
-              
-                <tbody class="text-white">
-                        <tr>
-                          <td>Date</td>
-                          <td>{{ $item['date'] }}</td>
-                        </tr>
-                        <tr>
-                          <td>Customer</td>
-                          <td>{{ $item['name'] }}</td>
-                        </tr>
-                        <tr>
-                          <td>Payment Method</td>
-                          <td>{{ $item['method'] }}</td>
-                        </tr>
-                      </tbody>
+            <tbody class="text-white">
+                <tr>
+                    <td>Date</td>
+                    <td>{{ $cartItems[0]->created_at->format('d/m/y') }}</td>
+                </tr>
+                <tr>
+                    <td>Customer</td>
+                    <td>{{ $user->nama }}</td>
+                </tr>
+                <tr>
+                    <td>Customer address</td>
+                    <td>{{ $user->alamat }}</td>
+                </tr>
+                <tr>
+                    <td>Payment Method</td>
+                    <td>Dompet Wibumart Sejahterah: Rp.{{ number_format($dompetDigital, 0, ',', '.') }}</td>
+                </tr>
+            </tbody>
         </table>
-        <br>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th class="text-white"><h2>Order Line</h2></th>
-            </tr>
-          </thead>
-          <tbody class="text-white">
-            <tr>
-                <td><img src="images\bailu.jpg" alt="" style="height:10rem;width:10rem">
-                  <span class="text-muted ">Keterangan Produk: </span>{{ $item['product'] }}/{{ $item['release_date'] }}/{{ $item['quantity'] }}
-              <td>{{ $item['price'] }}</td>
-            </tr>
-            <tr>
-                <td><img src="images\bailu.jpg" alt="" style="height:10rem;width:10rem">
-                  <span class="text-muted ">Keterangan Produk: </span>{{ $item['product'] }}/{{ $item['release_date'] }}/{{ $item['quantity'] }}
-                  <td>{{ $item['price'] }}</td>      
-            </tr>
-          </tbody>
-        </table>
-        <hr>
-        <div class="text-left">
-                <button type="button" class="btn btn-primary">Continue Shopping</button>
-              </div>
-      </div>  
-  @endforeach
-@endsection
+    @endif
+
+    <h1 class="card-title text-white">Order Item</h1>
+
+    @foreach($cartItems as $item)
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ $item->products->image }}" alt="bailu" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text"><span class="fw-bold">Product Name:</span> {{ $item->products->nama_product }}</p>
+                        <p class="card-text"><span class="fw-bold">Product Description:</span> {{ $item->products->description }}</p>
+                        <p class="card-text"><span class="fw-bold">Price:</span> {{ $item->products->price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    <div class="text-center">
+        <a href="{{ route('history') }}" class="btn btn-primary">View Purchase History</a>
+    </div>
+</div>

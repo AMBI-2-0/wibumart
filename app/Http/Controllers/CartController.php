@@ -15,7 +15,7 @@ class CartController extends Controller
 
     public function viewcart()
     {
-        $cartItems = Cart::where('user_id', Auth::id())->get();
+        $cartItems = Cart::where('user_id', Auth::id())->where('status', 'belum checkout')->get();
         return view('cart', compact('cartItems'), ['title' => 'Cart Page']);
 
 
@@ -57,6 +57,7 @@ class CartController extends Controller
                     $cartItem->product_id = $product_id;
                     $cartItem->user_id = Auth::id();
                     $cartItem->prod_qty = $product_qty;
+                    $cartItem->tanggal_pembelian = $tanggal_pembelian;
                     $cartItem->save();
                     return response()->json(['status' => $prod_check->nama_product." Added to Cart", 'redirect' => '/cart']);
                 }

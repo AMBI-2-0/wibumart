@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id'); // kolom foreign key dari tabel users
             $table->unsignedBigInteger('product_id'); // kolom foreign key dari tabel products
             $table->integer('prod_qty');
-            // $table->date('tanggal_pembelian');
-            // $table->string('status');
+            $table->date('tanggal_pembelian');
+            $table->string('status')->default('belum checkout');
             // $table->integer('total_harga');
             $table->timestamps();
         });

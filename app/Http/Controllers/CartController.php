@@ -32,8 +32,9 @@ class CartController extends Controller
     //fungsi untuk menampilkan Detail Product
     public function detailProduct($id){
         $product = Product::where('id', $id)->first();
+        $cartItems = Cart::where('user_id', Auth::id())->where('status', 'belum checkout')->get();
 
-        return view('order.index', compact('product'), ['title' => 'Detail Product']);
+        return view('order.index', compact('product', 'cartItems'), ['title' => 'Detail Product']);
     }
 
     public function addProduct(Request $request){

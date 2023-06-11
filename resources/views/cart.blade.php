@@ -93,19 +93,23 @@
                 <p>Cart is empty.</p>
                 @php $total = 0; @endphp
             @endif
-            <div class="col-lg-5 col-xl-4" style="color: #FFFFFF;">
-                <div class="d-flex justify-content-between" style="font-weight: 500;">
-                    <p class="mb-2"><strong>Total Products Price</strong></p>
-                    <p class="mb-2"><strong>Rp {{ number_format($total) }}</strong></p>
-                </div>
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-5 col-xl-4 mb-4" style="color: #FFFFFF;">
+                        <div class="d-flex justify-content-between" style="font-weight: 500;">
+                            <p class="mb-2"><strong>Total Products Price</strong></p>
+                            <p class="mb-2"><strong>Rp {{ number_format($total) }}</strong></p>
+                        </div>
 
-                <hr class="my-4">
+                        <hr class="my-4">
 
-                        <a href="/payment" class="btn btn-primary btn-block btn-lg">
-                            <div class="d-flex justify-content-between checkout">
-                                <span><i class="fa fa-shopping-cart"></i> Checkout</span>
+                                <a href="/payment" class="btn btn-primary btn-block btn-lg">
+                                    <div class="d-flex justify-content-between checkout">
+                                        <span><i class="fa fa-shopping-cart"></i> Checkout</span>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>

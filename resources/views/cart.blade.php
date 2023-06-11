@@ -32,10 +32,10 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3>My Cart</h3>
             </div>
-            @if (!empty($cartItems))
-                {{-- <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4>Ordered Date : {{ $keranjangs->tanggal_pembelian }}</h4>
-                </div> --}}
+            @if (count($cartItems) > 0)
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>Ordered Date : {{ $cartItems[0]->tanggal_pembelian }}</h4>
+                </div>
                 <div class="container">
                     @php $total = 0; @endphp
                     @foreach ($cartItems as $item)
@@ -80,7 +80,8 @@
 
                                     {{-- button remove --}}
                                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                        <button class="btn btn-danger btn-sm delete-cart-item"><i class="fas fa-trash fa-lg"></i></button>
+                                        <button class="btn btn-danger btn-sm delete-cart-item"><i
+                                                class="fas fa-trash fa-lg"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -88,20 +89,17 @@
                         @php $total += $item->products->price * $item->prod_qty ; @endphp
                     @endforeach
                 </div>
-        </div>
-    </div>
+            @else
+                <p>Cart is empty.</p>
+                @php $total = 0; @endphp
+            @endif
+            <div class="col-lg-5 col-xl-4" style="color: #FFFFFF;">
+                <div class="d-flex justify-content-between" style="font-weight: 500;">
+                    <p class="mb-2"><strong>Total Products Price</strong></p>
+                    <p class="mb-2"><strong>Rp {{ number_format($total) }}</strong></p>
+                </div>
 
-    <div class="row d-flex justify-content-center">
-        <div class="col-10">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="container">
-                    <div class="col-lg-5 col-xl-4" style="color: #FFFFFF;">
-                        <div class="d-flex justify-content-between" style="font-weight: 500;">
-                            <p class="mb-2"><strong>Total Products Price</strong></p>
-                            <p class="mb-2"><strong>Rp {{ number_format($total) }}</strong></p>
-                        </div>
-
-                        <hr class="my-4">
+                <hr class="my-4">
 
                         <a href="/payment" class="btn btn-primary btn-block btn-lg">
                             <div class="d-flex justify-content-between checkout">
@@ -111,7 +109,6 @@
                     </div>
                 </div>
             </div>
-            @endif
         </div>
     </div>
 @endsection

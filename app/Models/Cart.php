@@ -28,6 +28,8 @@ class Cart extends Model
         'users_id',
         'product_id',
         'prod_qty',
-
+        'tanggal_pembelian',
+        'status',
+        
     ];
 }

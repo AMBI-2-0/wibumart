@@ -83,7 +83,7 @@
                                 <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR
                                         {{ number_format(auth()->user()->duit) }}</a></li>
                                 <li>
-                                    <a class="dropdown-item" href="/cart">Cart</a>
+                                    <a class="dropdown-item" href="/cart">Cart ({{ count($cartItems) }})</a>
                                 </li>
                                 <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                                 @if (auth()->user()->is_admin == 'admin')

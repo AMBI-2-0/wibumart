@@ -61,9 +61,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="hero-title">Elevate Your Style with Exquisite Accessories!</h1>
-                    <p class="hero-description">Immerse yourself in the enchanting world of anime and showcase your love for your favorite characters with our captivating collection of anime accessories. </p>
-                    <a href="#" class="btn btn-primary hero-button">Shop Now</a>
+                    <h1 class="hero-title">Tingkatkan Gaya Anda dengan Aksesori Cantik!</h1>
+                    <p class="hero-description">Benamkan diri Anda dalam dunia anime yang mempesona dan tunjukkan kecintaan Anda pada karakter favorit Anda dengan koleksi aksesori anime kami yang menawan. </p>
+                    <a href="#" class="btn btn-primary hero-button">Toko</a>
                 </div>
                 <div class="col-md-6">
                     <img src="{{ asset('images/accessories-hero.png') }}" alt="accessories Hero Image" class="hero-image">
@@ -135,7 +135,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">Our Accessories</h2>
+    <h2 class="text-white mt-5">Aksesoris</h2>
     <div class="container-fluid">
         <div class="row">
             @if ($accessoriess !== null)
@@ -146,15 +146,15 @@
                         <div class="card-body">
                             <h5 class='card-title'>{{ $accessories->nama_product }}</h5>
                             <p class='card-text'>
-                                <strong>Price : </strong> IDR {{ number_format($accessories->price) }} <br>
-                                <strong>Stock :</strong> {{ $accessories->jumlah_product }} <br>
-                                <strong>Category : </strong> {{ $accessories->kategori->kategori }} <br>
+                                <strong>Harga : </strong> IDR {{ number_format($accessories->price) }} <br>
+                                <strong>Stok :</strong> {{ $accessories->jumlah_product }} <br>
+                                <strong>Kategori : </strong> {{ $accessories->kategori->kategori }} <br>
                                 <hr>
-                                <strong>Description : </strong> <br>
+                                <strong>Deskripsi : </strong> <br>
                                 {{ $accessories->description }}
                             </p>
                             <a href="{{ url('order') }}/{{ $accessories->id }}" class="btn btn-light"><i
-                                    class="fa fa-shopping-cart"></i> Buy</a>
+                                    class="fa fa-shopping-cart"></i> Beli</a>
                         </div>
                     </div>
                 </div>
@@ -171,14 +171,14 @@
                             <li class="page-item {{ $accessoriess->previousPageUrl() ? '' : 'disabled' }} me-5">
                             <a class="page-link" href="{{ $accessoriess->previousPageUrl() ?? '#' }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Sebelumnya</span>
                             </a>
                         </li>
             
                         <li class="page-item {{ $accessoriess->nextPageUrl() ? '' : 'disabled' }} ms-5">
                             <a class="page-link" href="{{ $accessoriess->nextPageUrl() ?? '#' }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Selanjutnya</span>
                             </a>
                         </li>
                         @endif

@@ -58,19 +58,19 @@
 
 
                 <li class="nav-item {{ $title == 'Figurine Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/figure_product">Figurine</a>
+                    <a class="nav-link text-white" href="/figure_product">Figura</a>
                 </li>
                 <li class="nav-item {{ $title == 'Clothing Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/clothing">Clothing</a>
+                    <a class="nav-link text-white" href="/clothing">Pakaian</a>
                 </li>
                 <li class="nav-item {{ $title == 'Props Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/props">Props</a>
+                    <a class="nav-link text-white" href="/props">Atribut</a>
                 </li>
                 <li class="nav-item {{ $title == 'Accessories Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/accessories">Accessories</a>
+                    <a class="nav-link text-white" href="/accessories">Aksesoris</a>
                 </li>
                 <li class="nav-item {{ $title == 'Book Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/book">Books</a>
+                    <a class="nav-link text-white" href="/book">Buku</a>
                 </li>
 
                 @auth
@@ -82,22 +82,22 @@
                 <br><span class="badge bg-info">Rp.{{ number_format(auth()->user()->duit) }}</span>
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR
+                <li><a class="dropdown-item" href="/dompet-digital">Saldo : IDR
                         {{ number_format(auth()->user()->duit) }}</a></li>
                 <li>
-                    <a class="dropdown-item" href="/cart">Cart ({{ count($cartItems) }})</a>
+                    <a class="dropdown-item" href="/cart">Keranjang ({{ count($cartItems) }})</a>
                 </li>
                 <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                 <li><a class="dropdown-item" href="/dashboard/users/edit">Edit User</a></li>
                 @if (auth()->user()->is_admin == 'admin')
-                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="/dashboard">Dasbor</a></li>
                 @endif
 
                 <hr class="dropdown-divider">
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit" class="dropdown-item"><i
-                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+                            class="fa-solid fa-right-from-bracket me-2"></i>Keluar</button>
                 </form>
             </ul>
         </div>

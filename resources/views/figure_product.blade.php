@@ -59,10 +59,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="hero-title">Find Your Perfect Figure</h1>
-                    <p class="hero-description">Explore our collection of high-quality figures to add to your collection
-                        today.</p>
-                    <a href="#" class="btn btn-primary hero-button">Shop Now</a>
+                    <h1 class="hero-title">Temukan Figura yang sempurna</h1>
+                    <p class="hero-description">Jelajahi koleksi figur berkualitas tinggi kami untuk ditambahkan ke koleksi Anda
+                        Hari ini.</p>
+                    <a href="#" class="btn btn-primary hero-button">Toko</a>
                 </div>
                 <div class="col-md-6">
                     <img src="{{ asset('images/figure-hero.png') }}" alt="Figure Hero Image" class="hero-image">
@@ -134,7 +134,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">Figures</h2>
+    <h2 class="text-white mt-5">Figura</h2>
     <div class="container-fluid">
         <div class="row">
 
@@ -146,15 +146,15 @@
                         <div class="card-body">
                             <h5 class='card-title'>{{ $figure->nama_product }}</h5>
                             <p class='card-text'>
-                                <strong>Price : </strong> IDR {{ number_format($figure->price) }} <br>
-                                <strong>Stock :</strong> {{ $figure->jumlah_product }} <br>
-                                <strong>Category : </strong> {{ $figure->kategori->kategori }} <br>
+                                <strong>Harga : </strong> IDR {{ number_format($figure->price) }} <br>
+                                <strong>Stok :</strong> {{ $figure->jumlah_product }} <br>
+                                <strong>Kategori : </strong> {{ $figure->kategori->kategori }} <br>
                                 <hr>
-                                <strong>Description : </strong> <br>
+                                <strong>Deskripsi : </strong> <br>
                                 {{ $figure->description }}
                             </p>
                             <a href="{{ url('order') }}/{{ $figure->id }}" class="btn btn-light"><i
-                                    class="fa fa-shopping-cart"></i> Buy</a>
+                                    class="fa fa-shopping-cart"></i> Beli</a>
                         </div>
                     </div>
                 </div>
@@ -171,14 +171,14 @@
                             <li class="page-item {{ $figures->previousPageUrl() ? '' : 'disabled' }} me-5">
                             <a class="page-link" href="{{ $figures->previousPageUrl() ?? '#' }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Sebelumnya</span>
                             </a>
                         </li>
             
                         <li class="page-item {{ $figures->nextPageUrl() ? '' : 'disabled' }} ms-5">
                             <a class="page-link" href="{{ $figures->nextPageUrl() ?? '#' }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Selanjutnya</span>
                             </a>
                         </li>
                         @endif

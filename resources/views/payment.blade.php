@@ -18,11 +18,11 @@
                     <td>{{ $cartItems[0]->created_at->format('d/m/y') }}</td>
                 </tr>
                 <tr>
-                    <td>NamaCustomer</td>
+                    <td>Nama Kustomer</td>
                     <td>{{ $user->nama }}</td>
                 </tr>
                 <tr>
-                    <td>Alamat Customer</td>
+                    <td>Alamat Kustomer</td>
                     <td>{{ $user->alamat }}</td>
                 </tr>
                 <tr>

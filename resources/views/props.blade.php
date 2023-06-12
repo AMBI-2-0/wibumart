@@ -167,7 +167,7 @@
                     <ul class="pagination justify-content-center">
                         
                         @if ($propss !== null)
-                            <li class="page-item {{ $props->previousPageUrl() ? '' : 'disabled' }} me-5">
+                            <li class="page-item {{ $propss->previousPageUrl() ? '' : 'disabled' }} me-5">
                             <a class="page-link" href="{{ $propss->previousPageUrl() ?? '#' }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>

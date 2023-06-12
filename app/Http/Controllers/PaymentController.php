@@ -22,4 +22,9 @@ class PaymentController extends Controller
 
         return view('payment', ['title' => 'Payment Page', 'cartItems' => $cartItems, 'totalPrice' => $totalPrice, 'dompetDigital' => $dompetDigital, 'user' => $user]);
     }
+
+    public function checkout()
+    {
+        
+    }
 }

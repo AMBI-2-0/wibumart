@@ -83,7 +83,8 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 
 //route payment
-Route::get('/payment', [PaymentController::class, 'index']);
+Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
+Route::get('/payment/checkout', [PaymentController::class, 'checkout'])->middleware('auth');
 
 //route crud users
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('admin'); //list users

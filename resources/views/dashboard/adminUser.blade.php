@@ -62,7 +62,7 @@
                         <td>
                             <a href="/dashboard/users/edit/{{ $user->id }}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="/dashboard/users/{{ $user->id }}" class="btn btn-primary btn-sm">Detail</a>
-                            <form action="/dashboard/users/{{ $user->id }}}" method="POST" style="display: inline;">
+                            <form action="/dashboard/users/{{ $user->id }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm"

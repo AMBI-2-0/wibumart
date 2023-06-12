@@ -74,37 +74,41 @@
                 </li>
 
                 @auth
-                    <div class="col-5">
-                        <div class="dropdown">
-                            <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR
-                                        {{ number_format(auth()->user()->duit) }}</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="/cart">Cart ({{ count($cartItems) }})</a>
-                                </li>
-                                <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
-                                @if (auth()->user()->is_admin == 'admin')
-                                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                                @endif
+    <div class="col-5">
+        <div class="dropdown">
+            <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                <img src="{{ auth()->user()->profile_image }}" alt="User" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
+                <br><span class="badge bg-info">Rp.{{ number_format(auth()->user()->duit) }}</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/dompet-digital">Duit : IDR
+                        {{ number_format(auth()->user()->duit) }}</a></li>
+                <li>
+                    <a class="dropdown-item" href="/cart">Cart ({{ count($cartItems) }})</a>
+                </li>
+                <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
+                <li><a class="dropdown-item" href="/dashboard/users/edit">Edit User</a></li>
+                @if (auth()->user()->is_admin == 'admin')
+                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                @endif
 
-                                <hr class="dropdown-divider">
-                                <form action="/logout" method="post">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item"><i
-                                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
-                                </form>
-                            </ul>
-                        </div>
-                    </div>
-                @else
-                    <div class="col-5">
-                        <a href="/login" class="btn login-btn btn-outline-light mt-2">
-                            <i class="bi bi-box-arrow-in-right pe-2"></i>Login</a>
-                    </div>
-                @endauth
+                <hr class="dropdown-divider">
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" class="dropdown-item"><i
+                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+@else
+    <div class="col-5">
+        <a href="/login" class="btn login-btn btn-outline-light mt-2">
+            <i class="bi bi-box-arrow-in-right pe-2"></i>Login</a>
+    </div>
+@endauth
+
 
             </ul>
         </div>

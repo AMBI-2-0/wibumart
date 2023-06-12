@@ -30,11 +30,11 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-10">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3>My Cart</h3>
+                <h3>Keranjang {{ auth()->user()->nama }}</h3>
             </div>
             @if (count($cartItems) > 0)
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4>Ordered Date : {{ $cartItems[0]->tanggal_pembelian }}</h4>
+                    <h4>Tanggal Pemesanan : {{ $cartItems[0]->tanggal_pembelian }}</h4>
                 </div>
                 <div class="container">
                     @php $total = 0; @endphp
@@ -49,9 +49,9 @@
                                     <div class="col-md-3 col-lg-3 col-xl-3">
                                         <p class="lead fw-normal mb-2" style="color:black;">
                                             {{ $item->products->nama_product }}</p>
-                                        <p style="color:black;"><span class="text-muted ">Stock :
+                                        <p style="color:black;"><span class="text-muted ">Stok :
                                             </span>{{ $item->products->jumlah_product }}
-                                        <p style="color:black;"><span class="text-muted ">Category :
+                                        <p style="color:black;"><span class="text-muted ">Kategori :
                                             </span>{{ $item->products->kategori->kategori }}
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -73,7 +73,7 @@
 
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                        <h5 class="mb-0">Rp
+                                        <h5 class="mb-0">IDR
                                             <span>{{ number_format($item->products->price * $item->prod_qty) }}</span>
                                         </h5>
                                     </div>
@@ -97,8 +97,8 @@
                 <div class="container">
                     <div class="col-lg-5 col-xl-4 mb-4" style="color: #FFFFFF;">
                         <div class="d-flex justify-content-between" style="font-weight: 500;">
-                            <p class="mb-2"><strong>Total Products Price</strong></p>
-                            <p class="mb-2"><strong>Rp {{ number_format($total) }}</strong></p>
+                            <p class="mb-2"><strong>Total Harga Produk</strong></p>
+                            <p class="mb-2"><strong>IDR {{ number_format($total) }}</strong></p>
                         </div>
 
                         <hr class="my-4">

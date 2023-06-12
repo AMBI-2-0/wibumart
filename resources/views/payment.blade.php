@@ -56,3 +56,4 @@
         <a href="{{ route('history') }}" class="btn btn-primary">Lihat Riwayat Belanja</a>
     </div>
 </div>
+@endsection

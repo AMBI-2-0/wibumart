@@ -5,7 +5,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create Product</div>
+                    <div class="card-header">Tambahkan Produk</div>
                     <div class="card-body">
                         <form method="POST" action="/dashboard/products/create" enctype="multipart/form-data">
                             @csrf
@@ -84,7 +84,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Buat</button>
                             </div>
 
                         </form>

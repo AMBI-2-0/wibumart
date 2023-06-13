@@ -101,24 +101,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-sm-6">
-                    <h5>About</h5>
+                    <h5>Tentang</h5>
                     <ul>
-                        <li>Home</li>
-                        <li>Shop</li>
-                        <li>Our Story</li>
+                        <li>Beranda</li>
+                        <li>Toko</li>
+                        <li>Tentang Kami</li>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-6">
-                    <h5>Help</h5>
+                    <h5>Bantuan</h5>
                     <ul>
-                        <li>Track Order</li>
-                        <li>FAQs</li>
+                        <li>Lacak Pesanan</li>
+                        <li>FAQ</li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-3">
-                    <h5>Contact</h5>
+                    <h5>Kontak</h5>
                     <ul>
-                        <li>Phone Number:
+                        <li>Nomer Telepon:
                             (+62)85342537653
                         </li>
                         <li>Email:
@@ -127,15 +127,15 @@
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <h5>Subscribe</h5>
+                    <h5>Berlangganan</h5>
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Enter email">
+                            <input type="email" class="form-control" placeholder="Masukkan email">
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-3">Kirim</button>
                     </form>
                     <div class="col">
-                        <h6>Our Social Media</h6>
+                        <h6>Media Sosial kami</h6>
                         <ul class="list-unstyled">
                             <li><a href="#"><i class="fab fa-facebook-f text-white"></i> Facebook</a></li>
                             <li><a href="#"><i class="fab fa-twitter text-white"></i> Twitter</a></li>

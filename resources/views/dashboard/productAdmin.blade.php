@@ -46,8 +46,7 @@
     </form>
 
     <div class="d-flex justify-content-end align-item-center">
-        <a href="/dashboard/products/create" class="btn btn-success btn-sm"><i class="fa-solid fa-plus pe-3"></i>Create
-            Product</a>
+        <a href="/dashboard/products/create" class="btn btn-success btn-sm"><i class="fa-solid fa-plus pe-3"></i>Buat Produk</a>
     </div>
 
     <div class="table-responsive">
@@ -93,7 +92,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                        onclick="return confirm('Apa Anda Yakin?')">Hapus</button>
                                 </form>
                             </div>
                             </td>

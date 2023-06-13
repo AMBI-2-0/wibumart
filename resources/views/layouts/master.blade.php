@@ -179,6 +179,14 @@
 
     @include('layouts.scripts')
 
+@if ($title === 'Profile')
+<script>
+    var elem = document.querySelector("footer");
+    elem.style.display = "none";
+</script>
+@endif
+
+
 </body>
 
 </html>

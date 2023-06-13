@@ -58,13 +58,13 @@
 
 
                 <li class="nav-item {{ $title == 'Figurine Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/figure_product">Figura</a>
+                    <a class="nav-link text-white" href="/figure_product">Figur</a>
                 </li>
                 <li class="nav-item {{ $title == 'Clothing Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/clothing">Pakaian</a>
+                    <a class="nav-link text-white" href="/clothing">Kostum</a>
                 </li>
                 <li class="nav-item {{ $title == 'Props Page' ? 'active' : '' }}">
-                    <a class="nav-link text-white" href="/props">Atribut</a>
+                    <a class="nav-link text-white" href="/props">Properti</a>
                 </li>
                 <li class="nav-item {{ $title == 'Accessories Page' ? 'active' : '' }}">
                     <a class="nav-link text-white" href="/accessories">Aksesoris</a>
@@ -77,7 +77,7 @@
     <div class="col-5">
         <div class="dropdown">
             <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                <img src="{{ auth()->user()->profile_image }}" alt="User" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                <img src="{{ asset('storage/' . auth()->user()->gambar_profile) }}" alt="User" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
                 {{ strlen(auth()->user()->nama) > 15 ? substr(auth()->user()->nama, 0, 15) . '...' : auth()->user()->nama }}
                 <br><span class="badge bg-info">Rp.{{ number_format(auth()->user()->duit) }}</span>
             </a>
@@ -88,7 +88,7 @@
                     <a class="dropdown-item" href="/cart">Keranjang ({{ count($cartItems) }})</a>
                 </li>
                 <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
-                <li><a class="dropdown-item" href="/dashboard/users/edit">Edit User</a></li>
+                <li><a class="dropdown-item" href="/profile">Profile</a></li>
                 @if (auth()->user()->is_admin == 'admin')
                     <li><a class="dropdown-item" href="/dashboard">Dasbor</a></li>
                 @endif

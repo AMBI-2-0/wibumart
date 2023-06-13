@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -111,4 +114,70 @@ class UserController extends Controller
 
         return redirect('/dashboard/users')->with('delete', 'User berhasil dihapus!');
     }
+
+
+    //Profile
+
+    public function profileEdit()
+    {
+        $user = Auth::user();
+        $title = "Edit Profile";
+        $cartItems = Cart::where('user_id', Auth::id())->where('status', 'belum checkout')->get();
+        return view('profile.edit', compact('user','title','cartItems'));
+    }
+
+    /**
+     * Memperbarui profil pengguna.
+     */
+    public function profileUpdate(Request $request)
+    {
+        $user = Auth::user();
+
+    $validatedData = $request->validate([
+        'nama' => 'required',
+        'username' => 'required',
+        'email' => 'required|email',
+        'password' => 'nullable|min:8',
+        'alamat' => 'required',
+        'gambar_profile' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $user->nama = $validatedData['nama'];
+    $user->username = $validatedData['username'];
+    $user->email = $validatedData['email'];
+    $user->alamat = $validatedData['alamat'];
+
+    if ($request->hasFile('gambar_profile')) {
+        // Menghapus gambar profile lama jika ada
+        if ($user->gambar_profile) {
+            Storage::delete($user->gambar_profile);
+        }
+
+        // Menyimpan gambar profile baru ke storage
+        $gambarPath = $request->file('gambar_profile')->store('images');
+        $user->gambar_profile = $gambarPath;
+    }
+
+    // Memperbarui password jika ada perubahan
+    if (!empty($validatedData['password'])) {
+        $user->password = Hash::make($validatedData['password']);
+    }
+
+    $user->save();
+
+    return redirect()->route('profile.show')->with('success', 'Profil berhasil diperbarui.');
+    }
+
+    /**
+     * Menampilkan halaman profil pengguna.
+     */
+    public function profileShow()
+    {
+        $user = Auth::user();
+        $cartItems = Cart::where('user_id', Auth::id())->where('status', 'belum checkout')->get();
+        $title = 'Profile';
+        return view('profile.show', compact('user', 'title','cartItems'));
+    }
 }
+
+ 

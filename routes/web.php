@@ -96,6 +96,10 @@ Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->middleware('admin')->name('users.destroy'); //delete on detail page
 
+//route Profile
+Route::put('/profile/edit', [UserController::class, 'profileUpdate'])->name('profile.update')->middleware('auth');
+Route::get('/profile/edit', [UserController::class, 'profileEdit'])->name('profile.edit')->middleware('auth');
+Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show')->middleware('auth');
 
 
 //route history

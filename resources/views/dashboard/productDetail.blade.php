@@ -18,7 +18,7 @@
                 <form action="{{ route('products.destroy', $product->id) }}" class="d-inline" method="post">
                     @method('delete')
                     @csrf
-                    <button class="btn btn-danger text-light" onclick="return confirm('Hapus produk ?')">Delete</button>
+                    <button class="btn btn-danger text-light" onclick="return confirm('Hapus produk ?')">Hapus</button>
                 </form>
             </div>
         </div>

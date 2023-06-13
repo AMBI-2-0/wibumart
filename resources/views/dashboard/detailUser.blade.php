@@ -10,7 +10,7 @@
     <div class="card-body">
         <h4 class="card-title p-2 text-center">{{ $user->nama }}</h4>
         <div class="card-text container p-2">
-            <p>Username: {{ $user->username }}</p>
+            <p>Nama Pengguna: {{ $user->username }}</p>
             <p>Email: {{ $user->email }}</p>
             <p>Alamat: {{ $user->alamat }}</p>
             {{-- {!! asdawdas!!} --}}
@@ -20,7 +20,7 @@
             <form action="{{ route('users.destroy', $user->id) }}" class="d-inline" method="post">
                 @method('delete')
                 @csrf
-                <button class="btn btn-danger text-light" onclick="return confirm('Hapus user ?')">Delete</button>
+                <button class="btn btn-danger text-light" onclick="return confirm('Hapus user ?')">Hapus</button>
             </form>
         </div>
     </div>

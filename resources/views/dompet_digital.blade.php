@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="row"> <div class="col"><a href="/home" class="btn btn-outline-dark mt-3">Kembali ke home</a></div></div>
+                <div class="row"> <div class="col"><a href="/home" class="btn btn-outline-dark mt-3">Kembali ke beranda</a></div></div>
                 
                 
 

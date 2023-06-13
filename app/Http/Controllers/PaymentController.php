@@ -25,6 +25,8 @@ class PaymentController extends Controller
 
     public function checkout()
     {
-        
+        // if (totalPrice > duit){
+        //     kirim alert uang tidak cukup tolong topup terlebih dulu
+        // } siapa pun yang menggawi ini buat logik ini di checkout
     }
 }

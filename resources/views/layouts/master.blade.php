@@ -179,7 +179,7 @@
 
     @include('layouts.scripts')
 
-@if ($title === 'Profile')
+@if ($title === 'Profile' || $title==="Payment Page")
 <script>
     var elem = document.querySelector("footer");
     elem.style.display = "none";

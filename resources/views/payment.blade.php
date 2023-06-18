@@ -29,6 +29,10 @@
                     <td>Payment Method</td>
                     <td>Dompet Wibumart Sejahterah: Rp.{{ number_format($dompetDigital, 0, ',', '.') }}</td>
                 </tr>
+                <tr>
+                    <td>Total Harga</td>
+                    <td>{{ $totalPrice }}</td>
+                </tr>
             </tbody>
         </table>
     @endif

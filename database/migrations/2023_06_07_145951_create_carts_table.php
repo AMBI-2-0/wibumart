@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('prod_qty');
             $table->date('tanggal_pembelian');
             $table->string('status')->default('belum checkout');
-            // $table->integer('total_harga');
+            $table->integer('total_harga');
             $table->timestamps();
         });
     }

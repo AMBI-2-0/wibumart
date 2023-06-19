@@ -98,12 +98,12 @@
                     <div class="col-lg-5 col-xl-4 mb-4" style="color: #FFFFFF;">
                         <div class="d-flex justify-content-between" style="font-weight: 500;">
                             <p class="mb-2"><strong>Total Harga Produk</strong></p>
-                            <p class="mb-2"><strong>IDR {{ number_format($total) }}</strong></p>
+                            <p class="mb-2"><strong>IDR {{ number_format($total, 0, ',', '.') }}</strong></p>
                         </div>
 
                         <hr class="my-4">
 
-                                <a href="/payment" class="btn btn-primary btn-block btn-lg">
+                                <a href="/checkout" class="btn btn-primary btn-block btn-lg">
                                     <div class="d-flex justify-content-between checkout">
                                         <span><i class="fa fa-shopping-cart"></i> Checkout</span>
                                     </div>

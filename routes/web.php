@@ -61,7 +61,7 @@ Route::get('/cart', [CartController::class, 'viewcart'])->middleware('auth');
 Route::post('/add-to-cart', [CartController::class, 'addProduct'])->middleware('auth');
 Route::post('delete-cart-item', [CartController::class, 'deleteProduct'])->middleware('auth');
 Route::post('update-cart', [CartController::class, 'updateCart'])->middleware('auth');
-Route::get('/confirm-checkout', [OrderController::class, 'confirm'])->middleware('auth');
+Route::get('/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
 // Route::post('/cart/{id}', [OrderController::class, 'order'])->middleware('auth');
 // Route::delete('/cart/{id}', [OrderController::class, 'delete'])->middleware('auth');
@@ -84,7 +84,6 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 //route payment
 Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
-Route::get('/payment/checkout', [PaymentController::class, 'checkout'])->middleware('auth');
 
 //route crud users
 Route::get('/dashboard/users', [UserController::class, 'index'])->middleware('admin'); //list users

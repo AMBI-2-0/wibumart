@@ -15,18 +15,11 @@ class PaymentController extends Controller
         $user = Auth::user();
         $cartItems = Cart::where('user_id', auth()->id())->with('products')->get();
         $totalPrice = $cartItems->sum(function ($item) {
-            return $item->products->price * $item->quantity;
+            return $item->products->price * $item->prod_qty;
         });
 
         $dompetDigital = $user->duit;
 
         return view('payment', ['title' => 'Payment Page', 'cartItems' => $cartItems, 'totalPrice' => $totalPrice, 'dompetDigital' => $dompetDigital, 'user' => $user]);
-    }
-
-    public function checkout()
-    {
-        // if (totalPrice > duit){
-        //     kirim alert uang tidak cukup tolong topup terlebih dulu
-        // } siapa pun yang menggawi ini buat logik ini di checkout
     }
 }

@@ -30,6 +30,7 @@ class Cart extends Model
         'prod_qty',
         'tanggal_pembelian',
         'status',
+        'total_harga',
         
     ];
 }

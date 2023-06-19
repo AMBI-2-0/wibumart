@@ -76,10 +76,10 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 //route reset password
-Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get')->middleware('guest');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post')->middleware('guest'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get')->middleware('guest');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post')->middleware('guest');
 
 
 //route payment
@@ -95,6 +95,10 @@ Route::delete('/dashboard/users/{user:id}',[UserController::class, 'destroy'])->
 Route::get('/dashboard/users/{user:id}',[UserController::class,'show'])->middleware('admin'); // single user
 Route::delete('/dashboard/users/{user}', [UserController::class, 'destroy'])->middleware('admin')->name('users.destroy'); //delete on detail page
 
+//route Profile
+Route::put('/profile/edit', [UserController::class, 'profileUpdate'])->name('profile.update')->middleware('auth');
+Route::get('/profile/edit', [UserController::class, 'profileEdit'])->name('profile.edit')->middleware('auth');
+Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show')->middleware('auth');
 
 
 //route history

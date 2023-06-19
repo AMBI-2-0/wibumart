@@ -90,7 +90,7 @@
                 <li><a class="dropdown-item" href="/history">Riwayat Belanja</a></li>
                 <li><a class="dropdown-item" href="/profile">Profile</a></li>
                 @if (auth()->user()->is_admin == 'admin')
-                    <li><a class="dropdown-item" href="/dashboard">Dasbor</a></li>
+                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
                 @endif
 
                 <hr class="dropdown-divider">

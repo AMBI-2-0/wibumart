@@ -19,7 +19,7 @@
                 <ul class="d-flex navbar-nav flex-column align-items-start">
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Dashboard' ? 'active' : '' }}" href="/dashboard"><i
-                                class="fa-solid fa-house pe-2"></i>Dasbor</a>
+                                class="fa-solid fa-house pe-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Users' ? 'active' : '' }}" href="/dashboard/users"><i

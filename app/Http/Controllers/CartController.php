@@ -111,23 +111,38 @@ class CartController extends Controller
     {
         $cart = Cart::where('user_id', Auth::user()->id)->where('status', 'belum checkout')->first();
         $cart_id = $cart->id;
-        $cart->status = 'sudah checkout';
-        $cart->update();
 
-        $duit = Auth::user()->duit - $cart->total_harga;
-        Auth::user()->update(['duit' => $duit]);
+        $cartItems = Cart::where('user_id', auth()->id())->with('products')->get();
+        $totalPrice = $cartItems->sum(function ($item) {
+            return $item->products->price * $item->prod_qty;
+        });
 
-        $cart_items = Cart::where('id', $cart_id)->get();
-        foreach ($cart_items as $cart_item){
-            $product = Product::find($cart_item->product_id);
-            $product->jumlah_product -= $cart_item->prod_qty;
-            $product->update();
+        if ($duit = Auth::user()->duit < $totalPrice){
+            Alert::error('Delete', 'Duit tidak cukup, top up sikit lah!');
+            return redirect('/cart');
+
         }
+        else
+        {
+            $cart->status = 'sudah checkout';
+            $cart->update();
 
-        // Ganti Alert::success dengan mekanisme yang sesuai di framework Anda
-        // Contoh menggunakan pesan flash session dalam Laravel
-        session()->flash('success', 'Order Checkout Successfully!');
-        return redirect('/payment');
+            $duit = Auth::user()->duit - $totalPrice;
+            Auth::user()->update(['duit' => $duit]);
+
+            $cart_items = Cart::where('id', $cart_id)->get();
+            foreach ($cart_items as $cart_item){
+                $product = Product::find($cart_item->product_id);
+                $product->jumlah_product -= $cart_item->prod_qty;
+                $product->update();
+            }
+
+            // Ganti Alert::success dengan mekanisme yang sesuai di framework Anda
+            // Contoh menggunakan pesan flash session dalam Laravel
+            session()->flash('success', 'Order Checkout Successfully!');
+            return redirect('/payment');
+        }
+        
     }
 
 }

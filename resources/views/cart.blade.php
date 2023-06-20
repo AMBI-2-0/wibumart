@@ -90,7 +90,13 @@
                     @endforeach
                 </div>
             @else
-                <p>Cart is empty.</p>
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <h3 style="color: black;"> Keranjang Kosong</h3>
+                        </div>
+                    </div>
+                </div>
                 @php $total = 0; @endphp
             @endif
             <div class="row">

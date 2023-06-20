@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                     <td>Total Harga</td>
-                    <td>{{ $totalPrice }}</td>
+                    <td>IDR {{ number_format($totalPrice) }}</td>
                 </tr>
             </tbody>
         </table>

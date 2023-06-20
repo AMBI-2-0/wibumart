@@ -1,2 +1,0 @@
-WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="D:\Kuliah\SEMESTER 6\Layanan dan Sistem Virtual\UAS\wibumart\wallet")))
-SSL_SERVER_DN_MATCH=yes

@@ -55,7 +55,7 @@
                                 $gambar = $user->gambar_profile;
                             @endphp
                             <img src="{{ asset('storage/'.$user->gambar_profile) }}" alt="" class="img-fluid rounded-circle"
-                                style="width: 50px; height: 50px;">
+                                style="width: 50px; height: 50px; object-fit: cover">
                         </td>
                         <td>Rp. {{ $user->duit }}</td>
                         <td>{{ $user->is_admin }}</td>

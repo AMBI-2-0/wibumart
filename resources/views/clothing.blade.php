@@ -55,6 +55,23 @@
         box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         transform: scale(1.1);
     }
+    @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-button {
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+        }
     </style>
 @endsection
 

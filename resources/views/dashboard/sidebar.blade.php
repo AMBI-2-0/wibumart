@@ -23,31 +23,31 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Users' ? 'active' : '' }}" href="/dashboard/users"><i
-                                class="fa-solid fa-users pe-2"></i>Users</a>
+                                class="fa-solid fa-users pe-2"></i>Pengguna</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Products' ? 'active' : '' }}"
-                            href="/dashboard/products"><i class="fa-brands fa-product-hunt"></i> Product</a>
+                            href="/dashboard/products"><i class="fa-brands fa-product-hunt"></i> Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Figurine' ? 'active' : '' }}"
-                            href="/dashboard/figurine"><i class="fa-solid fa-piggy-bank pe-2"></i></i>Figurine</a>
+                            href="/dashboard/figurine"><i class="fa-solid fa-piggy-bank pe-2"></i></i>Figura</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Clothing' ? 'active' : '' }}" href="#"><i
-                                class="fa-solid fa-user-nurse pe-2"></i>Clothing</a>
+                                class="fa-solid fa-user-nurse pe-2"></i>Pakaian</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Props' ? 'active' : '' }}" href="#"><i
-                                class="fa-solid fa-boxes-packing pe-2"></i>Props</a>
+                                class="fa-solid fa-boxes-packing pe-2"></i>Atribut</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Accessories' ? 'active' : '' }}" href="#"><i
-                                class="fa-solid fa-scale-balanced pe-2"></i>Accessories</a>
+                                class="fa-solid fa-scale-balanced pe-2"></i>Aksesoris</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Books' ? 'active' : '' }}" href="#"><i
-                                class="fa-solid fa-book pe-2"></i> Books</a>
+                                class="fa-solid fa-book pe-2"></i> Buku</a>
                     </li>
                 </ul>
 

@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class PaymentController extends Controller
 {
-        public function index()
-        {
-        $payment_items = [
-            ['quantity' => '1 unit', 'name' => 'soeharto', 'date' => '15/01/23', 'method' => 'Visa' , 'price' => 500000,  'release_date' => 'Release January 2023', 'product' => 'Action Figure'],
-        ];
+    public function index()
+    {
+        $user = Auth::user();
+        $cartItems = Cart::where('user_id', auth()->id())->with('products')->get();
+        $totalPrice = $cartItems->sum(function ($item) {
+            return $item->products->price * $item->prod_qty;
+        });
 
-        return view('payment', ['title' => 'Patment Page', 'payment_items' => $payment_items]);
+        $dompetDigital = $user->duit;
+
+        return view('payment', ['title' => 'Payment Page', 'cartItems' => $cartItems, 'totalPrice' => $totalPrice, 'dompetDigital' => $dompetDigital, 'user' => $user]);
     }
 }

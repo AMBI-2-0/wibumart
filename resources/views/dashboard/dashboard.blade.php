@@ -15,8 +15,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Users</h5>
-                            <h6 class="card-text"> Total Users: {{ $user }}</h6>
+                            <h5 class="card-title">Pengguna</h5>
+                            <h6 class="card-text"> Total Pengguna: {{ $user }}</h6>
                         </div>
                     </div>
                 </div>
@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Figurine</h5>
-                            <h6 class="card-text"> Total Figurine: {{ $products }}</h6>
+                            <h5 class="card-title">Figura</h5>
+                            <h6 class="card-text"> Total Figura: {{ $products }}</h6>
                         </div>
                     </div>
                 </div>

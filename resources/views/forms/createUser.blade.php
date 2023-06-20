@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="username" class="form-label">Username :</label>
+                    <label for="username" class="form-label">Nama Pengguna :</label>
                     <input type="text" name="username" id="username"
                         class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" />
                     @error('username')
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="password" class="form-label">Password :</label>
+                    <label for="password" class="form-label">Kata Sandi :</label>
                     <input type="password" name="password" id="email"
                         class="form-control @error('password') is-invalid @enderror" value="" />
                     @error('password')
@@ -92,7 +92,7 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-outline-Success">Create</button>
+                <button type="submit" class="btn btn-outline-Success">Buat</button>
 
             </form>
 

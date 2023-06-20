@@ -15,12 +15,12 @@
                 <a href="{{ url('home') }}" class="btn btn-dark"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
             <div class="col-md-12 mt-3">
-                <div class="card">
+                <div class="card product_data">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="/images/caro-item-1.png" class="rounded mx-auto d-block" width="100%"
-                                    alt="">
+                                <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
+                                    class="rounded mx-auto d-block" width="100%" alt="">
                             </div>
                             <div class="col-md-6">
                                 <h2>{{ $product->nama_product }}</h2>
@@ -48,16 +48,23 @@
                                             <td> {{ $product->description }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Order Quantity</td>
+                                            <input type="hidden" value="{{ $product->id }}" class="product_id">
+                                            <td for="Quantity">Order Quantity</td>
                                             <td>:</td>
                                             <td>
-                                                <form action="{{ url('cart') }}/{{ $product->id }}" method="POST">
-                                                    @csrf
-                                                    <input type="number" name="order_quantity"
-                                                        class="form-control form-control-sm" required>
-                                                    <button type="submit" class="btn btn-dark mt-2"><i
-                                                            class="fa fa-shopping-cart"></i> Add to Cart</button>
-                                                </form>
+                                                <div class="input-group text-center" style="width:130px;">
+                                                    <span class="input-group-text decrement-btn">-</span>
+                                                    <input type="text" name="quantity"
+                                                        class="form-control text-center qty-input" value="1">
+                                                    <span class="input-group-text increment-btn">+</span>
+                                                </div>
+
+                                                <div>
+                                                    <br>
+                                                    <button type="button"
+                                                        class="btn btn-dark me-3 addToCartBtn float-start">Add to Cart
+                                                        <i class="fa fa-shopping-cart"></i></button>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -70,3 +77,5 @@
         </div>
     </div>
 @endsection
+
+<script src="/assets/jquery.js"></script>

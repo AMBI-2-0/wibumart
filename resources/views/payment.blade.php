@@ -1,51 +1,63 @@
 @extends('layouts.master')
 
 @section('content')
-<br>
 <div class="container">
-        <h1 class="text-white">Thankyou for your purchase</h1>
+    <div class="row justify-content-center">
+        <div class="py-5 text-center">
+            <div class="jumbotron text-center">
+                <h1 class="display-4 text-white">Terimakasih Sudah Berbelanja</h1>
+            </div>
+        </div>
+    </div>
+
+    @if ($user)
         <table class="table table-hover">
-          @foreach ($payment_items as $item)
-              
-                <tbody class="text-white">
-                        <tr>
-                          <td>Date</td>
-                          <td>{{ $item['date'] }}</td>
-                        </tr>
-                        <tr>
-                          <td>Customer</td>
-                          <td>{{ $item['name'] }}</td>
-                        </tr>
-                        <tr>
-                          <td>Payment Method</td>
-                          <td>{{ $item['method'] }}</td>
-                        </tr>
-                      </tbody>
+            <tbody class="text-white">
+                <tr>
+                    <td>Date</td>
+                    <td>{{ $cartItems[0]->created_at->format('d/m/y') }}</td>
+                </tr>
+                <tr>
+                    <td>Nama Kustomer</td>
+                    <td>{{ $user->nama }}</td>
+                </tr>
+                <tr>
+                    <td>Alamat Kustomer</td>
+                    <td>{{ $user->alamat }}</td>
+                </tr>
+                <tr>
+                    <td>Metode Pembayaran</td>
+                    <td>Dompet Wibumart Sejahterah: Rp.{{ number_format($dompetDigital, 0, ',', '.') }}</td>
+                </tr>
+                <tr>
+                    <td>Total Harga</td>
+                    <td>{{ $totalPrice }}</td>
+                </tr>
+            </tbody>
         </table>
-        <br>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th class="text-white"><h2>Order Line</h2></th>
-            </tr>
-          </thead>
-          <tbody class="text-white">
-            <tr>
-                <td><img src="images\bailu.jpg" alt="" style="height:10rem;width:10rem">
-                  <span class="text-muted ">Keterangan Produk: </span>{{ $item['product'] }}/{{ $item['release_date'] }}/{{ $item['quantity'] }}
-              <td>{{ $item['price'] }}</td>
-            </tr>
-            <tr>
-                <td><img src="images\bailu.jpg" alt="" style="height:10rem;width:10rem">
-                  <span class="text-muted ">Keterangan Produk: </span>{{ $item['product'] }}/{{ $item['release_date'] }}/{{ $item['quantity'] }}
-                  <td>{{ $item['price'] }}</td>      
-            </tr>
-          </tbody>
-        </table>
-        <hr>
-        <div class="text-left">
-                <button type="button" class="btn btn-primary">Continue Shopping</button>
-              </div>
-      </div>  
-  @endforeach
+    @endif
+
+    <h1 class="card-title text-white">Pesanan</h1>
+
+    @foreach($cartItems as $item)
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ $item->products->image }}" alt="bailu" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text"><span class="fw-bold">Nama Produk:</span> {{ $item->products->nama_product }}</p>
+                        <p class="card-text"><span class="fw-bold">Deskripsi Produk:</span> {{ $item->products->description }}</p>
+                        <p class="card-text"><span class="fw-bold">Harga:</span> {{ $item->products->price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    <div class="text-center">
+        <a href="{{ route('history') }}" class="btn btn-primary">Lihat Riwayat Belanja</a>
+    </div>
+</div>
 @endsection

@@ -1,47 +1,30 @@
+<!-- history.blade.php -->
+
 @extends('layouts.master')
 
 @section('content')
-    <div class="container text-light">
-        <h1>Purchase History</h1>
-
-        <div class="mb-3">
-            <form action="{{ route('history') }}" method="GET">
-                <div class="form-group">
-                    <label for="status">Filter by Status:</label>
-                    <select name="status" id="status" class="form-control">
-                        <option value="">All</option>
-                        <option value="berlangsung"{{ Request::input('status') === 'berlangsung' ? ' selected' : '' }}>Berlangsung</option>
-                        <option value="dibatalkan"{{ Request::input('status') === 'dibatalkan' ? ' selected' : '' }}>Dibatalkan</option>
-                        <option value="selesai"{{ Request::input('status') === 'selesai' ? ' selected' : '' }}>Selesai</option>
-                    </select>
+  <div class="container">
+    <h1 class="text-white">Riwayat Pembelian</h1>
+    
+    @foreach ($cartItems as $item)
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ $item->products->image }}" alt="Product Image" class="img-fluid">
                 </div>
-                <button type="submit" class="btn btn-primary">Filter</button>
-            </form>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $item->products->nama_product }}</h5>
+                        <p class="card-text">Harga: {{ $item->products->price }}</p>
+                        <p class="card-text">tanggal pemesanan: {{ $item->created_at->format('d/m/y') }}</p>
+                        <p class="card-text">Status: <span class="badge badge-primary text-black">Selesai</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Ordered At</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($History as $history)
-                    <tr>
-                        <td>
-                            <img src="{{ $history->image }}" alt="" style="height:10rem;width:10rem">
-                        </td>
-                        <td>{{ $history->product_name }}</td>
-                        <td>{{ $history->price }}</td>
-                        <td>{{ $history->ordered_at }}</td>
-                        <td>{{ $history->status }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+    @endforeach
+    <div class="text-center">
+        <a href="/home" class="btn btn-primary">Lanjutkan Ke Beranda</a>
     </div>
+</div>
 @endsection

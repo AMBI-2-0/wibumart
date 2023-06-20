@@ -26,9 +26,9 @@
                 <form action="/login" method="post">
                     @csrf
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">Nama Pengguna</label>
                         <input type="text" class="form-control @error('username') is-invalid @enderror"
-                            id="username" name="username" placeholder="Enter username" autofocus
+                            id="username" name="username" placeholder="Masukkan Nama Pengguna" autofocus
                             value="{{ old('username') }}">
                         @error('username')
                             <div class="invalid-feedback">
@@ -36,22 +36,18 @@
                             </div>
                         @enderror
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">Kata Sandi</label>
                             <input type="password" name="password" class="form-control" id="password"
-                                placeholder="Password">
+                                placeholder="Kata Sandi">
                         </div>
-                        <a href="{{ route('forget.password.get') }}">Forgot Password? <br></a>
+                        <a href="{{ route('forget.password.get') }}">Lupa Kata Sandi? <br></a>
 
-                        <button type="submit" class="btn btn-primary mt-3">Login</button>
+                        <button type="submit" class="btn btn-primary mt-3">Masuk</button>
 
-                        <div class="mt-3">Tidak punya akun? <a href="/register">Register disini!</a></div>
+                        <div class="mt-3">Tidak punya akun? <a href="/register">Registrasi disini!</a></div>
                 </form>
             </div>
 
         </div>
-
-
-
-
 
     </div>

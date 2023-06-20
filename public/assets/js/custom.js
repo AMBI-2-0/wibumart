@@ -1,23 +1,23 @@
-$(document).ready(function () {
-    $(".addToCartBtn").click(function (e) {
+jQuery(document).ready(function () {
+    jQuery(".addToCartBtn").click(function (e) {
         e.preventDefault();
 
-        var product_id = $(this)
+        var product_id = jQuery(this)
             .closest(".product_data")
             .find(".product_id")
             .val();
-        var product_qty = $(this)
+        var product_qty = jQuery(this)
             .closest(".product_data")
             .find(".qty-input")
             .val();
 
-        $.ajaxSetup({
+        jQuery.ajaxSetup({
             headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr("content"),
             },
         });
 
-        $.ajax({
+        jQuery.ajax({
             method: "POST",
             url: "/add-to-cart",
             data: {
@@ -31,41 +31,41 @@ $(document).ready(function () {
         });
     });
 
-    $(".increment-btn").click(function (e) {
+    jQuery(".increment-btn").click(function (e) {
         e.preventDefault();
 
-        var inc_value = $(this).closest('.product_data').find('.qty-input').val();
+        var inc_value = jQuery(this).closest('.product_data').find('.qty-input').val();
         var value = parseInt(inc_value, 10);
         value = isNaN(value) ? 0 : value;
         if (value < 100) {
             value++;
-            $(this).closest(".product_data").find(".qty-input").val(value);
+            jQuery(this).closest(".product_data").find(".qty-input").val(value);
         }
     });
 
-    $(".decrement-btn").click(function (e) {
+    jQuery(".decrement-btn").click(function (e) {
         e.preventDefault();
 
-        var dec_value = $(this).closest(".product_data").find(".qty-input").val();
+        var dec_value = jQuery(this).closest(".product_data").find(".qty-input").val();
         var value = parseInt(dec_value, 10);
         value = isNaN(value) ? 0 : value;
         if (value > 1) {
             value--;
-            $(this).closest(".product_data").find(".qty-input").val(value);
+            jQuery(this).closest(".product_data").find(".qty-input").val(value);
         }
     });
 
-    $.ajaxSetup({
+    jQuery.ajaxSetup({
         headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr("content"),
         },
     });
 
-    $(".delete-cart-item").click(function (e) {
+    jQuery(".delete-cart-item").click(function (e) {
         e.preventDefault();
 
-        var product_id = $(this).closest(".product_data").find(".product_id").val();
-        $.ajax({
+        var product_id = jQuery(this).closest(".product_data").find(".product_id").val();
+        jQuery.ajax({
             method: "POST",
             url: "delete-cart-item",
             data: {
@@ -78,16 +78,16 @@ $(document).ready(function () {
         });
     });
 
-    $(".changeQuantity").click(function (e) {
+    jQuery(".changeQuantity").click(function (e) {
         e.preventDefault();
 
-        var product_id = $(this).closest(".product_data").find(".product_id").val();
-        var qty = $(this).closest(".product_data").find(".qty-input").val();
+        var product_id = jQuery(this).closest(".product_data").find(".product_id").val();
+        var qty = jQuery(this).closest(".product_data").find(".qty-input").val();
         data = {
             'product_id' : product_id,
             'prod_qty' : qty,
         };
-        $.ajax({
+        jQuery.ajax({
             method: "POST",
             url: "update-cart",
             data: data,

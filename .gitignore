@@ -1,11 +1,8 @@
-!public/storage/app/product-images
-!public/storage/app/user-images
 /.phpunit.cache
 /node_modules
 /public/build
 /public/hot
-/public/storage/framework
-/public/storage/logs
+/public/storage
 /storage/*.key
 /vendor
 .env

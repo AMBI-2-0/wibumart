@@ -44,7 +44,7 @@ class CartController extends Controller
             {
                 if(Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists())
                 {
-                    return response()->json(['status' => $prod_check->nama_product." Already Added to Cart", 'redirect' => '/cart']);
+                    return response()->json(['status' => $prod_check->nama_product." Sudah ada di Keranjang", 'redirect' => '/cart']);
                 }
                 else
                 {
@@ -60,7 +60,7 @@ class CartController extends Controller
                         $cartItem->tanggal_pembelian = $tanggal_pembelian;
                         $cartItem->total_harga = 0;
                         $cartItem->save();
-                        return response()->json(['status' => $prod_check->nama_product." Added to Cart", 'redirect' => '/cart']);
+                        return response()->json(['status' => $prod_check->nama_product." Berhasil ditambahkan ke Keranjang", 'redirect' => '/cart']);
                     }
                 }
             }
@@ -118,7 +118,7 @@ class CartController extends Controller
         });
 
         if ($duit = Auth::user()->duit < $totalPrice){
-            Alert::error('Delete', 'Duit tidak cukup, top up sikit lah!');
+            Alert::error('Silahkan Top Up', 'Saldo anda tidak mencukupi untuk melakukan pembayaran');
             return redirect('/cart');
 
         }

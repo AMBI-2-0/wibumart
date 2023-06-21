@@ -65,7 +65,7 @@
                     <a href="#" class="btn btn-primary hero-button">Toko</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/figure-hero.png') }}" alt="Figure Hero Image" class="hero-image" style=" max-width:503px; max-height:503px; object-fit:cover">
+                    <img src="{{ asset('images/figure-hero.png') }}" alt="Figure Hero Image" class="hero-image img-fluid" style=" max-width:503px; max-height:503px; object-fit:cover">
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                                 <div class="col bg-image hover-zoom">
                                     <a href="{{ url('order') }}/{{ $figures[$j]?->id }}">
                                         <img src="{{ $figures[$j]?->image ? asset('storage/' . $figures[$j]->image) : asset('images/caro-item-1.png') }}"
-                                            class="d-block w-100 img-fluid" style="object-fit: cover; width: 100%; height: 300" alt="...">
+                                            class="d-block w-100 img-fluid" style="width:300; height:300; object-fit:cover;" alt="...">
                                     </a>
                                 </div>
                             @endfor
@@ -119,7 +119,7 @@
                 @foreach ($figures as $figure)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                     <div class="card card-product bg-dark text-white border-0">
-                        <img src="{{ $figure->image==null ? "/images/caro-item-1.png" : asset('storage/'.$figure->image) }}" class="card-img-top" style="width:300; height:300; object-fit:cover" alt="...">
+                        <img src="{{ $figure->image==null ? "/images/caro-item-1.png" : asset('storage/'.$figure->image) }}" class="card-img-top img-fluid" style="object-fit: cover; width: 100%; height: 300" alt="...">
                         <div class="card-body">
                             <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($figure->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>

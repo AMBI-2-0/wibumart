@@ -65,7 +65,7 @@
                     <a href="#" class="btn btn-primary hero-button">Toko</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/prop-hero.png') }}" alt="prop Hero Image" class="hero-image" style=" max-width:503px; max-height:503px; object-fit:cover">
+                    <img src="{{ asset('images/prop-hero.png') }}" alt="prop Hero Image" class="hero-image img-fluid" style=" max-width:503px; max-height:503px; object-fit:cover">
                 </div>
             </div>
         </div>

@@ -71,65 +71,42 @@
         </div>
     </section>
 
-    <div id="carouselProduct" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselProduct" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselProduct" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselProduct" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            @for ($i = 0; $i < min(3, ceil(count($propss) / 3)); $i++)
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $i }}"
+                    {{ $i === 0 ? 'class=active' : '' }} aria-current="true" aria-label="Slide {{ $i + 1 }}"></button>
+            @endfor
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-1.png') }}" class="d-block w-100 img-fluid" alt="...">
-                        </div>
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-2.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-3.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-4.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-5.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-6.png') }}" class="d-block w-100" alt="...">
+            @for ($i = 0; $i < min(3, ceil(count($propss) / 3)); $i++)
+                <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @php
+                                $startIndex = $i * 3;
+                                $endIndex = min($startIndex + 3, count($propss));
+                            @endphp
+                            @for ($j = $startIndex; $j < $endIndex; $j++)
+                                <div class="col bg-image hover-zoom">
+                                    <a href="{{ url('order') }}/{{ $propss[$j]?->id }}">
+                                        <img src="{{ $propss[$j]?->image ? asset('storage/' . $propss[$j]->image) : asset('images/caro-item-1.png') }}"
+                                            class="d-block w-100 img-fluid" style="width:300; height:300; object-fit:cover;" alt="...">
+                                    </a>
+                                </div>
+                            @endfor
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-6.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-3.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col bg-image hover-zoom">
-                            <img src="{{ asset('images/caro-item-4.png') }}" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endfor
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>

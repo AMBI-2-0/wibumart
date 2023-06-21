@@ -92,10 +92,10 @@ class ProductController extends Controller
     }
 
     public function show($id)
-{
-    $product = Product::findOrFail($id);
+    {
+        $product = Product::findOrFail($id);
 
-    return view('dashboard.productDetail', compact('product'))->with('title', 'Product Detail');
-}
+        return view('dashboard.productDetail', compact('product'))->with('title', 'Product Detail');
+    }
 
 }

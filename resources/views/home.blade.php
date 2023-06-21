@@ -61,7 +61,7 @@
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card card-product bg-dark text-white border-0">
                     <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
-                        class="card-img-top" alt="...">
+                        class="card-img-top" alt="..." style=" max-width:203px; max-height:203px; object-fit:cover">
                     <div class="card-body">
                         <h5 class='card-title'>
                             {{ \Illuminate\Support\Str::limit($product->nama_product, 45, '...') }}

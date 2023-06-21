@@ -72,11 +72,11 @@
             font-family: "Montserrat", sans-serif;
         }
 
-        .card {
+        .card-product{
             transition: all 0.2s ease-in-out;
         }
 
-        .card:hover {
+        .card-product:hover{
             transform: scale(1.05);
             box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
         }

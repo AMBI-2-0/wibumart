@@ -8,83 +8,49 @@
 </style>
 
 @section('content')
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-1.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-2.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-3.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-4.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-5.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-6.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-6.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-3.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="col bg-image hover-zoom">
-                                <img src="{{ asset('images/caro-item-4.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-        </div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        @for ($i = 0; $i < min(3, ceil(count($products) / 3)); $i++)
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $i }}"
+                {{ $i === 0 ? 'class=active' : '' }} aria-current="true" aria-label="Slide {{ $i + 1 }}"></button>
+        @endfor
     </div>
+    <div class="carousel-inner">
+        @for ($i = 0; $i < min(3, ceil(count($products) / 3)); $i++)
+            <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
+                <div class="container-fluid">
+                    <div class="row">
+                        @php
+                            $startIndex = $i * 3;
+                            $endIndex = min($startIndex + 3, count($products));
+                        @endphp
+                        @for ($j = $startIndex; $j < $endIndex; $j++)
+                            <div class="col bg-image hover-zoom">
+                                <a href="{{ url('order') }}/{{ $products[$j]->id }}">
+                                    <img src="{{ $products[$j]->image == null ? asset('images/caro-item-1.png') : asset('storage/' . $products[$j]->image) }}"
+                                        class="d-block w-100 object-fit:cover" alt="...">
+                                </a>
+                            </div>
+                        @endfor
+                    </div>
+                </div>
+            </div>
+        @endfor
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
 
     <h2 class="text-white mt-5">Produk Kami</h2>
 
@@ -93,7 +59,7 @@
 
             @foreach ($products as $product)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-                    <div class="card bg-dark text-white border-0">
+                    <div class="card card-product bg-dark text-white border-0">
                         <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
                             class="card-img-top" alt="...">
                         <div class="card-body">

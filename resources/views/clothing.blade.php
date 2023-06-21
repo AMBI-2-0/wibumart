@@ -71,7 +71,7 @@
                     <a href="#" class="btn btn-primary hero-button mb-4">Toko</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/clothing-hero.png') }}" alt="clothing Hero Image" class="hero-image">
+                    <img src="{{ asset('images/clothing-hero.png') }}" alt="clothing Hero Image" class="hero-image" style=" max-width:203px; max-height:203px; object-fit:cover">
                 </div>
             </div>
         </div>

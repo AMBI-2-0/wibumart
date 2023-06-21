@@ -29,7 +29,7 @@ class ProductController extends Controller
     {
         $validatedData = $request->validate([
             'nama_product' => 'required|min:3|max:255',
-            'image' =>'required|image|file|max:1048',
+            'image' =>'image|file|max:1048',
             'description' => 'required',
             'price' => 'required',
             'jumlah_product' => 'required|max:255',

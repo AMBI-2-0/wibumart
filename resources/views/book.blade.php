@@ -65,7 +65,7 @@
                     <a href="#" class="btn btn-primary hero-button">Shop Now</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/book-hero.png') }}" alt="book Hero Image" class="hero-image" style=" max-width:203px; max-height:203px; object-fit:cover">
+                    <img src="{{ asset('images/book-hero.png') }}" alt="book Hero Image" class="hero-image" style=" max-width:503px; max-height:503px; object-fit:cover">
                 </div>
             </div>
         </div>

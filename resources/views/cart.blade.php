@@ -111,7 +111,7 @@
 
                                 <a href="/checkout" class="btn btn-primary btn-block btn-lg">
                                     <div class="d-flex justify-content-between checkout">
-                                        <span><i class="fa fa-shopping-cart"></i> Checkout</span>
+                                        <span><i class="fa fa-shopping-cart"></i> Lakukan Pembayaran</span>
                                     </div>
                                 </a>
                             </div>

@@ -62,7 +62,7 @@
                                                 <div>
                                                     <br>
                                                     <button type="button"
-                                                        class="btn btn-dark me-3 addToCartBtn float-start">Add to Cart
+                                                        class="btn btn-dark me-3 addToCartBtn float-start">Tambah ke Keranjang
                                                         <i class="fa fa-shopping-cart"></i></button>
                                                 </div>
                                             </td>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card mb-3 mt-3 mx-auto" style="max-width: 45rem; object-fit:cover">
-            <img src="images/{{ $product->image }}" class="card-img-top" alt="gambar">
+            <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" alt="gambar">
             <div class="card-body">
                 <h4 class="card-title">{{ $product->nama_product }}</h4>
                 <div class="card-text">

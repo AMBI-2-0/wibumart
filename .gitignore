@@ -1,3 +1,5 @@
+!public/storage/app/product-images
+!public/storage/app/user-images
 /.phpunit.cache
 /node_modules
 /public/build

@@ -140,77 +140,23 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">terfavorit</h2>
-
-        <div class="container-fluid my-4">
-            <div class="row rounded my-4" style="background: radial-gradient(at top left,#20273A, #3D5477);">
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 1</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 2</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 3</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 4</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 5</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 6</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     <h2 class="text-white mt-5">Semua Pakaian</h2>
     <div class="container-fluid">
         <div class="row">
             @if ($clothings !== null)
                 @foreach ($clothings as $clothing)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-                    <div class="card bg-dark text-white border-0">
+                    <div class="card card-product bg-dark text-white border-0">
                         <img src="{{ $clothing->image==null ? "/images/caro-item-1.png" : asset('storage/'.$clothing->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class='card-title'>{{ $clothing->nama_product }}</h5>
+                            <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($clothing->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>
                                 <strong>Harga : </strong> IDR {{ number_format($clothing->price) }} <br>
                                 <strong>Stok :</strong> {{ $clothing->jumlah_product }} <br>
                                 <strong>Kategori : </strong> {{ $clothing->kategori->kategori }} <br>
                                 <hr>
                                 <strong>Deskripsi : </strong> <br>
-                                {{ $clothing->description }}
+                                {{ \Illuminate\Support\Str::limit($clothing->description, 105, '...') }}
                             </p>
                             <a href="{{ url('order') }}/{{ $clothing->id }}" class="btn btn-light"><i
                                     class="fa fa-shopping-cart"></i> Beli</a>

@@ -141,17 +141,17 @@
             @if ($accessoriess !== null)
                 @foreach ($accessoriess as $accessories)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-                    <div class="card bg-dark text-white border-0">
+                    <div class="card card-product bg-dark text-white border-0">
                         <img src="{{ $accessories->image==null ? "/images/caro-item-1.png" : asset('storage/'.$accessories->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class='card-title'>{{ $accessories->nama_product }}</h5>
+                            <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($accessories->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>
                                 <strong>Harga : </strong> IDR {{ number_format($accessories->price) }} <br>
                                 <strong>Stok :</strong> {{ $accessories->jumlah_product }} <br>
                                 <strong>Kategori : </strong> {{ $accessories->kategori->kategori }} <br>
                                 <hr>
                                 <strong>Deskripsi : </strong> <br>
-                                {{ $accessories->description }}
+                                {{ \Illuminate\Support\Str::limit($accessories->description, 105, '...') }}
                             </p>
                             <a href="{{ url('order') }}/{{ $accessories->id }}" class="btn btn-light"><i
                                     class="fa fa-shopping-cart"></i> Beli</a>

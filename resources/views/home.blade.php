@@ -62,7 +62,7 @@
                 <div class="card card-product bg-dark text-white border-0">
                     <div style="max-height: 300px; overflow: hidden;">
                         <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
-                            class="card-img-top img-fluid" alt="..." style="object-fit: cover; width: 100%;">
+                            class="card-img-top img-fluid" alt="..." style="object-fit: cover; width: 100%; height: 300">
                     </div>
                     <div class="card-body">
                         <h5 class='card-title'>

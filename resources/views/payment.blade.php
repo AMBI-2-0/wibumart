@@ -42,8 +42,8 @@
     @foreach($cartItems as $item)
         <div class="card mb-3">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ $item->products->image == null ? '/images/caro-item-1.png' : asset('storage/' . $item->products->image) }}" alt="gambar error" class="img-fluid">
+                <div class="col-md-2">
+                    <img src="{{ $item->products->image == null ? '/images/caro-item-1.png' : asset('storage/' . $item->products->image) }}" alt="gambar error" style="object-fit: cover; width: 100%; height: 200" class="img-fluid">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

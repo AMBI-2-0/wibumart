@@ -16,7 +16,17 @@
                 @enderror
             </div>
             <div class="row mb-3">
-                <label for="username" class="form-label">Username :</label>
+                <label for="email" class="form-label">Email :</label>
+                <input type="email" name="email" id="email"
+                    class="form-control @error('email') is-invalid @enderror" placeholder="example@email.com"/>
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="row mb-3">
+                <label for="username" class="form-label">Nama Pengguna :</label>
                 <input type="text" name="username" id="username"
                     class="form-control @error('username') is-invalid @enderror" />
                 @error('username')
@@ -26,7 +36,7 @@
                 @enderror
             </div>
             <div class="row mb-3">
-                <label for="password" class="form-label">Password :</label>
+                <label for="password" class="form-label">Kata Sandi :</label>
                 <input type="password" name="password" id="email"
                     class="form-control @error('password') is-invalid @enderror" />
                 @error('password')
@@ -55,7 +65,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-outline-light">Register</button>
+            <button type="submit" class="btn btn-outline-light">Registrasi</button>
 
         </form>
 

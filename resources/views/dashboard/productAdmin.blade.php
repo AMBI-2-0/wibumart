@@ -46,8 +46,7 @@
     </form>
 
     <div class="d-flex justify-content-end align-item-center">
-        <a href="/dashboard/products/create" class="btn btn-success btn-sm"><i class="fa-solid fa-plus pe-3"></i>Create
-            Product</a>
+        <a href="/dashboard/products/create" class="btn btn-success btn-sm"><i class="fa-solid fa-plus pe-3"></i>Buat Produk</a>
     </div>
 
     <div class="table-responsive">
@@ -68,7 +67,11 @@
                     <tr>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->nama_product }}</td>
-                        <td>{{ $product->image }}</td>
+                        <td>@php
+                            $gambar = $product->image;
+                        @endphp
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="" class="img-fluid rounded-circle"
+                            style="width: 50px; height: 50px;"></td>
                         <td>
                             {{ strlen($product->description) > 30 ? substr($product->description, 0, 30). '...' : $product->description }}
                         </td>
@@ -81,7 +84,7 @@
                                     class="btn btn-warning btn-sm">Edit</a>
                             </div>
                             <div class="row ms-1 mt-2 me-1">
-                                <a href="/dashboard/products/{{ $product->id }}" class="btn btn-primary btn-sm">Detail</a>
+                                <a href="/dashboard/products/detail/{{ $product->id }}" class="btn btn-primary btn-sm">Detail</a>
                             </div>
                             <div class="row ms-1 mt-2 me-1">
                                 <form action="/dashboard/products/{{ $product->id }}" method="POST"
@@ -89,7 +92,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                        onclick="return confirm('Apa Anda Yakin?')">Hapus</button>
                                 </form>
                             </div>
                             </td>

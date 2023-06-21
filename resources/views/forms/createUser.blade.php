@@ -5,7 +5,7 @@
     <body class="body ">
         <div class="d-flex justify-content-center align-items-center mt-5 pt-5 ">
 
-            <form class="border border-5 border-dark p-5" style="border-radius:15px" action="/dashboard/users/create" method="post">
+            <form class="border border-5 border-dark p-5" style="border-radius:15px" action="/dashboard/users/create" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mb-3">
@@ -20,7 +20,18 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="username" class="form-label">Username :</label>
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="email" name="email" id="email"
+                        class="form-control @error('email') is-invalid @enderror" placeholder="example@email.com"/>
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="row mb-3">
+                    <label for="username" class="form-label">Nama Pengguna :</label>
                     <input type="text" name="username" id="username"
                         class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" />
                     @error('username')
@@ -31,7 +42,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="password" class="form-label">Password :</label>
+                    <label for="password" class="form-label">Kata Sandi :</label>
                     <input type="password" name="password" id="email"
                         class="form-control @error('password') is-invalid @enderror" value="" />
                     @error('password')
@@ -81,7 +92,7 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-outline-Success">Create</button>
+                <button type="submit" class="btn btn-outline-Success">Buat</button>
 
             </form>
 

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->id();
             $table->string('nama_product');
             $table->string('image')->nullable();
             $table->text('description');
@@ -28,6 +28,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('image')->change();
+        });
     }
 };

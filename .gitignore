@@ -1,8 +1,11 @@
+!public/storage/app/product-images
+!public/storage/app/user-images
 /.phpunit.cache
 /node_modules
 /public/build
 /public/hot
-/public/storage
+/public/storage/framework
+/public/storage/logs
 /storage/*.key
 /vendor
 .env
@@ -17,3 +20,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/wallet
+/Wallet

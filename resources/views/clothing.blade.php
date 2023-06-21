@@ -66,13 +66,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="hero-title">Immerse Yourself in the Captivating World of Light Novels and Manga!</h1>
-                    <p class="hero-description">Delve into the boundless realms of imagination and storytelling with our
-                        captivating collection of Light novels and manga.</p>
-                    <a href="#" class="btn btn-primary hero-button mb-4">Shop Now</a>
+                    <h1 class="hero-title">Benamkan Diri Anda di Dunia Novel Ringan dan Manga yang Memikat!</h1>
+                    <p class="hero-description">Selami dunia imajinasi dan penceritaan yang tak terbatas dengan koleksi novel dan manga Ringan kami yang menawan.</p>
+                    <a href="#" class="btn btn-primary hero-button mb-4">Toko</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/figure-hero.png') }}" alt="Figure Hero Image" class="hero-image">
+                    <img src="{{ asset('images/clothing-hero.png') }}" alt="clothing Hero Image" class="hero-image">
                 </div>
             </div>
         </div>
@@ -141,100 +140,54 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2 class="text-white mt-5">Most Favorite</h2>
-
-        <div class="container-fluid my-4">
-            <div class="row rounded my-4" style="background: radial-gradient(at top left,#20273A, #3D5477);">
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 1</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 2</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 3</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 4</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 5</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-transparent my-4">
-                        <div class="card-body">
-                            <h6 class="card-title text-white">Card 6</h6>
-                            <p class="card-text">Some example text.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <h2 class="text-white mt-5">All Clothing</h2>
+    <h2 class="text-white mt-5">Semua Pakaian</h2>
     <div class="container-fluid">
         <div class="row">
-            @foreach ($clothings as $clothing)
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-            <div class="card bg-dark text-white border-0">
-            <img src="/images/caro-item-1.png" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class='card-title'>{{ $clothing->nama_product }}</h5>
-            <p class='card-text'>
-                <strong>Price : </strong> IDR {{ number_format($clothing->price) }} <br>
-                <strong>Stock :</strong> {{ $clothing->jumlah_product }} <br>
-                <strong>Category : </strong> {{ $clothing->kategori->kategori }} <br>
-                <hr>
-                <strong>Description : </strong> <br>
-                {{ $clothing->description }}
-            </p>
-            <a href="{{ url('order') }}/{{ $clothing->id }}" class="btn btn-light"><i
-                class="fa fa-shopping-cart"></i> Buy</a>
-            </div>
-            </div>
-            </div>
+            @if ($clothings !== null)
+                @foreach ($clothings as $clothing)
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card card-product bg-dark text-white border-0">
+                        <img src="{{ $clothing->image==null ? "/images/caro-item-1.png" : asset('storage/'.$clothing->image) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($clothing->nama_product, 45, '...') }}</h5>
+                            <p class='card-text'>
+                                <strong>Harga : </strong> IDR {{ number_format($clothing->price) }} <br>
+                                <strong>Stok :</strong> {{ $clothing->jumlah_product }} <br>
+                                <strong>Kategori : </strong> {{ $clothing->kategori->kategori }} <br>
+                                <hr>
+                                <strong>Deskripsi : </strong> <br>
+                                {{ \Illuminate\Support\Str::limit($clothing->description, 105, '...') }}
+                            </p>
+                            <a href="{{ url('order') }}/{{ $clothing->id }}" class="btn btn-light"><i
+                                    class="fa fa-shopping-cart"></i> Beli</a>
+                        </div>
+                    </div>
+                </div>
             @endforeach
+            @endif
+
+            
 
             <div class="pagination-container mt-4">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        <li class="page-item {{ $clothings->previousPageUrl() ? '' : 'disabled' }} me-5">
-                            <a class="page-link" href="{{ $clothings->previousPageUrl() }}" aria-label="Previous">
+                        
+                        @if ($clothings !== null)
+                            <li class="page-item {{ $clothings->previousPageUrl() ? '' : 'disabled' }} me-5">
+                            <a class="page-link" href="{{ $clothings->previousPageUrl() ?? '#' }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Sebelumnya</span>
                             </a>
                         </li>
             
                         <li class="page-item {{ $clothings->nextPageUrl() ? '' : 'disabled' }} ms-5">
-                            <a class="page-link" href="{{ $clothings->nextPageUrl() }}" aria-label="Next">
+                            <a class="page-link" href="{{ $clothings->nextPageUrl() ?? '#' }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Selanjutnya</span>
                             </a>
                         </li>
+                        @endif
+                        
                     </ul>
                 </nav>
             </div>

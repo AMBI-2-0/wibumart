@@ -2,14 +2,11 @@
 
 @section('content')
 
-
-
-
     <body class="body">
         <div class="d-flex justify-content-center align-items-center mt-5 pt-5 ">
 
             <form class="border border-5 border-dark p-5" style="border-radius:15px"
-                action="/dashboard/users/edit/{{ $user->id }}" method="post">
+                action="/dashboard/users/edit/{{ $user->id }}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @csrf
 
@@ -18,6 +15,17 @@
                     <input type="text" name="nama" id="nama"
                         class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama', $user->nama) }}" />
                     @error('nama')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="row mb-3">
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="email" name="email" id="email"
+                        class="form-control disable @error('email') is-invalid @enderror" placeholder="example@email.com"value="{{ old('email', $user->email) }}"/>
+                    @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

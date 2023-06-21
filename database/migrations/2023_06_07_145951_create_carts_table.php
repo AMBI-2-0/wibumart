@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keranjangs', function (Blueprint $table) {
-            $table->id()->unique(); 
-            $table->unsignedBigInteger('users_id'); // kolom foreign key dari tabel users
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id'); // kolom foreign key dari tabel users
+            $table->unsignedBigInteger('product_id'); // kolom foreign key dari tabel products
+            $table->integer('prod_qty');
             $table->date('tanggal_pembelian');
-            $table->string('status');
+            $table->string('status')->default('belum checkout');
             $table->integer('total_harga');
             $table->timestamps();
         });
-
-        //Menambahkan constraint pada foreign key
-        // Schema::table('keranjang', function (Blueprint $table) {
-        //     $table->foreign('user_id')->references('id')->on('users');
-        // });
     }
 
     /**
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('keranjangs');
+        Schema::dropIfExists('carts');
     }
 };

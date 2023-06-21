@@ -5,7 +5,7 @@
     <div class="card mb-3 mt-3 mx-auto" style="width: 50rem;">
 
 
-        <img src="{{ asset('storage/'.$user->gambar) }}" class="card-img-top img-fluid" alt="">
+        <img src="{{ asset('storage/'.$user->gambar_profile) }}" class="card-img-top img-fluid" alt="">
 
     <div class="card-body">
         <h4 class="card-title p-2 text-center">{{ $user->nama }}</h4>

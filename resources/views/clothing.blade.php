@@ -149,14 +149,14 @@
                     <div class="card card-product bg-dark text-white border-0">
                         <img src="{{ $clothing->image==null ? "/images/caro-item-1.png" : asset('storage/'.$clothing->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class='card-title'>{{ $clothing->nama_product }}</h5>
+                            <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($clothing->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>
                                 <strong>Harga : </strong> IDR {{ number_format($clothing->price) }} <br>
                                 <strong>Stok :</strong> {{ $clothing->jumlah_product }} <br>
                                 <strong>Kategori : </strong> {{ $clothing->kategori->kategori }} <br>
                                 <hr>
                                 <strong>Deskripsi : </strong> <br>
-                                {{ $clothing->description }}
+                                {{ \Illuminate\Support\Str::limit($clothing->description, 105, '...') }}
                             </p>
                             <a href="{{ url('order') }}/{{ $clothing->id }}" class="btn btn-light"><i
                                     class="fa fa-shopping-cart"></i> Beli</a>

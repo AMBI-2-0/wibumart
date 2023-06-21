@@ -144,14 +144,14 @@
                     <div class="card card-product bg-dark text-white border-0">
                         <img src="{{ $figure->image==null ? "/images/caro-item-1.png" : asset('storage/'.$figure->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class='card-title'>{{ $figure->nama_product }}</h5>
+                            <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($figure->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>
                                 <strong>Harga : </strong> IDR {{ number_format($figure->price) }} <br>
                                 <strong>Stok :</strong> {{ $figure->jumlah_product }} <br>
                                 <strong>Kategori : </strong> {{ $figure->kategori->kategori }} <br>
                                 <hr>
                                 <strong>Deskripsi : </strong> <br>
-                                {{ $figure->description }}
+                                {{ \Illuminate\Support\Str::limit($figure->description, 105, '...') }}
                             </p>
                             <a href="{{ url('order') }}/{{ $figure->id }}" class="btn btn-light"><i
                                     class="fa fa-shopping-cart"></i> Beli</a>

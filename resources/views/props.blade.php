@@ -143,14 +143,14 @@
                     <div class="card card-product bg-dark text-white border-0">
                         <img src="{{ $props->image==null ? "/images/caro-item-1.png" : asset('storage/'.$props->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class='card-title'>{{ $props->nama_product }}</h5>
+                            <h5 class='card-title'>{{\Illuminate\Support\Str::limit ($props->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>
                                 <strong>Harga : </strong> IDR {{ number_format($props->price) }} <br>
                                 <strong>Stok :</strong> {{ $props->jumlah_product }} <br>
                                 <strong>Kategori : </strong> {{ $props->kategori->kategori }} <br>
                                 <hr>
                                 <strong>Deskripsi : </strong> <br>
-                                {{ $props->description }}
+                                {{ \Illuminate\Support\Str::limit ($props->description, 105, '...') }}
                             </p>
                             <a href="{{ url('order') }}/{{ $props->id }}" class="btn btn-light"><i
                                     class="fa fa-shopping-cart"></i> Beli</a>

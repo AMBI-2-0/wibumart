@@ -58,25 +58,28 @@
         <div class="row">
 
             @foreach ($products as $product)
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
-                    <div class="card card-product bg-dark text-white border-0">
-                        <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class='card-title'>{{ $product->nama_product }}</h5>
-                            <p class='card-text'>
-                                <strong>Harga : </strong> IDR {{ number_format($product->price) }} <br>
-                                <strong>Stok :</strong> {{ $product->jumlah_product }} <br>
-                                <strong>Kategori : </strong> {{ $product->kategori->kategori }} <br>
-                                <hr>
-                                <strong>Deskripsi : </strong> <br>
-                                {{ $product->description }}
-                            </p>
-                            <a href="{{ url('order') }}/{{ $product->id }}" class="btn btn-light"><i
-                                    class="fa fa-shopping-cart"></i> Beli</a>
-                        </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card card-product bg-dark text-white border-0">
+                    <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class='card-title'>
+                            {{ \Illuminate\Support\Str::limit($product->nama_product, 45, '...') }}
+                        </h5>
+                        <p class='card-text'>
+                            <strong>Harga : </strong> IDR {{ number_format($product->price) }} <br>
+                            <strong>Stok :</strong> {{ $product->jumlah_product }} <br>
+                            <strong>Kategori : </strong> {{ $product->kategori->kategori }} <br>
+                            <hr>
+                            <strong>Deskripsi : </strong> <br>
+                            {{ \Illuminate\Support\Str::limit($product->description, 105, '...') }}
+                        </p>
+                        <a href="{{ url('order') }}/{{ $product->id }}" class="btn btn-light"><i
+                                class="fa fa-shopping-cart"></i> Beli</a>
                     </div>
                 </div>
+            </div>
+            
             @endforeach
         </div>
 

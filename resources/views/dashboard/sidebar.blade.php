@@ -29,7 +29,7 @@
                         <a class="nav-link {{ $title == 'Products' ? 'active' : '' }}"
                             href="/dashboard/products"><i class="fa-brands fa-product-hunt"></i> Produk</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link {{ $title == 'Figurine' ? 'active' : '' }}"
                             href="/dashboard/figurine"><i class="fa-solid fa-piggy-bank pe-2"></i></i>Figura</a>
                     </li>
@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ $title == 'Books' ? 'active' : '' }}" href="#"><i
                                 class="fa-solid fa-book pe-2"></i> Buku</a>
-                    </li>
+                    </li> --}}
                 </ul>
 
             </div>

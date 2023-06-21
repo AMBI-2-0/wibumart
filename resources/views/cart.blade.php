@@ -89,36 +89,57 @@
                         @php $total += $item->products->price * $item->prod_qty ; @endphp
                     @endforeach
                 </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="col-lg-5 col-xl-4 mb-4" style="color: #FFFFFF;">
+                            <div class="d-flex justify-content-between" style="font-weight: 500;">
+                                <p class="mb-2"><strong>Total Harga Produk</strong></p>
+                                <p class="mb-2"><strong>IDR {{ number_format($total, 0, ',', '.') }}</strong></p>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <a href="/checkout" class="btn btn-primary btn-block btn-lg">
+                                <div class="d-flex justify-content-between checkout">
+                                    <span><i class="fa fa-shopping-cart"></i> Lakukan Pembayaran</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             @else
                 <div class="card rounded-3 mb-4">
                     <div class="card-body p-4">
                         <div class="row d-flex justify-content-between align-items-center">
-                            <h3 style="color: black;"> Keranjang Kosong</h3>
+                            <h3 style="color: black;">Keranjang Kosong</h3>
                         </div>
                     </div>
                 </div>
-                @php $total = 0; @endphp
-            @endif
-            <div class="row">
-                <div class="container">
-                    <div class="col-lg-5 col-xl-4 mb-4" style="color: #FFFFFF;">
-                        <div class="d-flex justify-content-between" style="font-weight: 500;">
-                            <p class="mb-2"><strong>Total Harga Produk</strong></p>
-                            <p class="mb-2"><strong>IDR {{ number_format($total, 0, ',', '.') }}</strong></p>
-                        </div>
-
-                        <hr class="my-4">
-
-                                <a href="/checkout" class="btn btn-primary btn-block btn-lg">
-                                    <div class="d-flex justify-content-between checkout">
-                                        <span><i class="fa fa-shopping-cart"></i> Lakukan Pembayaran</span>
-                                    </div>
-                                </a>
+                <div class="row">
+                    <div class="container">
+                        <div class="col-lg-5 col-xl-4 mb-4" style="color: #FFFFFF;">
+                            <div class="d-flex justify-content-between" style="font-weight: 500;">
+                                <p class="mb-2"><strong>Total Harga Produk</strong></p>
+                                <p class="mb-2"><strong>IDR 0</strong></p>
                             </div>
+
+                            <hr class="my-4">
+
+                            <button class="btn btn-primary btn-block btn-lg" onclick="showAlert()">
+                                <div class="d-flex justify-content-between checkout">
+                                    <span><i class="fa fa-shopping-cart"></i> Lakukan Pembayaran</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
+
+    <script>
+        function showAlert() {
+            alert("Keranjang kosong. Tidak dapat melanjutkan ke pembayaran.");
+        }
+    </script>
 @endsection

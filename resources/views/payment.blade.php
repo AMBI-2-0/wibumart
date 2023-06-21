@@ -38,7 +38,6 @@
     @endif
 
     <h1 class="card-title text-white">Pesanan</h1>
-
     @foreach($cartItems as $item)
         <div class="card mb-3">
             <div class="row g-0">
@@ -46,11 +45,15 @@
                     <img src="{{ $item->products->image == null ? '/images/caro-item-1.png' : asset('storage/' . $item->products->image) }}" alt="gambar error" style="object-fit: cover; width: 100%; height: 200" class="img-fluid">
                 </div>
                 <div class="col-md-8">
+                    <div class="position-absolute mt-2" style="top:0;right:1%;">
+                    X {{$item->prod_qty}}
+                    </div>
                     <div class="card-body">
                         <p class="card-text"><span class="fw-bold">Nama Produk:</span> {{ $item->products->nama_product }}</p>
                         <p class="card-text"><span class="fw-bold">Deskripsi Produk:</span> {{ $item->products->description }}</p>
-                        <p class="card-text"><span class="fw-bold">Harga:</span> {{ $item->products->price }}</p>
+                        <p class="card-text"><span class="fw-bold">Harga:</span> {{ $item->products->price }} {{$item->prod_qty}}</p>
                     </div>
+                    
                 </div>
             </div>
         </div>

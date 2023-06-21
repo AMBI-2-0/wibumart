@@ -119,7 +119,7 @@
                 @foreach ($figures as $figure)
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                     <div class="card card-product bg-dark text-white border-0">
-                        <img src="{{ $figure->image==null ? "/images/caro-item-1.png" : asset('storage/'.$figure->image) }}" class="card-img-top" alt="...">
+                        <img src="{{ $figure->image==null ? "/images/caro-item-1.png" : asset('storage/'.$figure->image) }}" class="card-img-top" style="width:300; height:300; object-fit:cover" alt="...">
                         <div class="card-body">
                             <h5 class='card-title'>{{ \Illuminate\Support\Str::limit($figure->nama_product, 45, '...') }}</h5>
                             <p class='card-text'>

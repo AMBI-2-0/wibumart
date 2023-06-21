@@ -91,7 +91,7 @@
                                 <div class="col bg-image hover-zoom">
                                     <a href="{{ url('order') }}/{{ $figures[$j]?->id }}">
                                         <img src="{{ $figures[$j]?->image ? asset('storage/' . $figures[$j]->image) : asset('images/caro-item-1.png') }}"
-                                            class="d-block w-100 img-fluid" style="width:300; height:300; object-fit:cover;" alt="...">
+                                            class="d-block w-100 img-fluid" style="object-fit: cover; width: 100%; height: 300" alt="...">
                                     </a>
                                 </div>
                             @endfor

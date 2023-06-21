@@ -60,8 +60,10 @@
             @foreach ($products as $product)
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card card-product bg-dark text-white border-0">
-                    <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
-                        class="card-img-top" alt="..." style="width:300; height:300; object-fit:cover">
+                    <div style="max-height: 300px; overflow: hidden;">
+                        <img src="{{ $product->image == null ? '/images/caro-item-1.png' : asset('storage/' . $product->image) }}"
+                            class="card-img-top img-fluid" alt="..." style="object-fit: cover; width: 100%;">
+                    </div>
                     <div class="card-body">
                         <h5 class='card-title'>
                             {{ \Illuminate\Support\Str::limit($product->nama_product, 45, '...') }}
@@ -78,6 +80,7 @@
                                 class="fa fa-shopping-cart"></i> Beli</a>
                     </div>
                 </div>
+                
             </div>
             
             @endforeach
